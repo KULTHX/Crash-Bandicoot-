@@ -104,4 +104,4 @@ jobs:
             adb shell am start -n net.kulthx.nizarcrash3poc/.MainActivity
             sleep 8
             adb logcat -d -s FIBER_POC:I '*:S' | tee fiber-test.log
-            grep -q "PASS: Android ucontext fiber switching and stack preservation" fiber-test.log
+            grep -q "PASS: Android AArch64 fiber switching and stack preservation" fiber-test.log
