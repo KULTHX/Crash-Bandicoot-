@@ -1,4 +1,1429 @@
 Crash 3 Android launcher startup diagnostic
-Run: https://github.com/KULTHX/Crash-Bandicoot-/actions/runs/43775113371
-Commit: 8d2404bbe0cc50cb58903ec4b48e72db0b77e12a
-No emulator logcat file was produced.
+Run: https://github.com/KULTHX/Crash-Bandicoot-/actions/runs/43775647973
+Commit: f08e4879aefe6f663673fd88e3460107e217e72b
+NONE leash=Surface(name=Task=1)/@0x43114d7 sb=Rect(0, 0 - 1080, 1920) eb=Rect(0, 0 - 1080, 1920) d=0 taskParent=-1}]}
+11-15 23:50:52.756  2269  2465 I Codec2Client: Available Codec2 services: "default" "software"
+11-15 23:50:52.778  2086  2086 V AconfigFlags: Read Aconfig default flag value com.android.media.codec.flags.aidl_hal = true
+11-15 23:50:52.779  2086  2086 V AconfigFlags: Read Aconfig default flag value com.android.media.codec.flags.codec_importance = true
+11-15 23:50:52.779  2086  2086 V AconfigFlags: Read Aconfig default flag value com.android.media.codec.flags.large_audio_frame = true
+11-15 23:50:52.872  2269  2465 I CCodec  : setting up 'default' as default (vendor) store
+11-15 23:50:52.906   374  1483 I GoldfishComponentStore: in init
+11-15 23:50:52.907   374  1483 I GoldfishComponentStore: loading dll of path libcodec2_goldfish_hevcdec.so
+11-15 23:50:52.915   374  1483 I GoldfishComponentStore: Create()
+11-15 23:50:52.955   374  1483 I GoldfishComponentStore: created interface
+11-15 23:50:52.971   374  1483 I GoldfishComponentStore: created component
+11-15 23:50:53.003  2269  2465 I CCodec  : Created component [c2.goldfish.hevc.decoder]
+11-15 23:50:53.011  1308  1316 W ndroid.systemui: Cleared Reference was only reachable from finalizer (only reported once)
+11-15 23:50:53.011  1308  2082 W ndroid.systemui: Weak pointer dereference blocked for 139 milliseconds.
+11-15 23:50:53.018  2269  2465 D CCodecConfig: read media type: video/hevc
+11-15 23:50:53.099  1308  1433 V WindowManagerShell: loadAnimation: anim=android.view.animation.AnimationSet@292671d animAttr=0x9 type=OPEN isEntrance=false
+11-15 23:50:53.222  2086  2086 I PackageParsing: Parse times for '/data/user_de/0/com.google.android.gms/app_chimera/m/s/CronetDynamite.uncompressed.apk': parse=436ms, update_cache=0 ms
+11-15 23:50:53.306  2269  2465 D ReflectedParamUpdater: extent() != 1 for single value type: algo.buffers.max-count.values
+11-15 23:50:53.308  2269  2465 D ReflectedParamUpdater: extent() != 1 for single value type: output.subscribed-indices.values
+11-15 23:50:53.309  2269  2465 D ReflectedParamUpdater: extent() != 1 for single value type: input.buffers.allocator-ids.values
+11-15 23:50:53.314  2269  2465 D ReflectedParamUpdater: extent() != 1 for single value type: output.buffers.allocator-ids.values
+11-15 23:50:53.315  2269  2465 D ReflectedParamUpdater: extent() != 1 for single value type: algo.buffers.allocator-ids.values
+11-15 23:50:53.321  2269  2465 D ReflectedParamUpdater: extent() != 1 for single value type: output.buffers.pool-ids.values
+11-15 23:50:53.326  2269  2465 D ReflectedParamUpdater: extent() != 1 for single value type: algo.buffers.pool-ids.values
+11-15 23:50:53.344  2269  2465 D ReflectedParamUpdater: ignored struct field coded.color-format.locations
+11-15 23:50:53.362  2269  2465 D CCodecConfig: ignoring local param raw.size (0xd2001800) as it is already supported
+11-15 23:50:53.364  2269  2465 D CCodecConfig: ignoring local param default.color (0x5200180b) as it is already supported
+11-15 23:50:53.367  2269  2465 D ReflectedParamUpdater: ignored struct field raw.hdr-static-info.mastering
+11-15 23:50:53.415  2269  2465 I CCodecConfig: query failed after returning 12 values (BAD_INDEX)
+11-15 23:50:53.426  2269  2465 D CCodecConfig: c2 config diff is Dict {
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 coded.pl.level = 24584
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 coded.pl.profile = 24576
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 coded.vui.color.matrix = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 coded.vui.color.primaries = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 coded.vui.color.range = 2
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 coded.vui.color.transfer = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 default.color.matrix = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 default.color.primaries = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 default.color.range = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 default.color.transfer = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 input.buffers.max-size.value = 6291456
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 input.delay.value = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   string input.media-type.value = "video/hevc"
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 output.delay.value = 8
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   string output.media-type.value = "video/raw"
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.color.matrix = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.color.primaries = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.color.range = 2
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.color.transfer = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.max-size.height = 240
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.max-size.width = 320
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.pixel-format.value = 35
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::i32 raw.rotation.flip = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::i32 raw.rotation.value = 0
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.sar.height = 1
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.sar.width = 1
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.size.height = 240
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2::u32 raw.size.width = 320
+11-15 23:50:53.426  2269  2465 D CCodecConfig:   c2
+11-15 23:50:53.461  2269  2465 W ColorUtils: expected specified color aspects (2:0:0:0)
+11-15 23:50:53.743   206   206 I tombstoned: received crash request for pid 2310
+11-15 23:50:53.744   206   206 I tombstoned: found intercept fd 513 for pid 2310 and type kDebuggerdJavaBacktrace
+11-15 23:50:53.762   206   206 W tombstoned: skipping tombstone file creation due to intercept
+11-15 23:50:53.763  2310  2312 I .gms.persistent: Wrote stack traces to tombstoned
+11-15 23:50:53.776   599  2444 I system_server: libdebuggerd_client: done dumping process 2310
+11-15 23:50:53.777  2167  2171 W earchbox:search: Suspending all threads took: 2.711s
+11-15 23:50:53.808   206   206 I tombstoned: received crash request for pid 2245
+11-15 23:50:53.809   206   206 I tombstoned: found intercept fd 512 for pid 2245 and type kDebuggerdJavaBacktrace
+11-15 23:50:53.815  2245  2247 I m.android.phone: Wrote stack traces to tombstoned
+11-15 23:50:53.822   206   206 W tombstoned: skipping tombstone file creation due to intercept
+11-15 23:50:53.898  2269  2465 D CCodec  : [c2.goldfish.hevc.decoder] buffers are bound to CCodec for this session
+11-15 23:50:53.900  2269  2465 D CCodec  : Client requested ByteBuffer mode decoder w/o color format set: using default planar color format
+11-15 23:50:53.903  2269  2465 D CCodecConfig: no c2 equivalents for flags
+11-15 23:50:53.921   599  2412 I system_server: libdebuggerd_client: done dumping process 2245
+11-15 23:50:53.966  2269  2465 D CCodecConfig: c2 config diff is   c2::u32 raw.size.height = 1080
+11-15 23:50:53.966  2269  2465 D CCodecConfig:   c2::u32 raw.size.width = 1920
+11-15 23:50:53.991  2269  2465 W ColorUtils: expected specified color aspects (2:0:0:0)
+11-15 23:50:54.014  2269  2465 W Codec2Client: query -- param skipped: index = 1107298332.
+11-15 23:50:54.015  2269  2465 D CCodec  : encoding statistics level = 0
+11-15 23:50:54.015  2269  2465 D CCodec  : setup formats input: AMessage(what = 0x00000000) = {
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t height = 1080
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t level = 65536
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t max-input-size = 6291456
+11-15 23:50:54.015  2269  2465 D CCodec  :   string mime = "video/hevc"
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t profile = 1
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t width = 1920
+11-15 23:50:54.015  2269  2465 D CCodec  :   Rect crop(0, 0, 1919, 1079)
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t color-transfer-request = 0
+11-15 23:50:54.015  2269  2465 D CCodec  : }
+11-15 23:50:54.015  2269  2465 D CCodec  : setup formats output: AMessage(what = 0x00000000) = {
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t android._color-format = 2135033992
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t android._video-scaling = 1
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t rotation-degrees = 0
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t color-standard = 0
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t color-range = 2
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t color-transfer = 0
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t sar-height = 1
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t sar-width = 1
+11-15 23:50:54.015  2269  2465 D CCodec  :   Rect crop(0, 0, 1919, 1079)
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t width = 1920
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t height = 1080
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t max-height = 240
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t max-width = 320
+11-15 23:50:54.015  2269  2465 D CCodec  :   string mime = "video/raw"
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t android._dataspace = 268435456
+11-15 23:50:54.015  2269  2465 D CCodec  :   int32_t color-format = 19
+11-15 23:50:54.015  2269  2465 D CCodec  : }
+11-15 23:50:54.050  2269  2465 I CCodecConfig: query failed after returning 12 values (BAD_INDEX)
+11-15 23:50:54.055  2269  2465 D CCodecConfig: c2 config diff is   c2::u32 raw.max-size.height = 1080
+11-15 23:50:54.055  2269  2465 D CCodecConfig:   c2::u32 raw.max-size.width = 1920
+11-15 23:50:54.056  2269  2465 W ColorUtils: expected specified color aspects (2:0:0:0)
+11-15 23:50:54.122   599   618 W system_server: Suspending all threads took: 1.717s
+11-15 23:50:54.139   481   559 W ResourceManagerMetrics: notifyClientStopped: Start Config is missing!
+11-15 23:50:54.183  2269  2269 I TranscodeHelper: Device HDR Plugin is available: false
+11-15 23:50:54.185  2269  2269 I TranscodeHelper: Empty transcode compat stale
+11-15 23:50:54.207  2269  2269 I TranscodeHelper: Parsed 0 packages from resource
+11-15 23:50:54.209  2269  2269 I TranscodeHelper: Empty device config transcode compat manifest
+11-15 23:50:54.235  2269  2465 I hw-BpHwBinder: onLastStrongRef automatically unlinking death recipients
+11-15 23:50:54.238   374  1483 I hw-BpHwBinder: onLastStrongRef automatically unlinking death recipients
+11-15 23:50:54.242   374  1483 I GoldfishComponentStore: in ~ComponentModule
+11-15 23:50:54.242   374  1483 I GoldfishComponentStore: unloading dll
+11-15 23:50:54.851  2293  2298 W .apps.wellbeing: Suspending all threads took: 359.595ms
+11-15 23:50:55.008   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:50:55.029  2416  2416 V GraphicsEnvironment: Currently set values for:
+11-15 23:50:55.030  2416  2416 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+11-15 23:50:55.031  2416  2416 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+11-15 23:50:55.031  2416  2416 V GraphicsEnvironment: Global.Settings values are invalid: number of packages: 0, number of values: 0
+11-15 23:50:55.033  2416  2416 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+11-15 23:50:55.193   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:50:55.224   599  1205 I WifiClientModeImpl[678007:wlan0]: Update current security type to 0
+11-15 23:50:55.226   599   631 E BLASTSyncEngine: WM sent Transaction (#5, Transition-OPEN, tx=2572685410587) to organizer, but never received commit callback. Application ANR likely to follow.
+11-15 23:50:55.275   599   628 W Looper  : Slow dispatch took 3865ms android.fg h=android.os.Handler c=com.android.server.servicewatcher.ServiceWatcherImpl$$ExternalSyntheticLambda0@e0969c5 m=0
+11-15 23:50:55.282   599   631 W ActivityTaskManager: Launch timeout has expired, giving up wake lock!
+11-15 23:50:55.420  1308  1308 V SystemUIBootTiming: StartServices com.android.systemui.controls.start.ControlsStartable took to complete: 14110ms
+11-15 23:50:55.454  1308  1308 W SystemUIService: Initialization of com.android.systemui.controls.start.ControlsStartable took 14131 ms
+11-15 23:50:55.459   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:50:55.467   599   628 W Looper  : Slow dispatch took 192ms android.fg h=android.os.Handler c=com.android.server.servicewatcher.ServiceWatcherImpl$$ExternalSyntheticLambda0@8699772 m=0
+11-15 23:50:55.475  2428  2428 D CompatChangeReporter: Compat change id reported: 279646685; UID 10209; state: ENABLED
+11-15 23:50:55.492   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 599
+11-15 23:50:55.510  1308  1488 W System  : ClassLoader referenced unknown path: 
+11-15 23:50:55.513  1308  1488 D nativeloader: Configuring clns-8 for other apk . target_sdk_version=35, uses_libraries=, library_path=/data/app/~~gOdsrWCbbTtjytHuTeYWLw==/net.kulthx.nizarcrash3recomp-eGBulYsFPtEXpUclkuVI5Q==/lib/x86_64:/data/app/~~gOdsrWCbbTtjytHuTeYWLw==/net.kulthx.nizarcrash3recomp-eGBulYsFPtEXpUclkuVI5Q==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand
+11-15 23:50:55.555  2428  2428 D CompatChangeReporter: Compat change id reported: 63938206; UID 10209; state: ENABLED
+11-15 23:50:55.582   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1678
+11-15 23:50:55.582   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1308
+11-15 23:50:55.582   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2269
+11-15 23:50:55.582   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2167
+11-15 23:50:55.583   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 138
+11-15 23:50:55.583   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 375
+11-15 23:50:55.583   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 427
+11-15 23:50:55.583   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 460
+11-15 23:50:55.583   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2086
+11-15 23:50:55.583   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 383
+11-15 23:50:55.583   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1173
+11-15 23:50:55.651   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2310
+11-15 23:50:55.651   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 470
+11-15 23:50:55.652   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2293
+11-15 23:50:55.653   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 16
+11-15 23:50:55.658   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1280
+11-15 23:50:55.658   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2245
+11-15 23:50:55.658   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 355
+11-15 23:50:55.658   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1472
+11-15 23:50:55.658   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1790
+11-15 23:50:55.659   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2239
+11-15 23:50:55.659   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2336
+11-15 23:50:55.659   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 199
+11-15 23:50:55.659   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 357
+11-15 23:50:55.659   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 26
+11-15 23:50:55.659   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 356
+11-15 23:50:55.659   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 448
+11-15 23:50:55.659   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 43
+11-15 23:50:55.660   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 140
+11-15 23:50:55.660   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 214
+11-15 23:50:55.660   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 139
+11-15 23:50:55.660   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 432
+11-15 23:50:55.660   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1955
+11-15 23:50:55.660   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1975
+11-15 23:50:55.660   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1
+11-15 23:50:55.660   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 8
+11-15 23:50:55.660   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 15
+11-15 23:50:55.661   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 144
+11-15 23:50:55.661   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 206
+11-15 23:50:55.661   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 369
+11-15 23:50:55.661   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 370
+11-15 23:50:55.661   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 416
+11-15 23:50:55.683  1308  1433 V WindowManagerShell: loadAnimation: anim=android.view.animation.AnimationSet@d85cd5 animAttr=0x8 type=OPEN isEntrance=true
+11-15 23:50:55.714   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:50:55.738   599  1917 W system_server: Long monitor contention with owner binder:599_3 (624) at int com.android.server.am.ActivityManagerService.bindServiceInstance(android.app.IApplicationThread, android.os.IBinder, android.content.Intent, java.lang.String, android.app.IServiceConnection, long, java.lang.String, boolean, int, java.lang.String, android.app.IApplicationThread, java.lang.String, int)(ActivityManagerService.java:14231) waiters=0 in android.content.Intent com.android.server.am.ActivityManagerService.registerReceiverWithFeatureTraced(android.app.IApplicationThread, java.lang.String, java.lang.String, java.lang.String, android.content.IIntentReceiver, android.content.IntentFilter, java.lang.String, int, int) for 132ms
+11-15 23:50:55.741   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:50:55.887  1308  1488 D SplashScreenView: Build android.window.SplashScreenView{d3c4bdb V.E...... ......ID 0,0-0,0}
+11-15 23:50:55.887  1308  1488 D SplashScreenView: Icon: view: android.widget.ImageView{82b3678 V.ED..... ......I. 0,0-0,0 #1020504 android:id/splashscreen_icon_view} drawable: com.android.wm.shell.startingsurface.SplashscreenIconDrawableFactory$ImmobileIconDrawable@dcef151 size: 420
+11-15 23:50:55.887  1308  1488 D SplashScreenView: Branding: view: android.view.View{4499db6 G.ED..... ......I. 0,0-0,0 #1020503 android:id/splashscreen_branding_view} drawable: null size w: 0 h: 0
+11-15 23:50:56.007  2245  2250 I m.android.phone: Background concurrent mark compact GC freed 1880KB AllocSpace bytes, 7(244KB) LOS objects, 49% free, 2066KB/4132KB, paused 1.226ms,91.116ms total 3.218s
+11-15 23:50:56.014   599  1917 I AppWidgetServiceImpl: getInstalledProvidersForProfiles() 0
+11-15 23:50:56.020   599  1917 I AppWidgetServiceImpl: notifyProviderInheritance() 0
+11-15 23:50:56.022   599  1205 I WifiClientModeImpl[678007:wlan0]: Update current security type to 0
+11-15 23:50:56.030   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 462
+11-15 23:50:56.032   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1058
+11-15 23:50:56.034   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1368
+11-15 23:50:56.058   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1594
+11-15 23:50:56.094  1308  1487 I Choreographer: Skipped 252 frames!  The application may be doing too much work on its main thread.
+11-15 23:50:56.139  2428  2428 D CompatChangeReporter: Compat change id reported: 309578419; UID 10209; state: ENABLED
+11-15 23:50:56.186   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2003
+11-15 23:50:56.187   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2258
+11-15 23:50:56.189   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2388
+11-15 23:50:56.193   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2403
+11-15 23:50:56.194   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2410
+11-15 23:50:56.194   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2416
+11-15 23:50:56.194   599   634 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2428
+11-15 23:50:56.242   599  2033 I AppWidgetServiceImpl: startListening() 0
+11-15 23:50:56.260   599   628 W Looper  : Slow dispatch took 608ms android.fg h=android.os.Handler c=com.android.server.servicewatcher.ServiceWatcherImpl$$ExternalSyntheticLambda0@472c122 m=0
+11-15 23:50:56.272   599  1917 I AppWidgetServiceImpl: startListening() 0
+11-15 23:50:56.306  2269  2269 D PickerSyncLockManager: Trying to acquire lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@b0e3951[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+11-15 23:50:56.313  1308  1433 V WindowManagerShell:  animated by com.android.wm.shell.transition.DefaultTransitionHandler@dacce2
+11-15 23:50:56.314  1308  1433 W Looper  : Slow dispatch took 4875ms wmshell.main h=android.os.Handler c=com.android.wm.shell.transition.Transitions$TransitionPlayerImpl$$ExternalSyntheticLambda0@ac9df42 m=0
+11-15 23:50:56.360  1308  1462 W Looper  : Slow dispatch took 115ms wmshell.anim h=android.os.Handler c=com.android.wm.shell.transition.DefaultTransitionHandler$$ExternalSyntheticLambda1@9065b53 m=0
+11-15 23:50:56.395  1678  1678 D CompatChangeReporter: Compat change id reported: 309578419; UID 10177; state: ENABLED
+11-15 23:50:56.423  2269  2269 D CloseableReentrantLock: Successfully acquired lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@b0e3951[Locked by thread main]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+11-15 23:50:56.424  2269  2269 D CloseableReentrantLock: Successfully released lock com.android.providers.media.photopicker.sync.CloseableReentrantLock@b0e3951[Unlocked]. Lock Name = CLOUD_PROVIDER_LOCK. Threads that may be waiting to acquire this lock = []
+11-15 23:50:56.451   599  2033 D CoreBackPreview: Window{157ea6b u0 Splash Screen net.kulthx.nizarcrash3recomp}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@fd5cb34, mPriority=0, mIsAnimationCallback=false}
+11-15 23:50:56.526   599  2259 D WallpaperManagerService: WPMS.saveSettingsLocked-0
+11-15 23:50:56.521  1678  1678 D OverviewActionsView: updateActionButtonsVisibility() called: showSingleTaskActions = [true], showGroupActions = [false]
+11-15 23:50:56.543  1308  1462 W Looper  : Slow dispatch took 182ms wmshell.anim h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver@cb92119 m=0
+11-15 23:50:56.557   599   634 I ActivityManager: Dumping to /data/anr/anr_2026-11-15-23-50-56-194
+11-15 23:50:56.557   599   634 I ActivityManager: Collecting stacks for pid 599
+11-15 23:50:56.638   599   898 W JobServiceContext: Timed out while trying to bind for e3468fc {SettingsProviderJobsNamespace} #1000/1 @SettingsProviderJobsNamespace@com.android.providers.settings/.WriteFallbackSettingsFilesJobService
+11-15 23:50:56.674  1308  1433 W Looper  : Slow dispatch took 359ms wmshell.main h=android.os.Handler c=android.window.DisplayAreaOrganizer$1$$ExternalSyntheticLambda0@51159af m=0
+11-15 23:50:56.710   599   631 W system_server: Long monitor contention with owner binder:599_12 (2033) at int com.android.server.wm.WindowManagerService.relayoutWindowInner(com.android.server.wm.Session, android.view.IWindow, android.view.WindowManager$LayoutParams, int, int, int, int, int, int, android.window.ClientWindowFrames, android.util.MergedConfiguration, android.view.SurfaceControl, android.view.InsetsState, android.view.InsetsSourceControl$Array, android.os.Bundle, android.view.WindowRelayoutResult)(WindowManagerService.java:2736) waiters=1 in void com.android.server.wm.ActivityRecord$2.run() for 172ms
+11-15 23:50:56.721   599   670 W system_server: Long monitor contention with owner android.fg (628) at boolean android.os.MessageQueue.enqueueMessage(android.os.Message, long)(MessageQueue.java:695) waiters=0 in android.os.Message android.os.MessageQueue.next() for 115ms
+11-15 23:50:56.748   599   599 W NotificationHistory: Attempted to add notif for locked/gone/disabled user 0
+11-15 23:50:56.749   599   599 W Looper  : Slow dispatch took 5212ms main h=com.android.server.notification.NotificationManagerService$WorkerHandler c=com.android.server.notification.NotificationManagerService$PostNotificationRunnable@914e2a m=0
+11-15 23:50:56.784   599   642 I ActivityManager: Test idle failed due to b1da473 599:system/1000 runnable at -2m5s984ms because PERSISTENT
+11-15 23:50:56.809  1678  1678 I I       : instantiating l
+11-15 23:50:56.866   599   628 W Looper  : Slow dispatch took 271ms android.fg h=android.os.Handler c=com.android.server.servicewatcher.ServiceWatcherImpl$$ExternalSyntheticLambda0@da94391 m=0
+11-15 23:50:56.982  2428  2428 W HWUI    : Unknown dataspace 0
+11-15 23:50:57.030   357   357 I Zygote  : Process 2003 exited due to signal 6 (Aborted)
+11-15 23:50:57.092  1308  1433 W Looper  : Slow dispatch took 417ms wmshell.main h=android.os.Handler c=com.android.wm.shell.common.DisplayInsetsController$PerDisplay$DisplayWindowInsetsControllerImpl$$ExternalSyntheticLambda3@498149a m=0
+11-15 23:50:57.125   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:50:57.205   381   381 E android.hardware.bluetooth.service.default: Bluetooth remote service has died
+11-15 23:50:57.256   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:50:57.275   599   623 I ActivityManager: Process com.google.android.bluetooth (pid 2003) has died: psvc PER 
+11-15 23:50:57.278   599   623 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.btservice.AdapterService in 1000ms for connection
+11-15 23:50:57.294   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:50:57.297   599   628 W Looper  : Slow dispatch took 317ms android.fg h=android.os.Handler c=com.android.server.servicewatcher.ServiceWatcherImpl$$ExternalSyntheticLambda0@a1addef m=0
+11-15 23:50:57.299   599  2004 W ProcessCpuTracker: Failed to stat(/proc/2285): android.system.ErrnoException: stat failed: ENOENT (No such file or directory)
+11-15 23:50:57.300   599  2004 W ProcessCpuTracker: Skipping unknown process pid 2285
+11-15 23:50:57.353   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:50:57.424   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:50:57.480  1678  1678 I Choreographer: Skipped 1308 frames!  The application may be doing too much work on its main thread.
+11-15 23:50:57.548  1308  1433 V ShellDragAndDrop: Display changed: 0
+11-15 23:50:57.564   599   599 W Looper  : Slow dispatch took 736ms main h=android.os.Handler c=android.database.ContentObserver$$ExternalSyntheticLambda1@ea335a6 m=0
+11-15 23:50:57.601   381   381 I android.hardware.bluetooth.service.default: close
+11-15 23:50:57.637   599  1205 I WifiClientModeImpl[678007:wlan0]: Update current security type to 0
+11-15 23:50:57.647  1308  1433 W Looper  : Slow dispatch took 525ms wmshell.main h=android.os.Handler c=com.android.wm.shell.common.DisplayController$DisplayWindowListenerImpl$$ExternalSyntheticLambda5@4ddd0c1 m=0
+11-15 23:50:57.696   427   513 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10177 pid=1678
+11-15 23:50:57.696   427   513 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10177 => denied (2063 us)
+11-15 23:50:57.710   427   473 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10177 => granted (11841 us)
+11-15 23:50:57.751  2269  2269 V MediaStore: Examining volume emulated;0 with name external_primary and state unmountable
+11-15 23:50:57.779   427   473 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10177 => granted (68518 us)
+11-15 23:50:57.921  1308  1433 W Looper  : Slow dispatch took 272ms wmshell.main h=android.os.Handler c=android.window.TaskOrganizer$1$$ExternalSyntheticLambda4@e8ccfa7 m=0
+11-15 23:50:57.959  1308  1433 D ShellSplitScreen: onTaskInfoChanged: taskId=3 taskAct=null
+11-15 23:50:57.982  2428  2428 I Choreographer: Skipped 76 frames!  The application may be doing too much work on its main thread.
+11-15 23:50:58.003  1308  1433 W Looper  : Slow dispatch took 31ms wmshell.main h=android.os.Handler c=android.window.TaskOrganizer$1$$ExternalSyntheticLambda4@d9c9cf2 m=0
+11-15 23:50:58.012  1308  1433 V WindowManagerShell: Transition animation finished (aborted=false), notifying core (#5) android.os.BinderProxy@a4d33fb@0
+11-15 23:50:58.040   381   381 E android.hardware.bluetooth.service.default: unable to open /dev/rfkill: Permission denied
+11-15 23:50:58.046   599   898 D CompatChangeReporter: Compat change id reported: 311208629; UID 1000; state: ENABLED
+11-15 23:50:58.048   427   513 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10177 => granted (351400 us)
+11-15 23:50:58.056   599  2259 V WallpaperManagerService: WPMS.saveSettingsLocked-0 took to complete: 1167ms
+11-15 23:50:58.058   599  2004 W ProcessCpuTracker: Failed to stat(/proc/2303): android.system.ErrnoException: stat failed: ENOENT (No such file or directory)
+11-15 23:50:58.059   599   628 V WindowManager: Sent Transition (#4) createdAt=11-15 23:50:31.790 via request=TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=6 displayId=0 isRunning=false baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10800100 cmp=com.google.android.googlesdksetup/.DefaultActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{com.google.android.googlesdksetup/com.google.android.googlesdksetup.DefaultActivity} numActivities=0 lastActiveTime=654009 supportsMultiWindow=false resizeMode=0 isResizeable=false minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{18b8cdb null}} topActivityType=2 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 4 }
+11-15 23:50:58.060  1678  2319 I EGL_emulation: Opening libGLESv1_CM_emulation.so
+11-15 23:50:58.066   599   628 V WindowManager:     startWCT=WindowContainerTransaction { changes = {} hops = [] errorCallbackToken=null taskFragmentOrganizer=null }
+11-15 23:50:58.089  1678  2319 I EGL_emulation: Opening libGLESv2_emulation.so
+11-15 23:50:58.094  1308  2476 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[nizarcrash3recomp]#0) as ready
+11-15 23:50:58.096  1308  2476 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[nizarcrash3recomp]#1) as ready
+11-15 23:50:58.105   599  2004 W ProcessCpuTracker: Skipping unknown process pid 2303
+11-15 23:50:58.116   381   381 E android.hardware.bluetooth.service.default: rfkill unavailable
+11-15 23:50:58.116   381   381 E android.hardware.bluetooth-service.default: unlinkToDeath: removed reference to death recipient but unlink failed: DEAD_OBJECT
+11-15 23:50:58.156   599   623 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10181 => granted (618 us)
+11-15 23:50:58.160   599   623 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10181 => granted (409 us)
+11-15 23:50:58.161   599   623 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10181 => granted (223 us)
+11-15 23:50:58.202  2269  2269 V MediaProvider: attachVolume() called for internal with state:null
+11-15 23:50:58.360   599   936 E StorageManagerService: Failed to notify volume state changed to the Storage Service
+11-15 23:50:58.360   599   936 E StorageManagerService: com.android.server.storage.StorageSessionController$ExternalStorageServiceException: Failed to notify volume state changed for vol : StorageVolume: Internal shared storage
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at com.android.server.storage.StorageUserConnection$ActiveConnection.notifyVolumeStateChanged(StorageUserConnection.java:420)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at com.android.server.storage.StorageUserConnection.notifyVolumeStateChanged(StorageUserConnection.java:131)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at com.android.server.storage.StorageSessionController.notifyVolumeStateChanged(StorageSessionController.java:159)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at com.android.server.StorageManagerService.onVolumeStateChangedAsync(StorageManagerService.java:1776)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at com.android.server.StorageManagerService.-$$Nest$monVolumeStateChangedAsync(StorageManagerService.java:0)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at com.android.server.StorageManagerService$StorageManagerServiceHandler.handleMessage(StorageManagerService.java:823)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at android.os.Looper.loop(Looper.java:317)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-15 23:50:58.360   599   936 E StorageManagerService: Caused by: java.util.concurrent.TimeoutException
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1936)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2071)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at com.android.server.storage.StorageUserConnection$ActiveConnection.waitForAsync(StorageUserConnection.java:379)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at com.android.server.storage.StorageUserConnection$ActiveConnection.waitForAsyncVoid(StorageUserConnection.java:358)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	at com.android.server.storage.StorageUserConnection$ActiveConnection.notifyVolumeStateChanged(StorageUserConnection.java:417)
+11-15 23:50:58.360   599   936 E StorageManagerService: 	... 9 more
+11-15 23:50:58.425  1678  2319 W HWUI    : Failed to initialize 101010-2 format, error = EGL_SUCCESS
+11-15 23:50:58.486   599   628 V WindowManager:     info={id=4 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+11-15 23:50:58.486   599   628 V WindowManager:         {WCT{RemoteToken{fa04139 Task{9bf044e #7 type=home I=com.google.android.apps.nexuslauncher/.NexusLauncherActivity}}} m=OPEN f=MOVE_TO_TOP leash=Surface(name=Task=7)/@0xf94e3ea sb=Rect(0, 0 - 1080, 1920) eb=Rect(0, 0 - 1080, 1920) d=0 taskParent=-1},
+11-15 23:50:58.486   599   628 V WindowManager:         {WCT{RemoteToken{18b8cdb null}} m=CLOSE f=NONE leash=Surface(name=Task=6)/@0x71b1686 sb=Rect(0, 0 - 1080, 1920) eb=Rect(0, 0 - 1080, 1920) d=0 taskParent=-1}
+11-15 23:50:58.486   599   628 V WindowManager:     ]}
+11-15 23:50:58.496   599   628 W Looper  : Slow dispatch took 913ms android.fg h=android.os.Handler c=com.android.server.wm.TransitionController$Logger@6fa5456 m=0
+11-15 23:50:58.559   599  2004 W ProcessCpuTracker: Failed to stat(/proc/2334): android.system.ErrnoException: stat failed: ENOENT (No such file or directory)
+11-15 23:50:58.560   599  2004 W ProcessCpuTracker: Skipping unknown process pid 2334
+11-15 23:50:58.564   599   628 I ServiceWatcher: [HardwareActivityRecognitionProxy] chose new implementation 10144/com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService@1
+11-15 23:50:58.664   599   624 W system_server: Long monitor contention with owner android.anim (632) at void com.android.server.wm.WindowAnimator.lambda$new$1(long)(WindowAnimator.java:103) waiters=3 in void com.android.server.wm.WindowOrganizerController.finishTransition(android.os.IBinder, android.window.WindowContainerTransaction) for 190ms
+11-15 23:50:58.686   599   599 W Looper  : Slow dispatch took 828ms main h=android.os.Handler c=android.database.ContentObserver$$ExternalSyntheticLambda1@ecbde71 m=0
+11-15 23:50:58.706   599   936 I StorageSessionController: Notifying volume state changed for session with id: emulated;0
+11-15 23:50:58.721   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 599
+11-15 23:50:58.722   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1678
+11-15 23:50:58.723   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1308
+11-15 23:50:58.723   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2269
+11-15 23:50:58.724   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2245
+11-15 23:50:58.724   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2167
+11-15 23:50:58.724   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2086
+11-15 23:50:58.725   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 138
+11-15 23:50:58.766   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 427
+11-15 23:50:58.767   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 375
+11-15 23:50:58.767   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1173
+11-15 23:50:58.768   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 460
+11-15 23:50:58.768   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 383
+11-15 23:50:58.768   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1280
+11-15 23:50:58.769   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1058
+11-15 23:50:58.800   599   628 I ServiceWatcher: [fused] chose new implementation 10144/com.google.android.gms/com.google.android.location.fused.FusedLocationService@1
+11-15 23:50:58.818   599  1205 W system_server: Long monitor contention with owner main (599) at void com.android.server.devicepolicy.DevicePolicyManagerService$SetupContentObserver.onChange(boolean, android.net.Uri, int)(DevicePolicyManagerService.java:15619) waiters=0 in int com.android.server.devicepolicy.DevicePolicyManagerService.getDeviceOwnerUserId() for 577ms
+11-15 23:50:59.079  2293  2298 I .apps.wellbeing: Background concurrent mark compact GC freed 1313KB AllocSpace bytes, 0(0B) LOS objects, 49% free, 2450KB/4900KB, paused 361.780ms,165.721ms total 9.416s
+11-15 23:50:59.141  1678  1696 I HWUI    : Davey! duration=23425ms; Flags=1, FrameTimelineVsyncId=1306, IntendedVsync=696558434502, Vsync=718358433630, InputEventId=0, HandleInputStart=718376576865, AnimationStart=718376582711, PerformTraversalsStart=718379305477, DrawStart=719430945190, FrameDeadline=696575101168, FrameInterval=718370825636, FrameStartTime=16666666, SyncQueued=719515326233, SyncStart=719521175292, IssueDrawCommandsStart=719572790897, SwapBuffers=719871841713, FrameCompleted=719989350486, DequeueBufferDuration=132746, QueueBufferDuration=16506145, GpuCompleted=719988888530, SwapBuffersCompleted=719989350486, DisplayPresentTime=0, CommandSubmissionCompleted=719871841713, 
+11-15 23:50:59.207   599   644 I libprocessgroup: Removed cgroup /sys/fs/cgroup/uid_1002/pid_2003
+11-15 23:50:59.263  2269  2445 V MediaProvider: onConfigure() for external.db
+11-15 23:50:59.298  1308  1487 W ndroid.systemui: Long monitor contention with owner wmshell.splashworker (1488) at void com.android.wm.shell.startingsurface.SplashscreenIconDrawableFactory$ImmobileIconDrawable.preDrawIcon(int, android.graphics.drawable.Drawable)(go/retraceme 2affaa3798c2c8bbee3b481cb73ba41bdb6ef6846da601c9baa6a3ad5af735e3:36) waiters=0 in void com.android.wm.shell.startingsurface.SplashscreenIconDrawableFactory$ImmobileIconDrawable.draw(android.graphics.Canvas) for 1.927s
+11-15 23:50:59.400   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 214
+11-15 23:50:59.508  2269  2445 V MediaProvider: onOpen() for external.db
+11-15 23:50:59.536   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 161
+11-15 23:50:59.537   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 16
+11-15 23:50:59.537   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 432
+11-15 23:50:59.729   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1790
+11-15 23:50:59.734   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 140
+11-15 23:50:59.736   599   599 W Looper  : Slow dispatch took 132ms main h=android.os.Handler c=com.android.internal.content.PackageMonitor$$ExternalSyntheticLambda0@404c9eb m=0
+11-15 23:50:59.883   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 355
+11-15 23:50:59.884   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 199
+11-15 23:50:59.885   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1
+11-15 23:50:59.922  1308  1487 I Choreographer: Skipped 207 frames!  The application may be doing too much work on its main thread.
+11-15 23:50:59.709  2269  2445 I MediaProvider: No database change across sequential open calls for external.db.
+11-15 23:50:59.960   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 43
+11-15 23:50:59.961   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 470
+11-15 23:50:59.968   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2239
+11-15 23:50:59.968   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 141
+11-15 23:50:59.969   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1472
+11-15 23:51:00.034  1308  2082 I HWUI    : Davey! duration=7841ms; Flags=1, FrameTimelineVsyncId=1519, IntendedVsync=712775100520, Vsync=716975100352, InputEventId=0, HandleInputStart=716997778811, AnimationStart=716997787436, PerformTraversalsStart=716999103340, DrawStart=718038195296, FrameDeadline=712791767186, FrameInterval=716985126525, FrameStartTime=16666666, SyncQueued=720201668265, SyncStart=720202400281, IssueDrawCommandsStart=720267610862, SwapBuffers=720456896066, FrameCompleted=720617372230, DequeueBufferDuration=62298, QueueBufferDuration=45611450, GpuCompleted=720617010454, SwapBuffersCompleted=720617372230, DisplayPresentTime=6998629048946603571, CommandSubmissionCompleted=720456896066, 
+11-15 23:51:00.060  1308  1308 I CameraManagerGlobal: Connecting to camera service
+11-15 23:51:00.106   599   628 W Looper  : Slow dispatch took 1453ms android.fg h=android.os.Handler c=com.android.internal.content.PackageMonitor$$ExternalSyntheticLambda0@27e8b63 m=0
+11-15 23:51:00.114   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 26
+11-15 23:51:00.115   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 139
+11-15 23:51:00.167   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 357
+11-15 23:51:00.168   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2003
+11-15 23:51:00.169   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 371
+11-15 23:51:00.327   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 206
+11-15 23:51:00.328   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 416
+11-15 23:51:00.368  2269  2269 I MediaProvider: Changed PhotoPickerActivity component state to STATE_ENABLED ( 1 )
+11-15 23:51:00.380  1308  1433 V WindowManagerShell: Track 0 became idle
+11-15 23:51:00.380  1308  1433 V WindowManagerShell: All active transition animations finished
+11-15 23:51:00.380  1308  1433 W Looper  : Slow dispatch took 2370ms wmshell.main h=android.os.Handler c=com.android.wm.shell.transition.DefaultTransitionHandler$$ExternalSyntheticLambda0@c2ad6f9 m=0
+11-15 23:51:00.381  1308  1433 I Choreographer: Skipped 163 frames!  The application may be doing too much work on its main thread.
+11-15 23:51:00.422  2086  2100 W gle.android.gms: Suspending all threads took: 155.185ms
+11-15 23:51:00.467  1308  1433 W Looper  : Slow dispatch took 86ms wmshell.main h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver@ffe9638 m=0
+11-15 23:51:00.506   599  1514 W system_server: Long monitor contention with owner binder:599_3 (624) at void com.android.server.wm.WindowManagerService.onAnimationFinished()(WindowManagerService.java:9019) waiters=4 in void com.android.server.wm.ActivityClientController.setTaskDescription(android.os.IBinder, android.app.ActivityManager$TaskDescription) for 1.023s
+11-15 23:51:00.524   599   879 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10177 pid=0
+11-15 23:51:00.525   599   879 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10177 => denied (1943 us)
+11-15 23:51:00.527   599   879 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10177 => granted (585 us)
+11-15 23:51:00.528   599   879 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10177 => granted (523 us)
+11-15 23:51:00.538   599   650 W system_server: Long monitor contention with owner AlarmManager (915) at boolean android.os.MessageQueue.enqueueMessage(android.os.Message, long)(MessageQueue.java:695) waiters=0 in android.os.Message android.os.MessageQueue.next() for 176ms
+11-15 23:51:00.619   599   879 D CoreBackPreview: Window{be16a0b u0 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@febb360, mPriority=-1, mIsAnimationCallback=false}
+11-15 23:51:00.621   599  2032 D CoreBackPreview: Window{be16a0b u0 com.google.android.apps.nexuslauncher/com.google.android.apps.nexuslauncher.NexusLauncherActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@442d019, mPriority=0, mIsAnimationCallback=true}
+11-15 23:51:00.690   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 491
+11-15 23:51:00.690   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1594
+11-15 23:51:00.691   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 8
+11-15 23:51:00.691   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 15
+11-15 23:51:00.691   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 356
+11-15 23:51:00.692   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1955
+11-15 23:51:00.692   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1975
+11-15 23:51:00.692   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 17
+11-15 23:51:00.692   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 20
+11-15 23:51:00.692   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 144
+11-15 23:51:00.692   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 370
+11-15 23:51:00.692   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 373
+11-15 23:51:00.693   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 380
+11-15 23:51:00.693   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 448
+11-15 23:51:00.693   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 450
+11-15 23:51:00.812  1308  1316 I ndroid.systemui: Background concurrent mark compact GC freed 3010KB AllocSpace bytes, 10(520KB) LOS objects, 49% free, 10MB/20MB, paused 531.984ms,53.826ms total 19.192s
+11-15 23:51:00.815   599   623 D CoreBackPreview: Window{ddcfe3d u0 net.kulthx.nizarcrash3recomp/com.psxrecomp.android.LauncherActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@748a58c, mPriority=0, mIsAnimationCallback=false}
+11-15 23:51:00.920   427   513 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10209 pid=0
+11-15 23:51:00.920   427   513 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10209 => denied (1806 us)
+11-15 23:51:00.921   427   513 W ServiceManagerCppClient: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10209 pid=0
+11-15 23:51:00.921   427   513 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10209 => denied (1038 us)
+11-15 23:51:00.960   427   513 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10209 pid=0
+11-15 23:51:00.960   427   513 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10209 => denied (34600 us)
+11-15 23:51:00.967  2269  2445 D MediaProvider: xattr set to ed4d4bb1-e933-4f06-95fa-e48525914d4b for key:user.extdbsessionid0 on path: /data/user/0/com.google.android.providers.media.module/databases/external.db.
+11-15 23:51:00.983   427   475 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10209 pid=2428
+11-15 23:51:00.983   427   475 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10209 => denied (25140 us)
+11-15 23:51:00.995   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 484
+11-15 23:51:00.996   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1165
+11-15 23:51:00.998  2428  2459 I EGL_emulation: Opening libGLESv1_CM_emulation.so
+11-15 23:51:01.000  2428  2459 I EGL_emulation: Opening libGLESv2_emulation.so
+11-15 23:51:01.089   599   628 I ServiceWatcher: [RealLocationTimeZoneProviderProxy] chose new implementation 10144/com.google.android.gms/.geotimezone.GeoTimeZoneService@1
+11-15 23:51:01.091   599   628 W Looper  : Slow dispatch took 983ms android.fg h=android.os.Handler c=com.android.internal.content.PackageMonitor$$ExternalSyntheticLambda0@2a754d5 m=0
+11-15 23:51:01.096  1308  1308 V SystemUIBootTiming: StartServices com.android.systemui.deviceentry.domain.interactor.DeviceEntryFaceAuthInteractor took to complete: 5641ms
+11-15 23:51:01.096  1308  1308 W SystemUIService: Initialization of com.android.systemui.deviceentry.domain.interactor.DeviceEntryFaceAuthInteractor took 5641 ms
+11-15 23:51:01.100   599   628 I ServiceWatcher: [GeocoderProxy] chose new implementation 10144/com.google.android.gms/.location.geocode.GeocodeService@2
+11-15 23:51:01.112   599   628 I ServiceWatcher: [network] chose new implementation 10144/com.google.android.gms/com.google.android.location.network.NetworkLocationService@2
+11-15 23:51:01.122   599   628 I ServiceWatcher: [GeofenceProxy] chose new implementation 10144/com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService@1
+11-15 23:51:01.142   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1261
+11-15 23:51:01.142   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 1368
+11-15 23:51:01.143   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2258
+11-15 23:51:01.143   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2293
+11-15 23:51:01.143   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2310
+11-15 23:51:01.143   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2336
+11-15 23:51:01.144   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2367
+11-15 23:51:01.144   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2388
+11-15 23:51:01.144   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2403
+11-15 23:51:01.145   599  2004 I ActivityManager: Skipping next CPU consuming process, not a java proc: 2410
+11-15 23:51:01.252   599  2001 I ActivityManager: dumpStackTraces extraPids=[]
+11-15 23:51:01.258  2086  2086 I PackageParsing: Parse times for '/data/user_de/0/com.google.android.gms/app_chimera/m/s/DynamiteModulesA.apk': parse=1255ms, update_cache=0 ms
+11-15 23:51:01.277  2428  2459 W HWUI    : Failed to initialize 101010-2 format, error = EGL_SUCCESS
+11-15 23:51:01.299   599  2001 I ActivityManager: Done dumping
+11-15 23:51:01.330  2269  2445 D MediaProvider: xattr set to ed4d4bb1-e933-4f06-95fa-e48525914d4b for key:user.extdbsessionid0 on path: /data/media/0.
+11-15 23:51:01.331  2269  2445 I MediaProvider: SessionId set to ed4d4bb1-e933-4f06-95fa-e48525914d4b on paths /data/user/0/com.google.android.providers.media.module/databases/external.db and /data/media/0.
+11-15 23:51:01.407     0     0 I servicemanager: Caller(pid=2428,uid=10209,sid=u:r:untrusted_app:s0:c209,c256,c512,c768) Could not find android.hardware.graphics.allocator.IAllocator/default in the VINTF manifest. No alternative instances declared in VINTF.
+11-15 23:51:01.403   599   628 V WindowManager: Finish Transition (#4): created at 11-15 23:50:31.790 collect-started=0.188ms request-sent=1.555ms started=236.489ms ready=1330.836ms sent=5579.179ms finished=6769.611ms
+11-15 23:51:01.404   599   628 W Looper  : Slow dispatch took 279ms android.fg h=android.os.Handler c=com.android.server.wm.Transition$$ExternalSyntheticLambda0@5a08e78 m=0
+11-15 23:51:01.426   599   628 I ServiceWatcher: [HardwareActivityRecognitionProxy] chose new implementation 10144/com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService@1
+11-15 23:51:01.428   599   628 I ServiceWatcher: [fused] chose new implementation 10144/com.google.android.gms/com.google.android.location.fused.FusedLocationService@1
+11-15 23:51:01.440   599   628 I ServiceWatcher: [RealLocationTimeZoneProviderProxy] chose new implementation 10144/com.google.android.gms/.geotimezone.GeoTimeZoneService@1
+11-15 23:51:01.441   599   628 I ServiceWatcher: [GeocoderProxy] chose new implementation 10144/com.google.android.gms/.location.geocode.GeocodeService@2
+11-15 23:51:01.451   599   628 I ServiceWatcher: [network] chose new implementation 10144/com.google.android.gms/com.google.android.location.network.NetworkLocationService@2
+11-15 23:51:01.459   599   628 I ServiceWatcher: [GeofenceProxy] chose new implementation 10144/com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService@1
+11-15 23:51:01.498   599   628 D CompatChangeReporter: Compat change id reported: 151861875; UID 10209; state: ENABLED
+11-15 23:51:01.520   141   141 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device VINTF manifest.
+11-15 23:51:01.570  2428  2459 I Gralloc4: mapper 4.x is not supported
+11-15 23:51:01.687  1308  1308 V SystemUIBootTiming: StartServices com.android.systemui.deviceentry.ui.binder.LiftToRunFaceAuthBinder took to complete: 536ms
+11-15 23:51:01.695   599   634 I system_server: libdebuggerd_client: started dumping process 599
+11-15 23:51:01.710  1308  1318 W ndroid.systemui: ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/NexusLauncherRelease/NexusLauncherRelease.apk' with 1 weak references
+11-15 23:51:01.730   206   206 I tombstoned: registered intercept for pid 599 and type kDebuggerdJavaBacktrace
+11-15 23:51:01.731   599   612 I system_server: Thread[2,tid=612,WaitingInMainSignalCatcherLoop,Thread*=0x73d36b85b2c0,peer=0x14002b88,"Signal Catcher"]: reacting to signal 3
+11-15 23:51:01.731   599   612 I system_server: Mutator lock exclusive owner tid: -1
+11-15 23:51:01.731   599   612 I system_server: ThreadList lock owner tid: 0
+11-15 23:51:01.731   599   612 I system_server: ClassLinker classes lock owner tid: 0
+11-15 23:51:01.731   599   612 I system_server: ClassLinker dex lock owner tid: 0
+11-15 23:51:02.079  2428  2489 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[LauncherActivity]#0) as ready
+11-15 23:51:02.097  1308  1308 D enabledDisplayIds: newValue: [0]
+11-15 23:51:02.179  1308  1308 D connectedExternalDisplayIds: newValue: []
+11-15 23:51:02.179  1308  1308 D ignoredDisplayIds: newValue: []
+11-15 23:51:02.180  1308  1308 D DisplayRepository: combining enabled=[0], connectedExternalDisplayIds=[], ignored=[]
+11-15 23:51:02.181  1308  1308 D allPendingDisplayIds: newValue: []
+11-15 23:51:02.188  2428  2489 E SurfaceSyncGroup: Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[LauncherActivity]#1) as ready
+11-15 23:51:02.394  1308  1308 D pendingDisplayId: newValue: null
+11-15 23:51:02.395  1308  1308 D pendingDisplay: newValue: null
+11-15 23:51:02.535  2428  2428 I Choreographer: Skipped 269 frames!  The application may be doing too much work on its main thread.
+11-15 23:51:02.590  1308  1308 V SystemUIBootTiming: StartServices com.android.systemui.display.ui.viewmodel.ConnectingDisplayViewModel took to complete: 902ms
+11-15 23:51:02.626  2428  2441 I HWUI    : Davey! duration=5735ms; Flags=1, FrameTimelineVsyncId=1587, IntendedVsync=717591766994, Vsync=718858433610, InputEventId=0, HandleInputStart=718881436861, AnimationStart=718881495023, PerformTraversalsStart=718881883700, DrawStart=722557499424, FrameDeadline=717608433660, FrameInterval=718859860153, FrameStartTime=16666666, SyncQueued=722810003717, SyncStart=722821147240, IssueDrawCommandsStart=722852845974, SwapBuffers=723243715379, FrameCompleted=723338524883, DequeueBufferDuration=66082, QueueBufferDuration=3665575, GpuCompleted=723337873189, SwapBuffersCompleted=723338524883, DisplayPresentTime=72904454231359566, CommandSubmissionCompleted=723243715379, 
+11-15 23:51:02.727  2428  2441 I HWUI    : Davey! duration=4603ms; Flags=0, FrameTimelineVsyncId=1703, IntendedVsync=718941766940, Vsync=723425100094, InputEventId=0, HandleInputStart=723441787861, AnimationStart=723441820875, PerformTraversalsStart=723459782266, DrawStart=723461946617, FrameDeadline=723358433430, FrameInterval=723425275383, FrameStartTime=16666666, SyncQueued=723500019523, SyncStart=723504415518, IssueDrawCommandsStart=723505128726, SwapBuffers=723534271844, FrameCompleted=723549535650, DequeueBufferDuration=110557, QueueBufferDuration=2108240, GpuCompleted=723549028022, SwapBuffersCompleted=723549535650, DisplayPresentTime=144115222452437076, CommandSubmissionCompleted=723534271844, 
+11-15 23:51:02.834  2428  2428 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@4662a68
+11-15 23:51:03.156   599   624 W InputManager-JNI: Input channel object 'ddcfe3d net.kulthx.nizarcrash3recomp/com.psxrecomp.android.LauncherActivity (client)' was disposed without first being removed with the input manager!
+11-15 23:51:03.243     0     0 W healthd : battery l=100 v=5000 t=25.0 h=2 st=2 c=900000 fc=3000000 cc=10 chg=a
+11-15 23:51:04.215  2167  2167 I A       : Initializing GMS Compliance Client Library...
+11-15 23:51:04.424  2428  2436 I zarcrash3recomp: Background concurrent mark compact GC freed 1147KB AllocSpace bytes, 0(0B) LOS objects, 49% free, 2121KB/4242KB, paused 45.795ms,36.190ms total 936.793ms
+11-15 23:51:04.571   599   642 W system_server: Long monitor contention with owner PackageManagerBg (668) at void com.android.server.pm.Settings.writePackageRestrictions(int, long, boolean)(Settings.java:2497) waiters=0 in void com.android.server.pm.PackageManagerService.notifyComponentUsed(com.android.server.pm.Computer, java.lang.String, int, java.lang.String, java.lang.String) for 6.068s
+11-15 23:51:04.621   599   642 V GrammaticalInflectionUtils: AttributionSource: AttributionSource { uid = 1002, packageName = null, attributionTag = null, token = android.os.Binder@413dd3, deviceId = 0, next = null } does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+11-15 23:51:04.656   599   642 W ActivityManager: Slow operation: 66ms so far, now at startProcess: done creating new process record
+11-15 23:51:04.662   599   642 W ActivityManager: Slow operation: 71ms so far, now at startProcess: stepping in to startProcess
+11-15 23:51:04.700   599   642 W ActivityManager: Slow operation: 109ms so far, now at startProcess: done starting proc!
+11-15 23:51:04.840   599   630 I DropBoxManagerService: add tag=system_app_strictmode isTagEnabled=true flags=0x2
+11-15 23:51:04.874   599   642 I ActivityManager: Extending process start timeout by 12191ms for ProcessRecord{462d567 2416:com.google.android.as/u0a136}
+11-15 23:51:04.901  2167  2171 W earchbox:search: Suspending all threads took: 652.699ms
+11-15 23:51:04.919  2167  2167 I A       : Checking for device compliance...
+11-15 23:51:04.929  2167  2167 I A       : Completed library init.
+11-15 23:51:05.782  2167  2492 W CacheStorage: cache doesn't exist
+11-15 23:51:05.994  2167  2374 D StrictMode: StrictMode policy violation: android.os.strictmode.DiskReadViolation
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at android.os.StrictMode$AndroidBlockGuardPolicy.onReadFromDisk(StrictMode.java:1683)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at libcore.io.BlockGuardOs.access(BlockGuardOs.java:74)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at libcore.io.ForwardingOs.access(ForwardingOs.java:128)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at android.app.ActivityThread$AndroidOs.access(ActivityThread.java:8582)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at java.io.UnixFileSystem.checkAccess(UnixFileSystem.java:332)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at java.io.File.exists(File.java:829)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at android.app.ContextImpl.getDataDir(ContextImpl.java:3271)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at android.app.ContextImpl.getDir(ContextImpl.java:3290)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at android.content.ContextWrapper.getDir(ContextWrapper.java:353)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.search.core.h.aa.<init>(PG:23)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.search.core.h.ab.a(PG:3)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.a(PG:1)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:113)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.shared.c.a.aa.d(PG:13)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.shared.c.a.a.run(PG:3)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.common.n.c.c.run(PG:50)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.libraries.k.e.run(PG:8)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at java.lang.Thread.run(Thread.java:1012)
+11-15 23:51:05.994  2167  2374 D StrictMode: 	at com.google.android.libraries.k.d.b.run(PG:74)
+11-15 23:51:05.997  2167  2374 D StrictMode: StrictMode policy violation: android.os.strictmode.DiskReadViolation
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at android.os.StrictMode$AndroidBlockGuardPolicy.onReadFromDisk(StrictMode.java:1683)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at libcore.io.BlockGuardOs.access(BlockGuardOs.java:74)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at libcore.io.ForwardingOs.access(ForwardingOs.java:128)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at android.app.ActivityThread$AndroidOs.access(ActivityThread.java:8582)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at java.io.UnixFileSystem.checkAccess(UnixFileSystem.java:332)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at java.io.File.exists(File.java:829)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at android.app.ContextImpl.getDir(ContextImpl.java:3291)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at android.content.ContextWrapper.getDir(ContextWrapper.java:353)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.search.core.h.aa.<init>(PG:23)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.search.core.h.ab.a(PG:3)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.a(PG:1)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:113)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.shared.c.a.aa.d(PG:13)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.shared.c.a.a.run(PG:3)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.common.n.c.c.run(PG:50)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.libraries.k.e.run(PG:8)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at java.lang.Thread.run(Thread.java:1012)
+11-15 23:51:05.997  2167  2374 D StrictMode: 	at com.google.android.libraries.k.d.b.run(PG:74)
+11-15 23:51:06.005  2167  2374 D StrictMode: StrictMode policy violation: android.os.strictmode.DiskWriteViolation
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at android.os.StrictMode$AndroidBlockGuardPolicy.onWriteToDisk(StrictMode.java:1639)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at java.io.UnixFileSystem.createDirectory(UnixFileSystem.java:403)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at java.io.File.mkdir(File.java:1339)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at android.app.ContextImpl.getDir(ContextImpl.java:3292)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at android.content.ContextWrapper.getDir(ContextWrapper.java:353)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.search.core.h.aa.<init>(PG:23)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.search.core.h.ab.a(PG:3)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.a(PG:1)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:113)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.shared.c.a.aa.d(PG:13)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.shared.c.a.a.run(PG:3)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.common.n.c.c.run(PG:50)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.libraries.k.e.run(PG:8)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at java.lang.Thread.run(Thread.java:1012)
+11-15 23:51:06.005  2167  2374 D StrictMode: 	at com.google.android.libraries.k.d.b.run(PG:74)
+11-15 23:51:06.021  2167  2374 D StrictMode: StrictMode policy violation: android.os.strictmode.DiskWriteViolation
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at android.os.StrictMode$AndroidBlockGuardPolicy.onWriteToDisk(StrictMode.java:1639)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at libcore.io.BlockGuardOs.chmod(BlockGuardOs.java:81)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at libcore.io.ForwardingOs.chmod(ForwardingOs.java:165)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at android.system.Os.chmod(Os.java:119)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at android.os.FileUtils.setPermissions(FileUtils.java:187)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at android.app.ContextImpl.setFilePermissionsFromMode(ContextImpl.java:3671)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at android.app.ContextImpl.getDir(ContextImpl.java:3293)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at android.content.ContextWrapper.getDir(ContextWrapper.java:353)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.search.core.h.aa.<init>(PG:23)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.search.core.h.ab.a(PG:3)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.a(PG:1)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:113)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.n(PG:1)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.binaries.velvet.app.arq.b(PG:103)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at e.c.c.b(PG:5)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at e.c.d.b(PG:14)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.shared.c.a.aa.d(PG:13)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.apps.gsa.shared.c.a.a.run(PG:3)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:487)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.common.n.c.c.run(PG:50)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.libraries.k.e.run(PG:8)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at java.lang.Thread.run(Thread.java:1012)
+11-15 23:51:06.021  2167  2374 D StrictMode: 	at com.google.android.libraries.k.d.b.run(PG:74)
+11-15 23:51:06.305  2086  2086 I PackageParsing: Parse times for '/data/user_de/0/com.google.android.gms/app_chimera/m/s/DynamiteModulesC.apk': parse=108ms, update_cache=0 ms
+11-15 23:51:06.352  2167  2500 I A       : load shared preferences: file not found
+11-15 23:51:07.174  2086  2086 I PackageParsing: Parse times for '/data/user_de/0/com.google.android.gms/app_chimera/m/s/GoogleCertificates.apk': parse=163ms, update_cache=0 ms
+11-15 23:51:07.280   599   618 I system_server: Background concurrent mark compact GC freed 17MB AllocSpace bytes, 101(4708KB) LOS objects, 50% free, 23MB/47MB, paused 2.372s,574.191ms total 31.819s
+11-15 23:51:07.320   599   619 I BpBinder: onLastStrongRef automatically unlinking death recipients: 
+11-15 23:51:07.366   599   619 I BpBinder: onLastStrongRef automatically unlinking death recipients: 
+11-15 23:51:07.488     0     0 I binder  : 599:619 DecRefs 0 refcount change on invalid ref 482 ret -22
+11-15 23:51:07.488     0     0 I binder  : 599:619 DecRefs 0 refcount change on invalid ref 483 ret -22
+11-15 23:51:07.489     0     0 I binder  : 599:619 DecRefs 0 refcount change on invalid ref 495 ret -22
+11-15 23:51:07.489     0     0 I binder  : 599:619 DecRefs 0 refcount change on invalid ref 496 ret -22
+11-15 23:51:07.490     0     0 I binder  : 599:619 DecRefs 0 refcount change on invalid ref 511 ret -22
+11-15 23:51:07.490     0     0 I binder  : 599:619 DecRefs 0 refcount change on invalid ref 512 ret -22
+11-15 23:51:07.606   599   620 W system_server: ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/SettingsGoogle/SettingsGoogle.apk' with 1 weak references
+11-15 23:51:07.608   599   620 W system_server: ApkAssets: Deleting an ApkAssets object '/product/overlay/SettingsGoogle__sdk_gphone64_x86_64__auto_generated_rro_product.apk' with 1 weak references
+11-15 23:51:07.680   599   620 W system_server: ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/app/AccessibilityMenu/AccessibilityMenu.apk' with 1 weak references
+11-15 23:51:07.724   599   620 W system_server: ApkAssets: Deleting an ApkAssets object '/product/overlay/AccessibilityMenu__sdk_gphone64_x86_64__auto_generated_rro_product.apk' with 1 weak references
+11-15 23:51:07.725   599   620 W system_server: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/talkback/talkback.apk' with 1 weak references
+11-15 23:51:07.804   599   620 W system_server: ApkAssets: Deleting an ApkAssets object '/vendor/overlay/EmulatorTalkBackOverlay/EmulatorTalkBackOverlay.apk' with 1 weak references
+11-15 23:51:07.825   599   620 W system_server: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/LatinIMEGooglePrebuilt/LatinIMEGooglePrebuilt.apk' with 1 weak references
+11-15 23:51:07.844   599   620 W system_server: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/GoogleTTS/GoogleTTS.apk' with 1 weak references
+11-15 23:51:07.881   599   620 W system_server: ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/InputDevices/InputDevices.apk' with 1 weak references
+11-15 23:51:08.915  2167  2442 I A       : (REDACTED) Unable to retrieve flag snapshot for %s, using defaults.
+11-15 23:51:09.388  2167  2502 I A       : load shared preferences: file not found
+11-15 23:51:09.460  2167  2376 D nativeloader: Load /product/priv-app/Velvet/Velvet.apk!/lib/x86_64/libmappedcountercacheversionjni.so using ns product-clns-7 from class loader (caller=/product/priv-app/Velvet/Velvet.apk!classes9.dex): ok
+11-15 23:51:10.045  2428  2435 I zarcrash3recomp: Compiler allocated 4219KB to compile void android.widget.TextView.<init>(android.content.Context, android.util.AttributeSet, int, int)
+11-15 23:51:10.928   599   643 W ActivityManager: Slow operation: 6266ms so far, now at startProcess: asking zygote to start proc
+11-15 23:51:11.044   599  2033 W system_server: Long monitor contention with owner PackageManagerBg (668) at void com.android.server.pm.Settings.writePackageRestrictions(int, long, boolean)(Settings.java:2497) waiters=1 in void com.android.server.pm.PackageManagerService.setEnabledSettings(java.util.List, int, java.lang.String) for 4.161s
+11-15 23:51:11.052  2269  2269 I MediaProvider: Changed PhotoPickerGetContentActivity component state to STATE_ENABLED ( 1 )
+11-15 23:51:11.095   599   879 W ServiceManagerCppClient: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10209 pid=0
+11-15 23:51:11.095   599   879 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10209 => denied (2403 us)
+11-15 23:51:11.096   599   879 W ServiceManagerCppClient: Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10209 pid=0
+11-15 23:51:11.096   599   879 D PermissionCache: checking android.permission.ROTATE_SURFACE_FLINGER for uid=10209 => denied (478 us)
+11-15 23:51:11.096   599   879 W ServiceManagerCppClient: Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10209 pid=0
+11-15 23:51:11.096   599   879 D PermissionCache: checking android.permission.INTERNAL_SYSTEM_WINDOW for uid=10209 => denied (364 us)
+11-15 23:51:11.098   599  2060 W system_server: Long monitor contention with owner ActivityManager (642) at void com.android.server.am.ActiveServices$ServiceRestarter.run()(ActiveServices.java:4688) waiters=1 in android.content.Intent com.android.server.am.ActivityManagerService.registerReceiverWithFeatureTraced(android.app.IApplicationThread, java.lang.String, java.lang.String, java.lang.String, android.content.IIntentReceiver, android.content.IntentFilter, java.lang.String, int, int) for 5.196s
+11-15 23:51:11.100   599   599 W system_server: Long monitor contention with owner ActivityManager (642) at void com.android.server.am.ActiveServices$ServiceRestarter.run()(ActiveServices.java:4688) waiters=2 in boolean com.android.server.am.ActivityManagerService.unbindService(android.app.IServiceConnection) for 11.093s
+11-15 23:51:11.114   599   879 W WindowManager: Failed looking up window session=Session{30e69b8 2428:u0a10209} callers=com.android.server.wm.WindowManagerService.windowForClientLocked:6311 com.android.server.wm.WindowManagerService.finishDrawingWindow:2854 com.android.server.wm.Session.finishDrawing:350 
+11-15 23:51:11.116   599   879 W WindowManager: Failed looking up window session=Session{30e69b8 2428:u0a10209} callers=com.android.server.wm.WindowManagerService.windowForClientLocked:6311 com.android.server.wm.Session.setOnBackInvokedCallbackInfo:1020 android.view.IWindowSession$Stub.onTransact:1199 
+11-15 23:51:11.118   599   879 I WindowManager: setOnBackInvokedCallback(): No window state for package:net.kulthx.nizarcrash3recomp
+11-15 23:51:11.133   357   357 D Zygote  : Forked child process 2503
+11-15 23:51:11.144  2269  2269 I MediaProvider: Changed PhotoPickerUserSelectActivity component state to STATE_ENABLED ( 1 )
+11-15 23:51:11.147   599   643 W ActivityManager: Slow operation: 6485ms so far, now at startProcess: returned from zygote!
+11-15 23:51:11.149   599  1262 D ShortcutService: Saving package item com.google.android.gm to /data/system_ce/0/shortcut_service/packages/com.google.android.gm.xml
+11-15 23:51:11.194   599  1567 D CompatChangeReporter: Compat change id reported: 161145287; UID 10142; state: ENABLED
+11-15 23:51:11.231  1678  1678 D NexusLauncherModelDelegate: notifySmartspaceEvent: SmartspaceTargetEvent{mSmartspaceTarget=null, mSmartspaceActionId='null', mEventType=6}
+11-15 23:51:11.256   599  2236 D PackageManager: Instant App installer not found with android.intent.action.INSTALL_INSTANT_APP_PACKAGE
+11-15 23:51:11.256   599  2236 D PackageManager: Clear ephemeral installer activity
+11-15 23:51:11.273  1308  1502 D DisplayRepository: getInitialConnectedDisplays: [0]
+11-15 23:51:11.303  1308  1505 D connectedDisplayIds: newValue: [0]
+11-15 23:51:11.305   599   599 D OomAdjuster: Not killing cached processes
+11-15 23:51:11.327  2167  2374 D WM-PackageManagerHelper: androidx.work.impl.background.systemjob.SystemJobService enabled
+11-15 23:51:11.331  2269  2472 D WM-PackageManagerHelper: Skipping component enablement for androidx.work.impl.background.systemalarm.RescheduleReceiver
+11-15 23:51:11.346  2167  2374 D WM-Schedulers: Created SystemJobScheduler and enabled SystemJobService
+11-15 23:51:11.495  2428  2428 I Choreographer: Skipped 518 frames!  The application may be doing too much work on its main thread.
+11-15 23:51:11.630  1678  1678 D CompatChangeReporter: Compat change id reported: 270674727; UID 10177; state: ENABLED
+11-15 23:51:11.644  2269  2269 D PulledMetrics: Registering callback with StatsManager
+11-15 23:51:11.710  2503  2503 I droid.bluetooth: Using CollectorTypeCMC GC.
+11-15 23:51:11.741  2503  2503 W droid.bluetooth: Unexpected CPU variant for x86: x86_64.
+11-15 23:51:11.741  2503  2503 W droid.bluetooth: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, default
+11-15 23:51:11.743   206   206 I tombstoned: intercept for pid 599 and type kDebuggerdJavaBacktrace terminated: due to timeout
+11-15 23:51:11.864   356   356 I netd    : tetherGetStats() -> {[]} <9.68ms>
+11-15 23:51:11.871  2503  2503 E droid.bluetooth: Not starting debugger since process cannot load the jdwp agent.
+11-15 23:51:11.897   599   599 W Looper  : Slow dispatch took 11624ms main h=android.os.Handler c=<recycled PooledLambda@cc7954f> m=0
+11-15 23:51:11.898   599  2023 D CoreBackPreview: Window{c74716 u0 net.kulthx.nizarcrash3recomp/com.psxrecomp.android.LauncherActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@e477a84, mPriority=0, mIsAnimationCallback=false}
+11-15 23:51:11.930   599   634 E system_server: libdebuggerd_client: failed to read status response from tombstoned: timeout reached?
+11-15 23:51:11.970  1678  1678 D OverviewActionsView: updateActionButtonsVisibility() called: showSingleTaskActions = [true], showGroupActions = [false]
+11-15 23:51:12.039   599   599 V ConditionProviders: 0 condition provider service connected: ComponentInfo{com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.azr.impl.AzrConditionProviderService}
+11-15 23:51:12.040   599   599 W ActivityManager: pid 599 system sent binder code 1 with flags 1 to frozen apps and got error -32
+11-15 23:51:12.059   599  2236 D ConditionProviders: Removing active service ComponentInfo{com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.azr.impl.AzrConditionProviderService}
+11-15 23:51:12.115   599   599 E ConditionProviders: can't connect to service ManagedServiceInfo[component=ComponentInfo{com.google.android.apps.wellbeing/com.google.android.apps.wellbeing.azr.impl.AzrConditionProviderService},userid=0,isSystem=false,targetSdkVersion=34,connection=<connection>,service=android.service.notification.IConditionProvider$Stub$Proxy@e68bea2]
+11-15 23:51:12.115   599   599 E ConditionProviders: android.os.DeadObjectException
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at android.os.BinderProxy.transactNative(Native Method)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at android.os.BinderProxy.transact(BinderProxy.java:586)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at android.service.notification.IConditionProvider$Stub$Proxy.onConnected(IConditionProvider.java:142)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at com.android.server.notification.ConditionProviders.onServiceAdded(ConditionProviders.java:192)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at com.android.server.notification.ManagedServices$1.onServiceConnected(ManagedServices.java:1661)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at android.app.LoadedApk$ServiceDispatcher.doConnected(LoadedApk.java:2210)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at android.app.LoadedApk$ServiceDispatcher$RunConnection.run(LoadedApk.java:2243)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at android.os.Handler.handleCallback(Handler.java:959)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at android.os.Handler.dispatchMessage(Handler.java:100)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at android.os.Looper.loop(Looper.java:317)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at com.android.server.SystemServer.run(SystemServer.java:973)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at com.android.server.SystemServer.main(SystemServer.java:657)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at java.lang.reflect.Method.invoke(Native Method)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:580)
+11-15 23:51:12.115   599   599 E ConditionProviders: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:864)
+11-15 23:51:12.188  1308  1433 W Looper  : Drained
+11-15 23:51:12.332  2503  2503 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+11-15 23:51:12.344   599   670 I AppsFilter: interaction: PackageSetting{997687e com.android.microdroid.empty_payload/10187} -> PackageSetting{c1f938f com.google.android.googlequicksearchbox/10143} BLOCKED
+11-15 23:51:12.345   599   670 I AppsFilter: interaction: PackageSetting{6c211df net.kulthx.nizarcrash3recomp/10209} -> PackageSetting{c1f938f com.google.android.googlequicksearchbox/10143} BLOCKED
+11-15 23:51:12.388  1308  1433 W Looper  : Slow delivery took 87ms wmshell.main h=android.os.Handler c=null m=19
+11-15 23:51:12.403  1308  1433 W Looper  : Drained
+11-15 23:51:12.427   599   634 W ActivityManager: Dumping Java threads failed, initiating native stack dump.
+11-15 23:51:12.442  1678  1678 I SsCardPagerAdapter: [rmv] Rendering flag - enabled: false 
+11-15 23:51:12.443  1678  1678 I SsCardPagerAdapter: Use UI template for the feature: 1
+11-15 23:51:12.685   599   599 D ConditionProviders: Subscribing to condition://android/event?userId=-10000&calendar=&reply=1 with ComponentInfo{android/com.android.server.notification.EventConditionProvider}
+11-15 23:51:12.779   599   599 D ConditionProviders: Subscribing to condition://android/schedule?days=1.2.3.4.5.6.7&start=22.0&end=7.0&exitAtAlarm=true with ComponentInfo{android/com.android.server.notification.ScheduleConditionProvider}
+11-15 23:51:12.846   599  1205 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:51:12.921  2428  2428 I Choreographer: Skipped 84 frames!  The application may be doing too much work on its main thread.
+11-15 23:51:12.949  2428  2512 I HWUI    : Davey! duration=10023ms; Flags=1, FrameTimelineVsyncId=1858, IntendedVsync=723741766748, Vsync=732375099736, InputEventId=0, HandleInputStart=732393806141, AnimationStart=732393852136, PerformTraversalsStart=732395681223, DrawStart=733351140050, FrameDeadline=723758433414, FrameInterval=732385810170, FrameStartTime=16666666, SyncQueued=733694945871, SyncStart=733695921958, IssueDrawCommandsStart=733702963164, SwapBuffers=733730061846, FrameCompleted=733766659701, DequeueBufferDuration=55400, QueueBufferDuration=7659489, GpuCompleted=733766303998, SwapBuffersCompleted=733766659701, DisplayPresentTime=72904454231359566, CommandSubmissionCompleted=733730061846, 
+11-15 23:51:13.019   599   599 W Looper  : Slow dispatch took 1025ms main h=android.app.ActivityThread$H c=android.app.LoadedApk$ServiceDispatcher$RunConnection@801961c m=0
+11-15 23:51:13.059  1308  1308 D NavigationModeController: getCurrentInteractionMode: mode=2 contextUser=0
+11-15 23:51:13.088  2428  2512 I HWUI    : Davey! duration=1534ms; Flags=0, FrameTimelineVsyncId=1906, IntendedVsync=732408433068, Vsync=733808433012, InputEventId=0, HandleInputStart=733830157370, AnimationStart=733830198041, PerformTraversalsStart=733851635398, DrawStart=733862227856, FrameDeadline=733791766346, FrameInterval=733811272246, FrameStartTime=16666666, SyncQueued=733895454920, SyncStart=733895787812, IssueDrawCommandsStart=733900774343, SwapBuffers=733922826081, FrameCompleted=733942964578, DequeueBufferDuration=2806052, QueueBufferDuration=3179018, GpuCompleted=733939787421, SwapBuffersCompleted=733942964578, DisplayPresentTime=144115222452437076, CommandSubmissionCompleted=733922826081, 
+11-15 23:51:13.470   599  2022 I WindowManager: finishDrawing of relaunch: Window{c74716 u0 net.kulthx.nizarcrash3recomp/com.psxrecomp.android.LauncherActivity} 11955ms
+11-15 23:51:13.514   599  1205 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:51:13.516   599   599 W Looper  : Slow dispatch took 234ms main h=com.android.server.alarm.AlarmManagerService$AlarmHandler c=null m=5
+11-15 23:51:13.569  2086  2086 I PackageParsing: Parse times for '/data/user_de/0/com.google.android.gms/app_chimera/m/s/MeasurementDynamite.apk': parse=1114ms, update_cache=0 ms
+11-15 23:51:13.639   599  1514 D CompatChangeReporter: Compat change id reported: 151861875; UID 10095; state: ENABLED
+11-15 23:51:13.641   599  1514 V GrammaticalInflectionUtils: AttributionSource: AttributionSource { uid = 10095, packageName = null, attributionTag = null, token = android.os.Binder@413dd3, deviceId = 0, next = null } does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+11-15 23:51:13.882   599  1205 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:51:13.928   599   931 I ImeTracker: net.kulthx.nizarcrash3recomp:5281178c: onRequestHide at ORIGIN_SERVER reason HIDE_UNSPECIFIED_WINDOW fromUser false
+11-15 23:51:13.970   206   206 I tombstoned: received crash request for pid 599
+11-15 23:51:14.042  2167  2171 W earchbox:search: Suspending all threads took: 2.331s
+11-15 23:51:14.064   206   206 E tombstoned: Traces for pid 599 written to: trace_00
+11-15 23:51:14.130   599  1205 I WifiClientModeImpl[678007:wlan0]: Update current security type to 0 from network connection event.
+11-15 23:51:14.133   599   612 I system_server: Wrote stack traces to tombstoned
+11-15 23:51:14.138  2428  2459 D EGL_emulation: app_time_stats: avg=416.69ms min=141.54ms max=935.09ms count=3
+11-15 23:51:14.190   599   634 I system_server: libdebuggerd_client: started dumping process 599
+11-15 23:51:14.195   206   206 I tombstoned: registered intercept for pid 599 and type kDebuggerdNativeBacktrace
+11-15 23:51:14.208   599   599 I libc    : Requested dump for pid 599 (system_server)
+11-15 23:51:14.215   599   931 I ImeTracker: net.kulthx.nizarcrash3recomp:5281178c: onCancelled at PHASE_SERVER_SHOULD_HIDE
+11-15 23:51:14.226   356   356 I netd    : tetherGetStats() -> {[]} <18.93ms>
+11-15 23:51:14.870  2086  2086 I FileApkMgr: Extracting modules completed
+11-15 23:51:14.998  2086  2086 I GmsApplication: Staging modules completed
+11-15 23:51:14.998  2086  2086 I GmsApplication: Updating config
+11-15 23:51:15.032  2086  2086 W FileUtils: Failed to set world readable: /data/user_de/0/com.google.android.gms/app_chimera/current_config.fb
+11-15 23:51:15.150  2167  2374 I Search.LoginHelperImpl: Getting accounts.
+11-15 23:51:15.182  2167  2385 W earchbox:search: Long monitor contention with owner Lite Thread #0 (2374) at java.lang.Object e.c.d.b()(PG:46) waiters=0 in java.lang.Object e.c.d.b() for 5.582s
+11-15 23:51:15.381   599  2001 W ProcessCpuTracker: Failed to stat(/proc/2403): android.system.ErrnoException: stat failed: ENOENT (No such file or directory)
+11-15 23:51:15.419   599  2001 W ProcessCpuTracker: Skipping unknown process pid 2403
+11-15 23:51:15.421   599  2001 W ProcessCpuTracker: Failed to stat(/proc/2410): android.system.ErrnoException: stat failed: ENOENT (No such file or directory)
+11-15 23:51:15.439   599  2001 W ProcessCpuTracker: Skipping unknown process pid 2410
+11-15 23:51:15.527   599  1262 D ShortcutService: Saving package item com.google.android.dialer to /data/system_ce/0/shortcut_service/packages/com.google.android.dialer.xml
+11-15 23:51:16.019  2518  2518 E DEBUG   : failed to readlink /proc/599/fd/462: No such file or directory
+11-15 23:51:16.187  2518  2518 E crash_dump64: failed to get the guest state header for thread 599: Bad address
+11-15 23:51:16.207  2518  2518 E crash_dump64: failed to get the guest state header for thread 612: Bad address
+11-15 23:51:16.218  2518  2518 E crash_dump64: failed to get the guest state header for thread 614: Bad address
+11-15 23:51:16.229  2518  2518 E crash_dump64: failed to get the guest state header for thread 615: Bad address
+11-15 23:51:16.230   599   634 E system_server: libdebuggerd_client: failed to read status response from tombstoned: Try again
+11-15 23:51:16.234   206   206 I tombstoned: intercept for pid 599 and type kDebuggerdNativeBacktrace terminated: due to input
+11-15 23:51:16.282  2518  2518 E crash_dump64: failed to get the guest state header for thread 617: Bad address
+11-15 23:51:16.322  2518  2518 E crash_dump64: failed to get the guest state header for thread 618: Bad address
+11-15 23:51:16.330  2518  2518 E crash_dump64: failed to get the guest state header for thread 619: Bad address
+11-15 23:51:16.356  2518  2518 E crash_dump64: failed to get the guest state header for thread 620: Bad address
+11-15 23:51:16.382  2518  2518 E crash_dump64: failed to get the guest state header for thread 621: Bad address
+11-15 23:51:16.387  2518  2518 E crash_dump64: failed to get the guest state header for thread 622: Bad address
+11-15 23:51:16.389  2518  2518 E crash_dump64: failed to get the guest state header for thread 623: Bad address
+11-15 23:51:16.402  2518  2518 E crash_dump64: failed to get the guest state header for thread 624: Bad address
+11-15 23:51:16.419  2518  2518 E crash_dump64: failed to get the guest state header for thread 626: Bad address
+11-15 23:51:16.421  2518  2518 E crash_dump64: failed to get the guest state header for thread 627: Bad address
+11-15 23:51:16.434  2518  2518 E crash_dump64: failed to get the guest state header for thread 628: Bad address
+11-15 23:51:16.442  2518  2518 E crash_dump64: failed to get the guest state header for thread 629: Bad address
+11-15 23:51:16.446  2518  2518 E crash_dump64: failed to get the guest state header for thread 630: Bad address
+11-15 23:51:16.449  2245  2250 I m.android.phone: Background concurrent mark compact GC freed 1912KB AllocSpace bytes, 0(0B) LOS objects, 49% free, 2170KB/4340KB, paused 15.263ms,26.693ms total 607.206ms
+11-15 23:51:16.454  2518  2518 E crash_dump64: failed to get the guest state header for thread 631: Bad address
+11-15 23:51:16.466  2518  2518 E crash_dump64: failed to get the guest state header for thread 632: Bad address
+11-15 23:51:16.468  2518  2518 E crash_dump64: failed to get the guest state header for thread 633: Bad address
+11-15 23:51:16.495  2518  2518 E crash_dump64: failed to get the guest state header for thread 634: Bad address
+11-15 23:51:16.499  2518  2518 E crash_dump64: failed to get the guest state header for thread 640: Bad address
+11-15 23:51:16.530  2518  2518 E crash_dump64: failed to get the guest state header for thread 641: Bad address
+11-15 23:51:16.542  2518  2518 E crash_dump64: failed to get the guest state header for thread 642: Bad address
+11-15 23:51:16.545   599  1262 D ShortcutService: Saving package item com.google.android.apps.docs to /data/system_ce/0/shortcut_service/packages/com.google.android.apps.docs.xml
+11-15 23:51:16.571  2518  2518 E crash_dump64: failed to get the guest state header for thread 643: Bad address
+11-15 23:51:16.578  2518  2518 E crash_dump64: failed to get the guest state header for thread 644: Bad address
+11-15 23:51:16.586  2518  2518 E crash_dump64: failed to get the guest state header for thread 646: Bad address
+11-15 23:51:16.642  2518  2518 E crash_dump64: failed to get the guest state header for thread 647: Bad address
+11-15 23:51:16.645  2518  2518 E crash_dump64: failed to get the guest state header for thread 648: Bad address
+11-15 23:51:16.671  2518  2518 E crash_dump64: failed to get the guest state header for thread 649: Bad address
+11-15 23:51:16.678  2518  2518 E crash_dump64: failed to get the guest state header for thread 650: Bad address
+11-15 23:51:16.688  2518  2518 E crash_dump64: failed to get the guest state header for thread 651: Bad address
+11-15 23:51:16.699  2518  2518 E crash_dump64: failed to get the guest state header for thread 653: Bad address
+11-15 23:51:16.703  2518  2518 E crash_dump64: failed to get the guest state header for thread 654: Bad address
+11-15 23:51:16.710  2518  2518 E crash_dump64: failed to get the guest state header for thread 655: Bad address
+11-15 23:51:16.712  2518  2518 E crash_dump64: failed to get the guest state header for thread 656: Bad address
+11-15 23:51:16.719  2518  2518 E crash_dump64: failed to get the guest state header for thread 657: Bad address
+11-15 23:51:16.720  2518  2518 E crash_dump64: failed to get the guest state header for thread 658: Bad address
+11-15 23:51:16.727  2518  2518 E crash_dump64: failed to get the guest state header for thread 659: Bad address
+11-15 23:51:16.729  2518  2518 E crash_dump64: failed to get the guest state header for thread 660: Bad address
+11-15 23:51:16.740  2518  2518 E crash_dump64: failed to get the guest state header for thread 661: Bad address
+11-15 23:51:16.755  2518  2518 E crash_dump64: failed to get the guest state header for thread 662: Bad address
+11-15 23:51:16.762  2518  2518 E crash_dump64: failed to get the guest state header for thread 663: Bad address
+11-15 23:51:16.771  2518  2518 E crash_dump64: failed to get the guest state header for thread 668: Bad address
+11-15 23:51:16.782  2518  2518 E crash_dump64: failed to get the guest state header for thread 669: Bad address
+11-15 23:51:16.787  2518  2518 E crash_dump64: failed to get the guest state header for thread 670: Bad address
+11-15 23:51:16.798  2518  2518 E crash_dump64: failed to get the guest state header for thread 672: Bad address
+11-15 23:51:16.807  2518  2518 E crash_dump64: failed to get the guest state header for thread 874: Bad address
+11-15 23:51:16.809  2518  2518 E crash_dump64: failed to get the guest state header for thread 879: Bad address
+11-15 23:51:16.821  2518  2518 E crash_dump64: failed to get the guest state header for thread 880: Bad address
+11-15 23:51:16.831  2518  2518 E crash_dump64: failed to get the guest state header for thread 882: Bad address
+11-15 23:51:16.836  2518  2518 E crash_dump64: failed to get the guest state header for thread 893: Bad address
+11-15 23:51:16.843  2518  2518 E crash_dump64: failed to get the guest state header for thread 894: Bad address
+11-15 23:51:16.862  2518  2518 E crash_dump64: failed to get the guest state header for thread 895: Bad address
+11-15 23:51:16.864  2518  2518 E crash_dump64: failed to get the guest state header for thread 896: Bad address
+11-15 23:51:16.871  2518  2518 E crash_dump64: failed to get the guest state header for thread 898: Bad address
+11-15 23:51:16.872  2518  2518 E crash_dump64: failed to get the guest state header for thread 902: Bad address
+11-15 23:51:16.882  2518  2518 E crash_dump64: failed to get the guest state header for thread 903: Bad address
+11-15 23:51:16.889  2518  2518 E crash_dump64: failed to get the guest state header for thread 904: Bad address
+11-15 23:51:16.974  2518  2518 E crash_dump64: failed to get the guest state header for thread 905: Bad address
+11-15 23:51:16.976  2518  2518 E crash_dump64: failed to get the guest state header for thread 906: Bad address
+11-15 23:51:17.007  2518  2518 E crash_dump64: failed to get the guest state header for thread 907: Bad address
+11-15 23:51:17.094  2518  2518 E crash_dump64: failed to get the guest state header for thread 910: Bad address
+11-15 23:51:17.114  2518  2518 E crash_dump64: failed to get the guest state header for thread 911: Bad address
+11-15 23:51:17.148   599  1262 D ShortcutService: Saving package item com.google.android.apps.maps to /data/system_ce/0/shortcut_service/packages/com.google.android.apps.maps.xml
+11-15 23:51:17.394  2518  2518 E crash_dump64: failed to get the guest state header for thread 912: Bad address
+11-15 23:51:17.397  2518  2518 E crash_dump64: failed to get the guest state header for thread 913: Bad address
+11-15 23:51:17.402  2518  2518 E crash_dump64: failed to get the guest state header for thread 914: Bad address
+11-15 23:51:17.408  2518  2518 E crash_dump64: failed to get the guest state header for thread 915: Bad address
+11-15 23:51:17.418  2518  2518 E crash_dump64: failed to get the guest state header for thread 916: Bad address
+11-15 23:51:17.420  2518  2518 E crash_dump64: failed to get the guest state header for thread 917: Bad address
+11-15 23:51:17.430  2518  2518 E crash_dump64: failed to get the guest state header for thread 919: Bad address
+11-15 23:51:17.438  2518  2518 E crash_dump64: failed to get the guest state header for thread 920: Bad address
+11-15 23:51:17.446  2518  2518 E crash_dump64: failed to get the guest state header for thread 921: Bad address
+11-15 23:51:17.454  2518  2518 E crash_dump64: failed to get the guest state header for thread 922: Bad address
+11-15 23:51:17.457  2518  2518 E crash_dump64: failed to get the guest state header for thread 923: Bad address
+11-15 23:51:17.463  2518  2518 E crash_dump64: failed to get the guest state header for thread 924: Bad address
+11-15 23:51:17.464  2518  2518 E crash_dump64: failed to get the guest state header for thread 925: Bad address
+11-15 23:51:17.470   599  1262 D ShortcutService: Saving package item com.google.android.contacts to /data/system_ce/0/shortcut_service/packages/com.google.android.contacts.xml
+11-15 23:51:17.480  2518  2518 E crash_dump64: failed to get the guest state header for thread 926: Bad address
+11-15 23:51:17.499  2518  2518 E crash_dump64: failed to get the guest state header for thread 927: Bad address
+11-15 23:51:17.511  2518  2518 E crash_dump64: failed to get the guest state header for thread 929: Bad address
+11-15 23:51:17.518  2518  2518 E crash_dump64: failed to get the guest state header for thread 931: Bad address
+11-15 23:51:17.543  2518  2518 E crash_dump64: failed to get the guest state header for thread 932: Bad address
+11-15 23:51:17.550  2518  2518 E crash_dump64: failed to get the guest state header for thread 933: Bad address
+11-15 23:51:17.579  2518  2518 E crash_dump64: failed to get the guest state header for thread 934: Bad address
+11-15 23:51:17.591  2518  2518 E crash_dump64: failed to get the guest state header for thread 935: Bad address
+11-15 23:51:17.619  2518  2518 E crash_dump64: failed to get the guest state header for thread 936: Bad address
+11-15 23:51:17.630  2518  2518 E crash_dump64: failed to get the guest state header for thread 939: Bad address
+11-15 23:51:17.639  2518  2518 E crash_dump64: failed to get the guest state header for thread 959: Bad address
+11-15 23:51:17.658  2518  2518 E crash_dump64: failed to get the guest state header for thread 1195: Bad address
+11-15 23:51:17.660  2518  2518 E crash_dump64: failed to get the guest state header for thread 1196: Bad address
+11-15 23:51:17.670  2518  2518 E crash_dump64: failed to get the guest state header for thread 1199: Bad address
+11-15 23:51:17.682  2518  2518 E crash_dump64: failed to get the guest state header for thread 1200: Bad address
+11-15 23:51:17.687  2518  2518 E crash_dump64: failed to get the guest state header for thread 1201: Bad address
+11-15 23:51:17.689  2518  2518 E crash_dump64: failed to get the guest state header for thread 1202: Bad address
+11-15 23:51:17.719  2518  2518 E crash_dump64: failed to get the guest state header for thread 1205: Bad address
+11-15 23:51:17.723  2518  2518 E crash_dump64: failed to get the guest state header for thread 1206: Bad address
+11-15 23:51:17.731  2518  2518 E crash_dump64: failed to get the guest state header for thread 1207: Bad address
+11-15 23:51:17.733  2518  2518 E crash_dump64: failed to get the guest state header for thread 1208: Bad address
+11-15 23:51:17.743  2518  2518 E crash_dump64: failed to get the guest state header for thread 1210: Bad address
+11-15 23:51:17.744  2518  2518 E crash_dump64: failed to get the guest state header for thread 1212: Bad address
+11-15 23:51:17.774  2518  2518 E crash_dump64: failed to get the guest state header for thread 1213: Bad address
+11-15 23:51:17.794  2518  2518 E crash_dump64: failed to get the guest state header for thread 1214: Bad address
+11-15 23:51:17.804  2518  2518 E crash_dump64: failed to get the guest state header for thread 1215: Bad address
+11-15 23:51:17.818  2518  2518 E crash_dump64: failed to get the guest state header for thread 1216: Bad address
+11-15 23:51:17.821  2518  2518 E crash_dump64: failed to get the guest state header for thread 1217: Bad address
+11-15 23:51:17.831  2518  2518 E crash_dump64: failed to get the guest state header for thread 1218: Bad address
+11-15 23:51:17.833  2518  2518 E crash_dump64: failed to get the guest state header for thread 1219: Bad address
+11-15 23:51:17.847  2518  2518 E crash_dump64: failed to get the guest state header for thread 1220: Bad address
+11-15 23:51:17.849  2518  2518 E crash_dump64: failed to get the guest state header for thread 1221: Bad address
+11-15 23:51:17.863  2518  2518 E crash_dump64: failed to get the guest state header for thread 1222: Bad address
+11-15 23:51:17.883  2518  2518 E crash_dump64: failed to get the guest state header for thread 1223: Bad address
+11-15 23:51:17.898  2518  2518 E crash_dump64: failed to get the guest state header for thread 1224: Bad address
+11-15 23:51:17.908  2518  2518 E crash_dump64: failed to get the guest state header for thread 1225: Bad address
+11-15 23:51:17.919  2518  2518 E crash_dump64: failed to get the guest state header for thread 1228: Bad address
+11-15 23:51:17.926  2518  2518 E crash_dump64: failed to get the guest state header for thread 1229: Bad address
+11-15 23:51:17.939  2518  2518 E crash_dump64: failed to get the guest state header for thread 1230: Bad address
+11-15 23:51:17.955  2518  2518 E crash_dump64: failed to get the guest state header for thread 1231: Bad address
+11-15 23:51:17.957  2518  2518 E crash_dump64: failed to get the guest state header for thread 1232: Bad address
+11-15 23:51:17.971  2518  2518 E crash_dump64: failed to get the guest state header for thread 1233: Bad address
+11-15 23:51:17.976  2518  2518 E crash_dump64: failed to get the guest state header for thread 1234: Bad address
+11-15 23:51:17.994  2518  2518 E crash_dump64: failed to get the guest state header for thread 1235: Bad address
+11-15 23:51:18.010  2518  2518 E crash_dump64: failed to get the guest state header for thread 1236: Bad address
+11-15 23:51:18.013  2518  2518 E crash_dump64: failed to get the guest state header for thread 1238: Bad address
+11-15 23:51:18.041  2518  2518 E crash_dump64: failed to get the guest state header for thread 1241: Bad address
+11-15 23:51:18.057  2518  2518 E crash_dump64: failed to get the guest state header for thread 1242: Bad address
+11-15 23:51:18.076  2518  2518 E crash_dump64: failed to get the guest state header for thread 1243: Bad address
+11-15 23:51:18.087  2518  2518 E crash_dump64: failed to get the guest state header for thread 1244: Bad address
+11-15 23:51:18.089  2518  2518 E crash_dump64: failed to get the guest state header for thread 1246: Bad address
+11-15 23:51:18.113  2518  2518 E crash_dump64: failed to get the guest state header for thread 1247: Bad address
+11-15 23:51:18.127  2518  2518 E crash_dump64: failed to get the guest state header for thread 1251: Bad address
+11-15 23:51:18.133  2518  2518 E crash_dump64: failed to get the guest state header for thread 1252: Bad address
+11-15 23:51:18.136  2518  2518 E crash_dump64: failed to get the guest state header for thread 1253: Bad address
+11-15 23:51:18.142  2518  2518 E crash_dump64: failed to get the guest state header for thread 1254: Bad address
+11-15 23:51:18.163  2518  2518 E crash_dump64: failed to get the guest state header for thread 1256: Bad address
+11-15 23:51:18.171  2518  2518 E crash_dump64: failed to get the guest state header for thread 1262: Bad address
+11-15 23:51:18.187  2518  2518 E crash_dump64: failed to get the guest state header for thread 1263: Bad address
+11-15 23:51:18.194  2518  2518 E crash_dump64: failed to get the guest state header for thread 1264: Bad address
+11-15 23:51:18.196  2518  2518 E crash_dump64: failed to get the guest state header for thread 1267: Bad address
+11-15 23:51:18.206  2518  2518 E crash_dump64: failed to get the guest state header for thread 1272: Bad address
+11-15 23:51:18.208  2518  2518 E crash_dump64: failed to get the guest state header for thread 1274: Bad address
+11-15 23:51:18.214  2518  2518 E crash_dump64: failed to get the guest state header for thread 1275: Bad address
+11-15 23:51:18.239  2518  2518 E crash_dump64: failed to get the guest state header for thread 1276: Bad address
+11-15 23:51:18.255  2518  2518 E crash_dump64: failed to get the guest state header for thread 1277: Bad address
+11-15 23:51:18.278  2518  2518 E crash_dump64: failed to get the guest state header for thread 1278: Bad address
+11-15 23:51:18.281  2518  2518 E crash_dump64: failed to get the guest state header for thread 1279: Bad address
+11-15 23:51:18.288  2518  2518 E crash_dump64: failed to get the guest state header for thread 1281: Bad address
+11-15 23:51:18.346  2518  2518 E crash_dump64: failed to get the guest state header for thread 1282: Bad address
+11-15 23:51:18.362  2518  2518 E crash_dump64: failed to get the guest state header for thread 1286: Bad address
+11-15 23:51:18.365  2518  2518 E crash_dump64: failed to get the guest state header for thread 1288: Bad address
+11-15 23:51:18.394  2518  2518 E crash_dump64: failed to get the guest state header for thread 1289: Bad address
+11-15 23:51:18.408  2518  2518 E crash_dump64: failed to get the guest state header for thread 1295: Bad address
+11-15 23:51:18.446  2518  2518 E crash_dump64: failed to get the guest state header for thread 1297: Bad address
+11-15 23:51:18.487  2518  2518 E crash_dump64: failed to get the guest state header for thread 1298: Bad address
+11-15 23:51:18.514  2518  2518 E crash_dump64: failed to get the guest state header for thread 1302: Bad address
+11-15 23:51:18.517  2518  2518 E crash_dump64: failed to get the guest state header for thread 1303: Bad address
+11-15 23:51:18.523  2518  2518 E crash_dump64: failed to get the guest state header for thread 1304: Bad address
+11-15 23:51:18.530  2518  2518 E crash_dump64: failed to get the guest state header for thread 1310: Bad address
+11-15 23:51:18.546  2518  2518 E crash_dump64: failed to get the guest state header for thread 1385: Bad address
+11-15 23:51:18.557  2518  2518 E crash_dump64: failed to get the guest state header for thread 1456: Bad address
+11-15 23:51:18.571  2518  2518 E crash_dump64: failed to get the guest state header for thread 1461: Bad address
+11-15 23:51:18.578  2518  2518 E crash_dump64: failed to get the guest state header for thread 1492: Bad address
+11-15 23:51:18.580  2518  2518 E crash_dump64: failed to get the guest state header for thread 1514: Bad address
+11-15 23:51:18.594  2518  2518 E crash_dump64: failed to get the guest state header for thread 1520: Bad address
+11-15 23:51:18.596  2518  2518 E crash_dump64: failed to get the guest state header for thread 1521: Bad address
+11-15 23:51:18.599  2518  2518 E crash_dump64: failed to get the guest state header for thread 1522: Bad address
+11-15 23:51:18.603  2518  2518 E crash_dump64: failed to get the guest state header for thread 1537: Bad address
+11-15 23:51:18.614  2518  2518 E crash_dump64: failed to get the guest state header for thread 1538: Bad address
+11-15 23:51:18.619  2518  2518 E crash_dump64: failed to get the guest state header for thread 1548: Bad address
+11-15 23:51:18.624  2518  2518 E crash_dump64: failed to get the guest state header for thread 1567: Bad address
+11-15 23:51:18.646  2518  2518 E crash_dump64: failed to get the guest state header for thread 1654: Bad address
+11-15 23:51:18.659  2518  2518 E crash_dump64: failed to get the guest state header for thread 1656: Bad address
+11-15 23:51:18.671  2518  2518 E crash_dump64: failed to get the guest state header for thread 1660: Bad address
+11-15 23:51:18.673  2518  2518 E crash_dump64: failed to get the guest state header for thread 1661: Bad address
+11-15 23:51:18.679  2518  2518 E crash_dump64: failed to get the guest state header for thread 1664: Bad address
+11-15 23:51:18.680  2167  2171 W earchbox:search: Suspending all threads took: 147.332ms
+11-15 23:51:18.687  2518  2518 E crash_dump64: failed to get the guest state header for thread 1665: Bad address
+11-15 23:51:18.699  2518  2518 E crash_dump64: failed to get the guest state header for thread 1687: Bad address
+11-15 23:51:18.710  2518  2518 E crash_dump64: failed to get the guest state header for thread 1749: Bad address
+11-15 23:51:18.719  2518  2518 E crash_dump64: failed to get the guest state header for thread 1755: Bad address
+11-15 23:51:18.726  2518  2518 E crash_dump64: failed to get the guest state header for thread 1780: Bad address
+11-15 23:51:18.746  2518  2518 E crash_dump64: failed to get the guest state header for thread 1786: Bad address
+11-15 23:51:18.748  2518  2518 E crash_dump64: failed to get the guest state header for thread 1787: Bad address
+11-15 23:51:18.755  2518  2518 E crash_dump64: failed to get the guest state header for thread 1903: Bad address
+11-15 23:51:18.766  2518  2518 E crash_dump64: failed to get the guest state header for thread 1917: Bad address
+11-15 23:51:18.790  2518  2518 E crash_dump64: failed to get the guest state header for thread 1925: Bad address
+11-15 23:51:18.814  2518  2518 E crash_dump64: failed to get the guest state header for thread 1953: Bad address
+11-15 23:51:18.834  2518  2518 E crash_dump64: failed to get the guest state header for thread 1954: Bad address
+11-15 23:51:18.850  2518  2518 E crash_dump64: failed to get the guest state header for thread 2001: Bad address
+11-15 23:51:18.856  2518  2518 E crash_dump64: failed to get the guest state header for thread 2022: Bad address
+11-15 23:51:18.866  2518  2518 E crash_dump64: failed to get the guest state header for thread 2023: Bad address
+11-15 23:51:18.874  2518  2518 E crash_dump64: failed to get the guest state header for thread 2027: Bad address
+11-15 23:51:18.882  2518  2518 E crash_dump64: failed to get the guest state header for thread 2030: Bad address
+11-15 23:51:18.883  2518  2518 E crash_dump64: failed to get the guest state header for thread 2032: Bad address
+11-15 23:51:18.922  2518  2518 E crash_dump64: failed to get the guest state header for thread 2033: Bad address
+11-15 23:51:18.942  2518  2518 E crash_dump64: failed to get the guest state header for thread 2034: Bad address
+11-15 23:51:18.950  2518  2518 E crash_dump64: failed to get the guest state header for thread 2040: Bad address
+11-15 23:51:18.958  2518  2518 E crash_dump64: failed to get the guest state header for thread 2041: Bad address
+11-15 23:51:18.975  2518  2518 E crash_dump64: failed to get the guest state header for thread 2042: Bad address
+11-15 23:51:18.982  2518  2518 E crash_dump64: failed to get the guest state header for thread 2052: Bad address
+11-15 23:51:19.016  2518  2518 E crash_dump64: failed to get the guest state header for thread 2060: Bad address
+11-15 23:51:19.023  2518  2518 E crash_dump64: failed to get the guest state header for thread 2061: Bad address
+11-15 23:51:19.040  2518  2518 E crash_dump64: failed to get the guest state header for thread 2202: Bad address
+11-15 23:51:19.055  2518  2518 E crash_dump64: failed to get the guest state header for thread 2230: Bad address
+11-15 23:51:19.057  2518  2518 E crash_dump64: failed to get the guest state header for thread 2235: Bad address
+11-15 23:51:19.072  2518  2518 E crash_dump64: failed to get the guest state header for thread 2236: Bad address
+11-15 23:51:19.078  2518  2518 E crash_dump64: failed to get the guest state header for thread 2257: Bad address
+11-15 23:51:19.087  2518  2518 E crash_dump64: failed to get the guest state header for thread 2259: Bad address
+11-15 23:51:19.094  2518  2518 E crash_dump64: failed to get the guest state header for thread 2288: Bad address
+11-15 23:51:19.099  2518  2518 E crash_dump64: failed to get the guest state header for thread 2290: Bad address
+11-15 23:51:19.104  2518  2518 E crash_dump64: failed to get the guest state header for thread 2304: Bad address
+11-15 23:51:19.124  2518  2518 E crash_dump64: failed to get the guest state header for thread 2322: Bad address
+11-15 23:51:19.135  2518  2518 E crash_dump64: failed to get the guest state header for thread 2323: Bad address
+11-15 23:51:19.155  2518  2518 E crash_dump64: failed to get the guest state header for thread 2324: Bad address
+11-15 23:51:19.159  2518  2518 E crash_dump64: failed to get the guest state header for thread 2354: Bad address
+11-15 23:51:19.178  2518  2518 E crash_dump64: failed to get the guest state header for thread 2393: Bad address
+11-15 23:51:19.181  2518  2518 E crash_dump64: failed to get the guest state header for thread 2517: Bad address
+11-15 23:51:19.614   599  1262 D ShortcutService: Saving package item com.android.chrome to /data/system_ce/0/shortcut_service/packages/com.android.chrome.xml
+11-15 23:51:19.647  2518  2518 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdNativeBacktrace
+11-15 23:51:19.689   206   206 I tombstoned: received crash request for pid 599
+11-15 23:51:19.699   206   206 E tombstoned: failed to get crash output for type kDebuggerdNativeBacktrace
+11-15 23:51:19.703  2518  2518 E libc    : failed to read response to DumpRequest packet: No message of desired type
+11-15 23:51:19.705  2518  2518 I crash_dump64: performing dump of process 599 (target tid = 599)
+11-15 23:51:19.782   599   936 E StorageManagerService: Failed to notify volume state changed to the Storage Service
+11-15 23:51:19.782   599   936 E StorageManagerService: com.android.server.storage.StorageSessionController$ExternalStorageServiceException: Failed to notify volume state changed for vol : StorageVolume: Internal shared storage
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at com.android.server.storage.StorageUserConnection$ActiveConnection.notifyVolumeStateChanged(StorageUserConnection.java:420)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at com.android.server.storage.StorageUserConnection.notifyVolumeStateChanged(StorageUserConnection.java:131)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at com.android.server.storage.StorageSessionController.notifyVolumeStateChanged(StorageSessionController.java:159)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at com.android.server.StorageManagerService.onVolumeStateChangedAsync(StorageManagerService.java:1776)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at com.android.server.StorageManagerService.-$$Nest$monVolumeStateChangedAsync(StorageManagerService.java:0)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at com.android.server.StorageManagerService$StorageManagerServiceHandler.handleMessage(StorageManagerService.java:823)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at android.os.Looper.loop(Looper.java:317)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-15 23:51:19.782   599   936 E StorageManagerService: Caused by: java.util.concurrent.TimeoutException
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1936)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2071)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at com.android.server.storage.StorageUserConnection$ActiveConnection.waitForAsync(StorageUserConnection.java:379)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at com.android.server.storage.StorageUserConnection$ActiveConnection.waitForAsyncVoid(StorageUserConnection.java:358)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	at com.android.server.storage.StorageUserConnection$ActiveConnection.notifyVolumeStateChanged(StorageUserConnection.java:417)
+11-15 23:51:19.782   599   936 E StorageManagerService: 	... 9 more
+11-15 23:51:19.866   599   634 W ActivityManager: Native stack dump failed!
+11-15 23:51:19.872   599   634 E ActivityManager: Aborting stack trace dump (current firstPid=599); deadline exceeded.
+11-15 23:51:19.907   599   936 D StorageManagerService: Thinking about reset, mBootCompleted=true, mDaemonConnected=true
+11-15 23:51:19.913   599   936 I Watchdog: Pausing of HandlerChecker: monitor thread for reason: #onReset might be slow. Pause end time: 760803
+11-15 23:51:19.930   599   936 I StorageSessionController: Started resetting external storage service...
+11-15 23:51:19.931   599   936 I StorageSessionController: Unmounting emulated;0
+11-15 23:51:19.933   152   152 W vold    : emulated;0 unmount requires state mounted
+11-15 23:51:19.941  2086  2086 W ChimeraCfgMgr: Failed to read module config: java.io.FileNotFoundException: /data/user_de/0/com.google.android.gms/app_chimera/current_config.fb: open failed: ENOENT (No such file or directory)
+11-15 23:51:20.122   599  1205 I ApplicationQosPolicyRequestHandler: Queueing all policies on iface=wlan0. numPolicies=0
+11-15 23:51:20.122   599  1205 I ApplicationQosPolicyRequestHandler: 0 policies contain QosCharacteristics
+11-15 23:51:20.148  1308  1487 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@aed7989
+11-15 23:51:20.154   599   599 W Looper  : Slow dispatch took 5975ms main h=com.android.server.alarm.AlarmManagerService$AlarmHandler c=null m=5
+11-15 23:51:20.194   599  1514 W system_server: Long monitor contention with owner binder:599_D (2022) at int com.android.server.wm.WindowManagerService.relayoutWindowInner(com.android.server.wm.Session, android.view.IWindow, android.view.WindowManager$LayoutParams, int, int, int, int, int, int, android.window.ClientWindowFrames, android.util.MergedConfiguration, android.view.SurfaceControl, android.view.InsetsState, android.view.InsetsSourceControl$Array, android.os.Bundle, android.view.WindowRelayoutResult)(WindowManagerService.java:2736) waiters=0 in void com.android.server.wm.ActivityTaskManagerService$LocalService.onProcessAdded(com.android.server.wm.WindowProcessController) for 6.103s
+11-15 23:51:20.198   599   936 E StorageSessionController: Failed to unmount volume: emulated;0
+11-15 23:51:20.198   599   936 E StorageSessionController: android.os.ServiceSpecificException:  (code -16)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3256)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at android.os.Parcel.createException(Parcel.java:3226)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at android.os.Parcel.readException(Parcel.java:3209)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at android.os.Parcel.readException(Parcel.java:3151)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at android.os.IVold$Stub$Proxy.unmount(IVold.java:1689)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at com.android.server.storage.StorageSessionController.onReset(StorageSessionController.java:325)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at com.android.server.StorageManagerService.resetIfBootedAndConnected(StorageManagerService.java:1086)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at com.android.server.StorageManagerService.-$$Nest$mresetIfBootedAndConnected(StorageManagerService.java:0)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at com.android.server.StorageManagerService$StorageManagerServiceHandler.handleMessage(StorageManagerService.java:804)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at android.os.Looper.loopOnce(Looper.java:232)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at android.os.Looper.loop(Looper.java:317)
+11-15 23:51:20.198   599   936 E StorageSessionController: 	at android.os.HandlerThread.run(HandlerThread.java:85)
+11-15 23:51:20.210   599   936 I StorageSessionController: Exiting emulated;0
+11-15 23:51:20.211   599   936 I StorageUserConnection: Waiting for session end [SessionId: emulated;0. UpperPath: /storage/emulated. LowerPath: /data/media] ...
+11-15 23:51:20.215   599  2032 D CoreBackPreview: Window{157ea6b u0 Splash Screen net.kulthx.nizarcrash3recomp}: Setting back callback null
+11-15 23:51:20.220   599  1514 W ActivityManager: Slow operation: 6742ms so far, now at startProcess: done creating new process record
+11-15 23:51:20.221   599  1514 W ActivityManager: Slow operation: 6743ms so far, now at startProcess: stepping in to startProcess
+11-15 23:51:20.256   599  2022 W InputManager-JNI: Input channel object '157ea6b Splash Screen net.kulthx.nizarcrash3recomp (client)' was disposed without first being removed with the input manager!
+11-15 23:51:20.292  1308  1487 I Choreographer: Skipped 383 frames!  The application may be doing too much work on its main thread.
+11-15 23:51:20.312   599  2030 W system_server: Long monitor contention with owner binder:599_8 (1514) at void com.android.server.am.ProcessList.addProcessNameLocked(com.android.server.am.ProcessRecord)(ProcessList.java:3285) waiters=0 in android.content.Intent com.android.server.am.ActivityManagerService.registerReceiverWithFeatureTraced(android.app.IApplicationThread, java.lang.String, java.lang.String, java.lang.String, android.content.IIntentReceiver, android.content.IntentFilter, java.lang.String, int, int) for 5.293s
+11-15 23:51:20.340   599  1514 W ActivityManager: Slow operation: 119ms so far, now at startProcess: building args
+11-15 23:51:20.423   599   599 W Looper  : Slow dispatch took 169ms main h=com.android.server.alarm.AlarmManagerService$AlarmHandler c=null m=5
+11-15 23:51:20.491   599  1514 W ActivityManager: Slow operation: 7014ms so far, now at startProcess: done starting proc!
+11-15 23:51:20.493   599  1514 W ContentProviderHelper: Slow operation: 7025ms so far, now at getContentProviderImpl: after start process
+11-15 23:51:20.507   599  1514 W ContentProviderHelper: Slow operation: 7040ms so far, now at getContentProviderImpl: updating data structures
+11-15 23:51:20.509   599  1514 W ContentProviderHelper: Slow operation: 7041ms so far, now at getContentProviderImpl: done!
+11-15 23:51:20.563   599   623 D OomAdjuster: Not killing cached processes
+11-15 23:51:20.682   599   599 W Looper  : Slow dispatch took 169ms main h=com.android.server.notification.NotificationManagerService$WorkerHandler c=com.android.server.notification.NotificationManagerService$EnqueueNotificationRunnable@dff0ecd m=0
+11-15 23:51:20.708   599   643 W ActivityManager: Slow operation: 16046ms so far, now at startProcess: done updating battery stats
+11-15 23:51:20.769   599   643 W ActivityManager: Slow operation: 16094ms so far, now at startProcess: building log message
+11-15 23:51:20.778   599   643 I ActivityManager: Start proc 2503:com.google.android.bluetooth/1002 for service {com.google.android.bluetooth/com.android.bluetooth.btservice.AdapterService}
+11-15 23:51:20.778   599   643 W ActivityManager: Slow operation: 16117ms so far, now at startProcess: starting to update pids map
+11-15 23:51:20.842   599   643 W ActivityManager: Slow operation: 16181ms so far, now at startProcess: done updating pids map
+11-15 23:51:20.843   599   643 W ActivityManager: Slow operation: 622ms so far, now at startProcess: asking zygote to start proc
+11-15 23:51:21.083   357   357 D Zygote  : Forked child process 2527
+11-15 23:51:21.090   599   643 W ActivityManager: Slow operation: 869ms so far, now at startProcess: returned from zygote!
+11-15 23:51:21.098   599   643 W ActivityManager: Slow operation: 878ms so far, now at startProcess: done updating battery stats
+11-15 23:51:21.110   599   643 W ActivityManager: Slow operation: 889ms so far, now at startProcess: building log message
+11-15 23:51:21.110   599   643 I ActivityManager: Start proc 2527:android.process.media/u0a95 for content provider {com.android.providers.media/com.android.providers.media.LegacyMediaProvider}
+11-15 23:51:21.110   599   643 W ActivityManager: Slow operation: 890ms so far, now at startProcess: starting to update pids map
+11-15 23:51:21.141  2086  2086 I GmsModuleFndr: Beginning GMS chimera module scan
+11-15 23:51:21.146   599   643 W ActivityManager: Slow operation: 925ms so far, now at startProcess: done updating pids map
+11-15 23:51:21.224   599  2001 E ActivityManager: ANR in system
+11-15 23:51:21.224   599  2001 E ActivityManager: PID: 599
+11-15 23:51:21.224   599  2001 E ActivityManager: Reason: Broadcast of Intent { act=android.intent.action.USER_STARTING flg=0x40000010 cmp=android/com.android.server.locksettings.LockSettingsService$2 (has extras) }
+11-15 23:51:21.224   599  2001 E ActivityManager: ErrorId: 17271526-624f-4218-bec4-bfe2784807f1
+11-15 23:51:21.224   599  2001 E ActivityManager: Frozen: false
+11-15 23:51:21.224   599  2001 E ActivityManager: Load: 24.06 / 13.42 / 6.3
+11-15 23:51:21.224   599  2001 E ActivityManager: ----- Output from /proc/pressure/memory -----
+11-15 23:51:21.224   599  2001 E ActivityManager: some avg10=7.23 avg60=8.63 avg300=3.41 total=14213488
+11-15 23:51:21.224   599  2001 E ActivityManager: full avg10=0.16 avg60=0.31 avg300=0.15 total=1589476
+11-15 23:51:21.224   599  2001 E ActivityManager: ----- End output from /proc/pressure/memory -----
+11-15 23:51:21.224   599  2001 E ActivityManager: ----- Output from /proc/pressure/cpu -----
+11-15 23:51:21.224   599  2001 E ActivityManager: some avg10=82.89 avg60=81.45 avg300=67.32 total=452159978
+11-15 23:51:21.224   599  2001 E ActivityManager: full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+11-15 23:51:21.224   599  2001 E ActivityManager: ----- End output from /proc/pressure/cpu -----
+11-15 23:51:21.224   599  2001 E ActivityManager: ----- Output from /proc/pressure/io -----
+11-15 23:51:21.224   599  2001 E ActivityManager: some avg10=3.01 avg60=4.03 avg300=3.52 total=34424701
+11-15 23:51:21.224   599  2001 E ActivityManager: full avg10=0.00 avg60=0.00 avg300=0.13 total=3832604
+11-15 23:51:21.224   599  2001 E ActivityManager: ----- End output from /proc/pressure/io -----
+11-15 23:51:21.224   599  2001 E ActivityManager: 
+11-15 23:51:21.224   599  2001 E ActivityManager: CPU usage from 9ms to 45564ms later (2026-11-15 23:50:16.072 to 2026-11-15 23:51:01.627):
+11-15 23:51:21.224   599  2001 E ActivityManager:   45% 599/system_server: 17% user + 27% kernel / faults: 10726 minor 26 major
+11-15 23:51:21.224   599  2001 E ActivityManager:   14% 1678/com.google.android.apps.nexuslauncher: 6.7% user + 7.9% kernel / faults: 10720 minor 18 major
+11-15 23:51:21.224   599  2001 E ActivityManager:   12% 1308/com.android.systemui: 5.2% user + 6.7% kernel / faults: 7935 minor 3 major
+11-15 23:51:21.224   599  2001 E ActivityManager:   9.4% 2086/com.google.android.gms: 4.1% user + 5.2% kernel / faults: 3941 minor 1 major
+11-15 23:51:21.224   599  2001 E ActivityManager:   9.3% 2167/com.google.android.googlequicksearchbox:search: 4.1% user + 5.1% kernel / faults: 4217 minor 75 major
+11-15 23:51:21.224   599  2001 E ActivityManager:   7.6% 2245/com.android.phone: 4.3% user + 3.2% kernel / faults: 3802 minor
+11-15 23:51:21.224   599  2001 E ActivityManager:   5.7% 427/surfaceflinger: 2.4% user + 3.2% kernel / faults: 136 minor
+11-15 23:51:21.224   599  2001 E ActivityManager:   4.3% 375/android.hardware.sensors-service.multihal: 1.3% user + 3% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:   3.9% 383/android.hardware.graphics.composer3-service.ranchu: 1% user + 2.9% kernel / faults: 4 minor
+11-15 23:51:21.224   599  2001 E ActivityManager:   3.4% 138/logd: 0.7% user + 2.6% kernel / faults: 725 minor
+11-15 23:51:21.224   599  2001 E ActivityManager: 100% TOTAL: 34% user + 59% kernel + 3.8% irq + 2% softirq
+11-15 23:51:21.224   599  2001 E ActivityManager: CPU usage from 3410ms to 25939ms later (2026-11-15 23:50:19.474 to 2026-11-15 23:50:42.002):
+11-15 23:51:21.224   599  2001 E ActivityManager:   49% 599/system_server: 20% user + 28% kernel / faults: 2420 minor 10 major
+11-15 23:51:21.224   599  2001 E ActivityManager:     5.9% 634/watchdog: 1.7% user + 4.2% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     5.8% 2004/AnrAuxiliaryTas: 1.5% user + 4.3% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     3.1% 631/android.display: 1.5% user + 1.5% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     2.8% 927/NetworkWatchlis: 1.6% user + 1.2% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     2.8% 1205/WifiHandlerThre: 1.5% user + 1.3% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     2.2% 670/PackageManager: 1.3% user + 0.8% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     2% 618/HeapTaskDaemon: 0.8% user + 1.2% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     1.9% 2027/binder:599_F: 0.8% user + 1% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     1.8% 1385/binder:599_6: 0.7% user + 1% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     1.7% 2022/binder:599_D: 0.8% user + 0.8% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     1.5% 599/system_server: 0.8% user + 0.6% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     1.2% 629/android.ui: 0.3% user + 0.8% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     1% 628/android.fg: 0.4% user + 0.6% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     1% 630/android.io: 0.2% user + 0.7% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.9% 932/android.imms2: 0.3% user + 0.5% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.9% 1262/shortcut: 0.2% user + 0.6% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.8% 642/ActivityManager: 0.3% user + 0.5% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.8% 2060/binder:599_18: 0.3% user + 0.5% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.8% 2259/binder:599_1B: 0.3% user + 0.5% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.7% 907/SettingsProvide: 0.4% user + 0.3% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.7% 1456/binder:599_7: 0.3% user + 0.4% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.6% 623/binder:599_2: 0.3% user + 0.2% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.6% 898/eduling.default: 0.2% user + 0.3% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.5% 668/PackageManagerB: 0.1% user + 0.3% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.5% 896/SensorService: 0.3% user + 0.1% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.5% 1310/AsyncTask #1: 0.2% user + 0.2% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.5% 1917/binder:599_C: 0.1% user + 0.3% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.5% 2033/binder:599_12: 0.1% user + 0.3% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.4% 615/system_server: 0% user + 0.4% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.4% 632/android.anim: 0.1% user + 0.2% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.4% 879/binder:599_4: 0.2% user + 0.2% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.3% 2052/binder:599_17: 0.1% user + 0.2% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.2% 649/OomAdjuster: 0% user + 0.1% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.2% 650/batterystats-ha: 0% user + 0.1% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.1% 617/Jit thread pool: 0% user + 0.1% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.1% 643/ActivityManager: 0% user + 0% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.1% 882/OverlayManager: 0% user + 0% kernel
+11-15 23:51:21.224   599  2001 E ActivityManager:     0.1% 894/roid.usagestats: 0% user + 0.1% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.1% 1548/MobileDataStats: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 647/ActivityManager: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 653/bgres-controlle: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 654/FileObserver: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 656/CriticalEventLo: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 874/PackageInstalle: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 895/SensorEventAckR: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 906/AccountManagerS: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 936/StorageManagerS: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1202/tworkPolicy.uid: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1263/BackgroundInsta: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1514/binder:599_8: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1954/pool-60-thread-: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2393/pool-288-thread: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2411/SharedPreferenc: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2412/AnrMainProcessD: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:   12% 1678/com.google.android.apps.nexuslauncher: 6% user + 6.8% kernel / faults: 2079 minor 7 major
+11-15 23:51:21.225   599  2001 E ActivityManager:     8.2% 1678/s.nexuslauncher: 4% user + 4.1% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     2.2% 1682/Jit thread pool: 1% user + 1.2% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.8% 1683/HeapTaskDaemon: 0.2% user + 0.5% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.1% 2319/RenderThread: 0% user + 0.1% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.1% 2283/queued-work-loo: 0% user + 0.1% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1685/FinalizerDaemon: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1688/binder:1678_1: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1743/launcher-loader: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 2079/binder:1678_4: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2398/pool-3-thread-1: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2451/equicksearchbox: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2453/OSEManager: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2454/pool-3-thread-2: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2455/ViewPool-init: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2456/ViewPool-init: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2457/ViewPool-init: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2463/binder:1678_5: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:   10% 1308/com.android.systemui: 4.5% user + 5.8% kernel / faults: 1783 minor 1 major
+11-15 23:51:21.225   599  2001 E ActivityManager:     3.8% 1311/Signal Catcher: 1.6% user + 2.2% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     1.7% 1308/ndroid.systemui: 0.9% user + 0.8% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     1.2% 1316/HeapTaskDaemon: 0.5% user + 0.6% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.8% 1315/Jit thread pool: 0.5% user + 0.2% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.4% 1433/wmshell.main: 0% user + 0.3% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.2% 1497/SysUiBg: 0% user + 0.2% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.2% 1513/binder:1308_4: 0% user + 0.1% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.1% 1502/SystemUIBg-1: 0% user + 0.1% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.1% 1505/SystemUIBg-2: 0.1% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.1% 1396/binder:1308_3: 0% user + 0.1% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.1% 1620/binder:1308_5: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.1% 2082/binder:1308_6: 0% user + 0.1% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1333/binder:1308_2: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1490/android.bg: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1500/BroadcastRunnin: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1529/queued-work-loo: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1569/WifiPickerTrack: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1674/ScreenDecoratio: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1944/WifiPickerTrack: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0% 1976/NotifInflation: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2379/binder:1308_7: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2415/binder:1308_8: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2447/binder:1308_9: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2449/SharedPreferenc: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:   9.7% 2269/com.google.android.providers.media.module: 3.6% user + 6.1% kernel / faults: 1578 minor 1 major
+11-15 23:51:21.225   599  2001 E ActivityManager:     3% 2269/rs.media.module: 1.2% user + 1.8% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     2.7% 2270/Signal Catcher: 0.6% user + 2% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.4% 2276/HeapTaskDaemon: 0.1% user + 0.3% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2434/WM.task-1: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2445/fg: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2466/CCodecWatchdog: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2467/CodecLooper: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2468/CodecLooper: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2469/HwBinder:2269_1: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:    +0% 2472/WM.task-2: 0% user + 0% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:   7.3% 2245/com.android.phone: 3.3% user + 4% kernel / faults: 1288 minor
+11-15 23:51:21.225   599  2001 E ActivityManager:     3.9% 2245/m.android.phone: 2.1% user + 1.8% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     2.4% 2247/Signal Catcher: 0.8% user + 1.5% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.5% 2250/HeapTaskDaemon: 0.1% user + 0.3% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:     0.1% 2249/Jit thread pool: 0% user + 0.1% kernel
+11-15 23:51:21.225   599  2001 E ActivityManager:   7.2% 2167/com.google.android.googlequicksearchbox:search: 2.6% user + 4.5% kernel / faults: 502 minor 3 major
+11-15 23:51:21.225   599  2001 E ActivityManager:     3% 2167/earchbox:search: 1.2% user + 1.8% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     1% 2330/Primes-1: 0.6% user + 0.4% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.8% 2381/Blocking Thread: 0.2% user + 0.6% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.4% 2171/HeapTaskDaemon: 0% user + 0.3% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.4% 2332/Primes-2: 0.2% user + 0.1% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.4% 2385/BG Thread #0: 0% user + 0.3% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.2% 2291/GoogleApiHandle: 0% user + 0.2% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.1% 2170/Jit thread pool: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.1% 2376/Blocking Thread: 0% user + 0.1% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 2374/Lite Thread #0: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 2383/Blocking Thread: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:    +0% 2427/BG Thread #1: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:    +0% 2442/Blocking Thread: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   6.8% 2086/com.google.android.gms: 2.4% user + 4.4% kernel / faults: 626 minor 1 major
+11-15 23:51:21.227   599  2001 E ActivityManager:     6% 2086/gle.android.gms: 2% user + 3.9% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.8% 2100/HeapTaskDaemon: 0.3% user + 0.4% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 2098/Jit thread pool: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   4.8% 138/logd: 1.3% user + 3.5% kernel / faults: 647 minor
+11-15 23:51:21.227   599  2001 E ActivityManager:     2.5% 170/logd.writer: 0.5% user + 1.9% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     1.7% 464/logd.reader.per: 0.3% user + 1.3% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.6% 174/logd.control: 0.3% user + 0.2% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 176/logd.auditd: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   5.6% 427/surfaceflinger: 2.6% user + 2.9% kernel / faults: 45 minor
+11-15 23:51:21.227   599  2001 E ActivityManager:     1.1% 427/surfaceflinger: 0.6% user + 0.4% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     1.1% 513/binder:427_4: 0.6% user + 0.4% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.9% 514/binder:427_5: 0.2% user + 0.6% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.8% 471/binder:427_1: 0.6% user + 0.2% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.6% 473/binder:427_2: 0.1% user + 0.4% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.2% 512/BckgrndExec HP: 0% user + 0.1% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.1% 475/binder:427_3: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.1% 501/TimerDispatch: 0% user + 0.1% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 480/surfaceflinger: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 505/appSf: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 507/RegSampIdle: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 509/surfaceflinger: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   4.5% 375/android.hardware.sensors-service.multihal: 1.5% user + 3% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     3.8% 385/android.hardwar: 1.2% user + 2.5% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.6% 386/android.hardwar: 0.2% user + 0.3% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   4.1% 1173/kworker/u4:1-events_unbound: 0% user + 4.1% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   3.9% 460/logcat: 0.8% user + 3.1% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   3.5% 383/android.hardware.graphics.composer3-service.ranchu: 0.8% user + 2.7% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     3.1% 490/_thread: 0.4% user + 2.7% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.4% 425/binder:383_1: 0.2% user + 0.1% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   1.7% 1280/kworker/1:0-virtio_vsock: 0% user + 1.7% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   1.5% 1058/kworker/1:0H-kblockd: 0% user + 1.5% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   1.2% 214/kworker/u4:3-loop41: 0% user + 1.2% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   1% 161/android.system.suspend-service: 0.2% user + 0.8% kernel / faults: 5 minor
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.5% 167/binder:161_2: 0.1% user + 0.4% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.1% 549/binder:161_4: 0% user + 0.1% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:    +0% 2328/binder:161_5: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.8% 16/rcu_preempt: 0% user + 0.8% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.9% 432/adbd: 0.2% user + 0.7% kernel / faults: 1489 minor
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.8% 432/adbd: 0.2% user + 0.6% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 442/adbd: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 454/adbd: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:    +0% 2404/shell svc 2403: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.8% 1790/com.google.android.ext.services: 0.2% user + 0.5% kernel / faults: 385 minor
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.4% 1790/id.ext.services: 0.1% user + 0.2% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.2% 1807/Jit thread pool: 0% user + 0.2% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.1% 1829/binder:1790_3: 0.1% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.6% 140/servicemanager: 0.2% user + 0.4% kernel / faults: 40 minor
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.7% 355/statsd: 0.1% user + 0.6% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.6% 361/statsd.writer: 0.1% user + 0.4% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.1% 362/statsd.reader: 0% user + 0.1% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.6% 199/jbd2/dm-46-8: 0% user + 0.6% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.4% 1/init: 0.1% user + 0.3% kernel / faults: 62 minor
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.3% 1/init: 0.1% user + 0.2% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0% 78/init: 0% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.4% 43/kswapd0: 0% user + 0.4% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.6% 470/installd: 0.2% user + 0.4% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.5% 494/binder:470_1: 0.2% user + 0.3% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.6% 2239/wpa_supplicant: 0.2% user + 0.4% kernel / faults: 3 minor 1 major
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.4% 141/hwservicemanager: 0.2% user + 0.2% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:   0.5% 1472/com.android.networkstack.process: 0.2% user + 0.2% kernel / faults: 48 minor
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.1% 1926/pool-2-thread-1: 0.1% user + 0% kernel
+11-15 23:51:21.227   599  2001 E ActivityManager:     0.1% 1472/rkstack.process: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0.1% 1516/droid.tethering: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0.1% 2294/IpClient.wlan0: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0% 1489/binder:1472_3: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.2% 26/ksoftirqd/1: 0% user + 0.2% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.2% 139/lmkd: 0.1% user + 0.1% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0.3% 139/lmkd: 0.1% user + 0.1% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.3% 357/zygote64: 0% user + 0.3% kernel / faults: 44 minor
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.3% 2003/com.google.android.bluetooth: 0% user + 0.2% kernel / faults: 63 minor
+11-15 23:51:21.228   599  2001 E ActivityManager:     0.1% 2009/Jit thread pool: 0% user + 0.1% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.2% 371/android.hardware.graphics.allocator@3.0-service.ranchu: 0% user + 0.1% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0.2% 371/allocator@3.0-s: 0% user + 0.1% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.1% 206/tombstoned: 0.1% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.2% 416/audioserver: 0% user + 0.1% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0.1% 878/binder:416_3: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.2% 491/gatekeeperd: 0% user + 0.1% kernel / faults: 1 minor
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.1% 1594/com.android.settings: 0% user + 0.1% kernel / faults: 2 minor 146 major
+11-15 23:51:21.228   599  2001 E ActivityManager:     0.1% 1594/ndroid.settings: 0% user + 0.1% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0% 1609/binder:1594_1: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 8/kworker/0:1-virtio_vsock: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 15/ksoftirqd/0: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.1% 356/netd: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0.1% 356/binder:356_4: 0.1% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.1% 1955/com.android.printspooler: 0% user + 0% kernel / faults: 40 minor
+11-15 23:51:21.228   599  2001 E ActivityManager:     0% 1955/id.printspooler: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0.1% 1975/com.android.emulator.multidisplay: 0% user + 0% kernel / faults: 32 minor
+11-15 23:51:21.228   599  2001 E ActivityManager:     0.1% 1975/or.multidisplay: 0.1% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0% 1987/binder:1975_2: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 17/rcub/0: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 20/migration/0: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 144/psimon: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 370/ip6tables-restore: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 373/android.hardware.health-service.example: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 380/android.hardware.wifi-service: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 448/mdnsd: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 450/drmserver: 0% user + 0% kernel / faults: 14 minor
+11-15 23:51:21.228   599  2001 E ActivityManager:     0% 450/drmserver: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 484/storaged: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0.1% 542/storaged: 0% user + 0.1% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 1165/kworker/0:0H-kverityd: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 1261/android.hardware.biometrics.fingerprint-service.ranchu: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0% 1268/binder:1261_2: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 1368/com.google.android.permissioncontroller: 0% user + 0% kernel / faults: 17 minor
+11-15 23:51:21.228   599  2001 E ActivityManager:     0% 1368/ssioncontroller: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0% 1511/binder:1368_4: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:   0% 2258/com.android.localtransport: 0% user + 0% kernel / faults: 34 minor
+11-15 23:51:21.228   599  2001 E ActivityManager:     0% 2258/.localtransport: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:     0% 2275/binder:2258_2: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:  +0% 2293/com.google.android.apps.wellbeing: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:  +0% 2310/com.google.android.gms.persistent: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:  +0% 2336/com.android.keychain: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:  +0% 2367/artd: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:  +0% 2388/kworker/1:1H: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:  +0% 2403/sh: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager:  +0% 2410/cmd: 0% user + 0% kernel
+11-15 23:51:21.228   599  2001 E ActivityManager: 100% TOTAL: 33% user + 60% kernel + 3.7% irq + 2% softirq
+11-15 23:51:21.238   599  1205 I ConnectivityService: Update score for net 100 : +IS_UNMETERED
+11-15 23:51:21.279   599   629 W Looper  : Slow dispatch took 104ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=com.android.server.am.UidObserverController$$ExternalSyntheticLambda0@67c42e8 m=0
+11-15 23:51:21.282   599  1205 D ConnectivityService: registerNetworkAgent NetworkAgentInfo{network{100}  handle{432902426637}  ni{WIFI CONNECTING extra: } created=2026-11-15T23:51:21.239Z Score(Policies : IS_UNMETERED ; KeepConnected : 0)   lp{{LinkAddresses: [ ] DnsAddresses: [ ] Domains: null MTU: 0 Routes: [ ]}}  nc{[ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_ROAMING&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=54000Kbps LinkDnBandwidth>=54000Kbps Specifier: <WifiNetworkAgentSpecifier [WifiConfiguration=, SSID="AndroidWifi", BSSID=02:15:b2:00:00:01, band=1, mMatchLocalOnlySpecifiers=false]> TransportInfo: <SSID: "AndroidWifi", BSSID: 02:15:b2:00:00:01, MAC: 02:15:b2:00:00:00, IP: null, Security type: 0, Supplicant state: ASSOCIATED, Wi-Fi standard: legacy, RSSI: -127, Link speed: -1Mbps, Tx Link speed: -1Mbps, Max Supported Tx Link speed: 54Mbps, Rx Link speed: -1Mbps, Max Supported Rx Link speed: 54Mbps, Frequency: 2437MHz, Net ID: 0, Metered hint: false, score: 0, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: 1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none>"AndroidWifi"openMLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> AllowedUids: <{10171}> OwnerUid: 10171 AdminUids: [10171] SSID: "AndroidWifi" UnderlyingNetworks: Null]}  factorySerialNumber=3}
+11-15 23:51:21.372   599   898 W Looper  : Slow dispatch took 10278ms appscheduling.default h=com.android.server.DeviceIdleController$MyHandler c=null m=6
+11-15 23:51:21.411   599   880 W ActivityManager: Slow operation: 15627ms so far, now at finishAttachApplicationInner: after mServices.attachApplicationLocked
+11-15 23:51:21.456   599   898 W JobServiceContext: Timed out while trying to bind for 436ce60 #1000/237039804 android/com.android.server.notification.NotificationHistoryJobService
+11-15 23:51:21.493   356   356 I netd    : tetherGetStats() -> {[]} <26.81ms>
+11-15 23:51:21.667   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:51:21.734  2527  2527 I d.process.media: Using CollectorTypeCMC GC.
+11-15 23:51:21.767  2527  2527 W d.process.media: Unexpected CPU variant for x86: x86_64.
+11-15 23:51:21.767  2527  2527 W d.process.media: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, default
+11-15 23:51:21.866  2527  2527 E d.process.media: Not starting debugger since process cannot load the jdwp agent.
+11-15 23:51:21.896   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:51:22.086   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:51:22.107   599  1201 W system_server: Long monitor contention with owner NetworkPolicy.uid (1202) at boolean android.os.MessageQueue.enqueueMessage(android.os.Message, long)(MessageQueue.java:695) waiters=0 in android.os.Message android.os.MessageQueue.next() for 262ms
+11-15 23:51:22.149   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:51:22.246   599   898 W BestClock: java.time.DateTimeException: Missing network time fix
+11-15 23:51:22.414   599  2528 I DropBoxManagerService: add tag=system_server_anr isTagEnabled=true flags=0x6
+11-15 23:51:22.460   599   880 W ActivityManager: Slow operation: 16676ms so far, now at finishAttachApplicationInner: after dispatching broadcasts
+11-15 23:51:22.464   599  1205 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1655 com.android.server.wifi.ClientModeImpl.sendNetworkChangeBroadcast:3121 com.android.server.wifi.ClientModeImpl.lambda$sendNetworkChangeBroadcastWithCurrentState$14:3098 com.android.server.wifi.ClientModeImpl.$r8$lambda$mtuS9ulugUkTxNA_sDDnAioo66w:0 com.android.server.wifi.ClientModeImpl$$ExternalSyntheticLambda13.send:0 
+11-15 23:51:22.529  2086  2086 W ChimeraCfgMgr: Failed to read module config: java.io.FileNotFoundException: /data/user_de/0/com.google.android.gms/app_chimera/current_config.fb: open failed: ENOENT (No such file or directory)
+11-15 23:51:22.563  2527  2527 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+11-15 23:51:22.603   599   642 I ActivityManager: Test idle failed due to b1da473 599:system/1000 runnable at -2m31s803ms because PERSISTENT
+11-15 23:51:22.648   599   642 W ActivityManager: Timeout executing service: ServiceRecord{d6847f5 u0 com.google.android.apps.nexuslauncher/com.android.quickstep.TouchInteractionService c:com.android.systemui}
+11-15 23:51:22.651   356   356 I netd    : getFwmarkForNetwork(100) -> {MarkMaskParcel{mark: 100, mask: 65535}} <0.11ms>
+11-15 23:51:22.723   599   642 D CompatChangeReporter: Compat change id reported: 313677553; UID 10177; state: ENABLED
+11-15 23:51:22.724   599   642 D CompatChangeReporter: Compat change id reported: 311208629; UID 10177; state: ENABLED
+11-15 23:51:22.846   599   642 D CompatChangeReporter: Compat change id reported: 311208749; UID 10177; state: ENABLED
+11-15 23:51:22.911  2167  2167 I CtfBroadcastReceiver: (REDACTED) #onReceive: %s
+11-15 23:51:23.179   599  2541 D ActivityManager: created ANR temporary file:/data/anr/temp_anr_8611983099050030870.txt
+11-15 23:51:23.179   599  2541 I ActivityManager: Collecting stacks for pid 1678 into temporary file temp_anr_8611983099050030870.txt
+11-15 23:51:23.197  2428  2435 I zarcrash3recomp: Compiler allocated 5174KB to compile void android.view.ViewRootImpl.performTraversals()
+11-15 23:51:23.330   599   654 W system_server: Long monitor contention with owner binder:599_1B (2259) at void com.android.server.wallpaper.WallpaperManagerService.setDimensionHints(int, int, java.lang.String, int)(WallpaperManagerService.java:2099) waiters=0 in com.android.server.wallpaper.WallpaperData com.android.server.wallpaper.WallpaperManagerService$WallpaperObserver.dataForEvent(boolean) for 27.283s
+11-15 23:51:23.404  1308  1308 D NavigationModeController: getCurrentInteractionMode: mode=2 contextUser=0
+11-15 23:51:23.478   599   628 W Looper  : Slow dispatch took 22015ms android.fg h=android.os.Handler c=com.android.server.om.OverlayManagerService$$ExternalSyntheticLambda1@ba9fbd5 m=0
+11-15 23:51:23.522     0     0 I logd    : logdr: UID=2000 GID=2000 PID=2536 n tail=0 logMask=99 pid=0 start=0ns deadline=0ns
+11-15 23:51:23.555   599   599 W Looper  : Slow dispatch took 2870ms main h=android.os.Handler c=android.database.ContentObserver$$ExternalSyntheticLambda1@4dc82db m=0
+11-15 23:51:23.710   599   631 W ActivityTaskManager: Activity stop timeout for ActivityRecord{e25f349 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t7}
+11-15 23:51:23.748   599   599 W Looper  : Slow dispatch took 135ms main h=android.os.Handler c=com.android.internal.content.PackageMonitor$$ExternalSyntheticLambda0@91671b7 m=0
+11-15 23:51:23.834  2167  2478 W earchbox:search: Long monitor contention with owner Lite Thread #0 (2374) at java.lang.Object e.c.d.b()(PG:46) waiters=0 in java.lang.Object e.c.d.b() for 16.691s
+11-15 23:51:23.859   599   599 W Looper  : Slow dispatch took 110ms main h=android.app.ActivityThread$H c=android.app.LoadedApk$ServiceDispatcher$RunConnection@246d08d m=0
+11-15 23:51:23.862  2167  2427 W earchbox:search: Long monitor contention with owner Lite Thread #0 (2374) at java.lang.Object e.c.d.b()(PG:46) waiters=1 in java.lang.Object e.c.d.b() for 1.895s
+11-15 23:51:23.870  2167  2385 W earchbox:search: Long monitor contention with owner Lite Thread #0 (2374) at java.lang.Object e.c.d.b()(PG:46) waiters=2 in java.lang.Object e.c.d.b() for 1.487s
+11-15 23:51:23.879   599  2023 W ActivityManager: Slow operation: 200ms so far, now at attachApplicationLocked: before bindApplication
+11-15 23:51:23.889  2269  2269 I MediaApplication: PhotoPickerSettingsActivity is now disabled.
+11-15 23:51:23.930   599  2023 W ActivityManager: Slow operation: 251ms so far, now at attachApplicationLocked: immediately before bindApplication
+11-15 23:51:23.960   599   628 V WindowManager: Sent Transition (#5) createdAt=11-15 23:50:43.063 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=net.kulthx.nizarcrash3recomp/com.psxrecomp.android.LauncherActivity } baseActivity=ComponentInfo{net.kulthx.nizarcrash3recomp/com.psxrecomp.android.LauncherActivity} topActivity=ComponentInfo{net.kulthx.nizarcrash3recomp/com.psxrecomp.android.LauncherActivity} origActivity=null realActivity=ComponentInfo{net.kulthx.nizarcrash3recomp/com.psxrecomp.android.LauncherActivity} numActivities=1 lastActiveTime=704571 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{f967253 Task{35ec56c #8 type=standard A=10209:net.kulthx.nizarcrash3recomp}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{9162790 com.psxrecomp.android.LauncherActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= falseisLetterboxEducationEnabled= true isLetterboxDoubleTapEnabled= false topActivityEligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=1080 topActivityLetterboxHeight=1920 isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false cameraCompatTaskInfo=CameraCompatTaskInfo { cameraCompatControlState=hidden freeformCameraCompatMode=inactive}}}, pipTask = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 5 }
+11-15 23:51:23.960   599   628 V WindowManager:     startWCT=null
+11-15 23:51:24.031   599   599 W Looper  : Slow dispatch took 171ms main h=android.os.Handler c=com.android.internal.content.PackageMonitor$$ExternalSyntheticLambda0@adef08e m=0
+11-15 23:51:24.181   599  2023 W ActivityManager: Slow operation: 502ms so far, now at attachApplicationLocked: immediately after bindApplication
+11-15 23:51:24.326   599  2023 W ActivityManager: Slow operation: 648ms so far, now at attachApplicationLocked: after updateLruProcessLocked
+11-15 23:51:24.329   599  2023 W ActivityManager: Slow operation: 650ms so far, now at attachApplicationLocked: after updateOomAdjLocked
+11-15 23:51:24.332  2086  2086 I ModuleSetMgr: Config file doesn't exist, writing blank config.
+11-15 23:51:24.334   599   628 V WindowManager:     info={id=5 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+11-15 23:51:24.334   599   628 V WindowManager:         {WCT{RemoteToken{f967253 Task{35ec56c #8 type=standard A=10209:net.kulthx.nizarcrash3recomp}}} m=OPEN f=NONE leash=Surface(name=Task=8)/@0x1473d76 sb=Rect(0, 0 - 1080, 1920) eb=Rect(0, 0 - 1080, 1920) d=0 taskParent=-1},
+11-15 23:51:24.334   599   628 V WindowManager:         {WCT{RemoteToken{7dce889 Task{b42300 #1 type=home}}} m=TO_BACK f=NONE leash=Surface(name=Task=1)/@0x1443811 sb=Rect(0, 0 - 1080, 1920) eb=Rect(0, 0 - 1080, 1920) d=0 taskParent=-1}
+11-15 23:51:24.334   599   628 V WindowManager:     ]}
+11-15 23:51:24.334   599   628 W Looper  : Slow dispatch took 573ms android.fg h=android.os.Handler c=com.android.server.wm.TransitionController$Logger@bde2cbc m=0
+11-15 23:51:24.347   599  2541 I system_server: libdebuggerd_client: started dumping process 1678
+11-15 23:51:24.360   206   206 I tombstoned: registered intercept for pid 1678 and type kDebuggerdJavaBacktrace
+11-15 23:51:24.378  1678  1680 I s.nexuslauncher: Thread[2,tid=1680,WaitingInMainSignalCatcherLoop,Thread*=0x73d36b85b2c0,peer=0x140011b8,"Signal Catcher"]: reacting to signal 3
+11-15 23:51:24.378  1678  1680 I s.nexuslauncher: 
+11-15 23:51:24.510   599  2542 D ActivityManager: created ANR temporary file:/data/anr/temp_anr_5391820037034027927.txt
+11-15 23:51:24.514   599  2542 I ActivityManager: Collecting stacks for pid 2416 into temporary file temp_anr_5391820037034027927.txt
+11-15 23:51:24.813  1308  1308 D NavigationModeController: getCurrentInteractionMode: mode=2 contextUser=0
+11-15 23:51:24.964   599  1262 D ShortcutService: Saving package item com.google.android.calendar to /data/system_ce/0/shortcut_service/packages/com.google.android.calendar.xml
+11-15 23:51:24.975  1308  1308 V SystemUIBootTiming: StartServices com.android.systemui.dreams.AssistantAttentionMonitor took to complete: 22385ms
+11-15 23:51:24.976  1308  1308 W SystemUIService: Initialization of com.android.systemui.dreams.AssistantAttentionMonitor took 22386 ms
+11-15 23:51:25.016   599  2542 I system_server: libdebuggerd_client: started dumping process 2416
+11-15 23:51:25.065   206   206 I tombstoned: registered intercept for pid 2416 and type kDebuggerdJavaBacktrace
+11-15 23:51:25.130  2416  2418 I ogle.android.as: Thread[2,tid=2418,WaitingInMainSignalCatcherLoop,Thread*=0x73d36b8596f0,peer=0x140038b8,"Signal Catcher"]: reacting to signal 3
+11-15 23:51:25.130  2416  2418 I ogle.android.as: 
+11-15 23:51:25.150  1308  1308 V SystemUIBootTiming: StartServices com.android.systemui.dreams.DreamMonitor took to complete: 174ms
+11-15 23:51:25.436  2503  2503 D CompatChangeReporter: Compat change id reported: 242716250; UID 1002; state: ENABLED
+11-15 23:51:25.580  1308  1308 V SystemUIBootTiming: StartServices com.android.systemui.dreams.homecontrols.HomeControlsDreamStartable took to complete: 429ms
+11-15 23:51:25.724  1472  1533 D nativeloader: Load /system/priv-app/NetworkStackGoogle/NetworkStackGoogle.apk!/lib/x86_64/libnetworkstackutilsjni.so using ns clns-shared-7 from class loader (caller=/system/priv-app/NetworkStackGoogle/NetworkStackGoogle.apk): ok
+11-15 23:51:26.104   599  2027 D PackageManager: Instant App installer not found with android.intent.action.INSTALL_INSTANT_APP_PACKAGE
+11-15 23:51:26.104   599  2027 D PackageManager: Clear ephemeral installer activity
