@@ -201,7 +201,7 @@ if(_pfx_rect_position LESS 0)
     message(FATAL_ERROR "Could not find the expected postfx texture-size query.")
 endif()
 string(REPLACE "${_old_pfx_rect}" "${_new_pfx_rect}" _postfx_text "${_postfx_text}")
-string(REPLACE "pfx_rect_px(tex, tex_w, tex_h," "pfx_rect_px(tex, pfx_surface_rb(fbo), tex_w, tex_h," _postfx_text)
+string(REPLACE "pfx_rect_px(tex, tex_w, tex_h," "pfx_rect_px(tex, pfx_surface_rb(fbo), tex_w, tex_h," _postfx_text "${_postfx_text}")
 file(WRITE "${_postfx_source}" "${_postfx_text}")
 
 # The shared runtime currently requests desktop OpenGL 3.3 Core. Android uses
