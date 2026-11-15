@@ -115,6 +115,34 @@ string(REPLACE "${_old_pass_read}" "${_new_pass_read}"
     _gl_renderer_text "${_gl_renderer_text}")
 file(WRITE "${_gl_renderer_source}" "${_gl_renderer_text}")
 
+# The shared runtime currently requests desktop OpenGL 3.3 Core. Android uses
+# an OpenGL ES context; request GLES 3.0 only for the Android build and preserve
+# the upstream desktop profile everywhere else.
+set(_main_cpp_source "${PSXRECOMP_ROOT}/runtime/src/main.cpp")
+file(READ "${_main_cpp_source}" _main_cpp_text)
+set(_old_context_profile [=[
+static void configure_core_gl_context_attributes() {
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    int major = 3, minor = 3;
+]=])
+set(_android_context_profile [=[
+static void configure_core_gl_context_attributes() {
+#if defined(__ANDROID__)
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
+    int major = 3, minor = 0;
+#else
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    int major = 3, minor = 3;
+#endif
+]=])
+string(FIND "${_main_cpp_text}" "${_old_context_profile}" _context_profile_position)
+if(_context_profile_position LESS 0)
+    message(FATAL_ERROR "Could not locate the pinned runtime GL context profile setup.")
+endif()
+string(REPLACE "${_old_context_profile}" "${_android_context_profile}"
+    _main_cpp_text "${_main_cpp_text}")
+file(WRITE "${_main_cpp_source}" "${_main_cpp_text}")
+
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # The native renderer uses SDL's GL entry-point loader. Android exports GLESv3
