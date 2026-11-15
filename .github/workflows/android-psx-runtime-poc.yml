@@ -57,7 +57,7 @@ jobs:
             "ndk;28.2.13676358" \
             "cmake;3.22.1"
 
-      - name: Patch launcher to prevent starting an unbuilt Crash game
+      - name: Enable the imported-disc OpenBIOS boot path
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -73,7 +73,7 @@ jobs:
                   if (readyId == 0 || !getResources().getBoolean(readyId)) {
                       new AlertDialog.Builder(this)
                               .setTitle("Crash 3 build is not ready")
-                              .setMessage("The Android launcher is installed, but this APK does not yet contain Crash 3's generated game code and matching retail BIOS. The game cannot be started from this build.")
+                              .setMessage("Disc boot is disabled in this build. Install the Android OpenBIOS preview build to start an imported disc.")
                               .setPositiveButton("OK", null)
                               .show();
                       return;
@@ -84,6 +84,12 @@ jobs:
               raise SystemExit("Expected LauncherActivity.startGame() block was not found; refusing an unsafe build.")
           path.write_text(source.replace(old, new, 1))
           PY
+
+      - name: Verify Android disc-boot configuration
+        run: |
+          grep -q 'openbios = true' android-runtime-poc/app/src/main/assets/game.toml.in
+          grep -q 'path = "bios/openbios.bin"' android-runtime-poc/app/src/main/assets/game.toml.in
+          grep -q 'psx_game_ready">true' android-runtime-poc/app/src/main/res/values/bools.xml
 
       - name: Package redistributable OpenBIOS assets
         run: |
@@ -150,7 +156,7 @@ jobs:
             if grep -E -i "FATAL EXCEPTION|Fatal signal|SIGSEGV|SIGABRT|Abort message" android-runtime-logcat.txt; then
               exit 1
             fi
-            grep -E "Displayed .*LauncherActivity|Start proc .*net.kulthx.nizarcrash3recomp" android-runtime-logcat.txt
+            grep -E "Window\\{.*net.kulthx.nizarcrash3recomp/com.psxrecomp.android.LauncherActivity|Start proc .*net.kulthx.nizarcrash3recomp" android-runtime-logcat.txt
 
       - name: Save emulator startup log for inspection
         if: always()
