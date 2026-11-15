@@ -1,4 +1,4 @@
-name: PSXRecomp Android ARM64 runtime build
+name: Crash 3 Android startup validation
 
 on:
   push:
@@ -14,22 +14,22 @@ permissions:
 
 jobs:
   build:
-    name: Build PSXRecomp Android runtime (ARM64)
+    name: Build Android launcher/runtime (ARM64 + x86_64)
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:
-      - name: Checkout NIZAR CRASH 3 Android branch
+      - name: Checkout Crash 3 Android branch
         uses: actions/checkout@v4
 
-      - name: Checkout pinned PSXRecomp framework
+      - name: Checkout PSXRecomp Android framework
         uses: actions/checkout@v4
         with:
-          repository: Alexbeav/psxrecomp
-          ref: 578bd3bedd48e2403a5d3de1cdc3eb260065ed7d
+          repository: dguillot-gh/psxrecomp-android
+          ref: android
           path: psxrecomp
           persist-credentials: false
 
-      - name: Checkout matching SDL3 Android Java sources
+      - name: Checkout matching SDL3 Android sources
         uses: actions/checkout@v4
         with:
           repository: libsdl-org/SDL
@@ -54,55 +54,79 @@ jobs:
           sdkmanager \
             "platforms;android-35" \
             "build-tools;35.0.0" \
-            "ndk;27.2.12479018" \
+            "ndk;28.2.13676358" \
             "cmake;3.22.1"
 
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: "8.9"
-          validate-wrappers: false
+      - name: Patch launcher to prevent starting an unbuilt Crash game
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path("psxrecomp/runtime/android/java/com/psxrecomp/android/LauncherActivity.java")
+          source = path.read_text()
+          old = """    private void startGame() {
+                  if (!hasGame() || importing) return;
+                  startActivity(new Intent(this, PsxGameActivity.class));
+              }"""
+          new = """    private void startGame() {
+                  if (!hasGame() || importing) return;
+                  int readyId = getResources().getIdentifier("psx_game_ready", "bool", getPackageName());
+                  if (readyId == 0 || !getResources().getBoolean(readyId)) {
+                      new AlertDialog.Builder(this)
+                              .setTitle("Crash 3 build is not ready")
+                              .setMessage("The Android launcher is installed, but this APK does not yet contain Crash 3's generated game code and matching retail BIOS. The game cannot be started from this build.")
+                              .setPositiveButton("OK", null)
+                              .show();
+                      return;
+                  }
+                  startActivity(new Intent(this, PsxGameActivity.class));
+              }"""
+          if old not in source:
+              raise SystemExit("Expected LauncherActivity.startGame() block was not found; refusing an unsafe build.")
+          path.write_text(source.replace(old, new, 1))
+          PY
 
-      - name: Package the redistributable OpenBIOS assets
+      - name: Package redistributable OpenBIOS assets
         run: |
           mkdir -p android-runtime-poc/app/src/main/assets/bios
           cp psxrecomp/bios/openbios.bin android-runtime-poc/app/src/main/assets/bios/openbios.bin
           cp psxrecomp/bios/OpenBIOS.LICENSE android-runtime-poc/app/src/main/assets/bios/OpenBIOS.LICENSE
 
-      - name: Build PSXRecomp runtime Android APK
+      - name: Build Android APK
         working-directory: android-runtime-poc
         run: gradle --no-daemon :app:assembleDebug
 
-      - name: Verify packaged runtime libraries
+      - name: Verify both Android ABIs and launcher resources
         run: |
           APK="android-runtime-poc/app/build/outputs/apk/debug/app-debug.apk"
           test -s "$APK"
-          unzip -l "$APK" | tee psx-runtime-apk-contents.txt
-          grep -q "lib/arm64-v8a/libmain.so" psx-runtime-apk-contents.txt
-          grep -q "assets/bios/openbios.bin" psx-runtime-apk-contents.txt
-          grep -q "assets/bios/OpenBIOS.LICENSE" psx-runtime-apk-contents.txt
+          unzip -l "$APK" | tee crash3-android-apk-contents.txt
+          grep -q "lib/arm64-v8a/libmain.so" crash3-android-apk-contents.txt
+          grep -q "lib/x86_64/libmain.so" crash3-android-apk-contents.txt
+          grep -q "assets/bios/openbios.bin" crash3-android-apk-contents.txt
+          grep -q "assets/game.toml.in" crash3-android-apk-contents.txt
+          grep -q "com/psxrecomp/android/LauncherActivity" crash3-android-apk-contents.txt
 
-      - name: Upload PSXRecomp Android runtime APK
+      - name: Upload Android APK
         uses: actions/upload-artifact@v4
         with:
-          name: nizar-crash3-psx-runtime-android-poc
+          name: crash3-android-launcher-runtime
           path: android-runtime-poc/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 7
 
   runtime-test:
-    name: Launch ARM64 APK on Android 15 emulator
+    name: Install and launch on Android 15 emulator
     needs: build
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
-      - name: Download PSXRecomp Android APK
+      - name: Download Android APK
         uses: actions/download-artifact@v4
         with:
-          name: nizar-crash3-psx-runtime-android-poc
+          name: crash3-android-launcher-runtime
           path: artifacts
 
-      - name: Install, launch and capture native crash diagnostics
+      - name: Launch launcher activity and check process remains alive
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
@@ -115,22 +139,20 @@ jobs:
           emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot-load -no-snapshot-save -gpu swiftshader_indirect
           disable-animations: true
           script: |
-            set +e
+            set -eu
             adb install -r artifacts/app-debug.apk
-            install_rc=$?
             adb logcat -c
-            adb shell am force-stop net.kulthx.nizarcrash3recomp
-            adb shell am start -W -n net.kulthx.nizarcrash3recomp/.NizarPsxRuntimeActivity
-            start_rc=$?
-            sleep 20
+            adb shell am force-stop net.kulthx.nizarcrash3recomp || true
+            adb shell am start -W -n net.kulthx.nizarcrash3recomp/com.psxrecomp.android.LauncherActivity
+            sleep 8
             adb shell pidof net.kulthx.nizarcrash3recomp
-            pid_rc=$?
             adb logcat -d -v threadtime > android-runtime-logcat.txt
-            echo "===== INSTALL_RC=$install_rc START_RC=$start_rc PID_RC=$pid_rc ====="
-            grep -E -i "FATAL EXCEPTION|Fatal signal|SIGSEGV|SIGABRT|AndroidRuntime|linker|NizarCrash3|SDL|libmain|tombstone|Abort message|signal [0-9]+" android-runtime-logcat.txt | tail -n 300
-            test "$install_rc" -eq 0 && test "$start_rc" -eq 0 && test "$pid_rc" -eq 0
+            if grep -E -i "FATAL EXCEPTION|Fatal signal|SIGSEGV|SIGABRT|Abort message" android-runtime-logcat.txt; then
+              exit 1
+            fi
+            grep -E "Displayed .*LauncherActivity|Start proc .*net.kulthx.nizarcrash3recomp" android-runtime-logcat.txt
 
-      - name: Save emulator startup log for direct inspection
+      - name: Save emulator startup log for inspection
         if: always()
         uses: actions/github-script@v7
         with:
@@ -139,14 +161,14 @@ jobs:
             const fs = require('fs');
             const path = '.ci-results/android-runtime-startup.txt';
             const header = [
-              'Android runtime startup diagnostic',
+              'Crash 3 Android launcher startup diagnostic',
               'Run: ' + process.env.GITHUB_SERVER_URL + '/' + process.env.GITHUB_REPOSITORY + '/actions/runs/' + process.env.GITHUB_RUN_ID,
               'Commit: ' + context.sha,
               ''
-            ].join('\\n');
+            ].join('\n');
             const log = fs.existsSync('android-runtime-logcat.txt')
               ? fs.readFileSync('android-runtime-logcat.txt', 'utf8')
-              : 'No emulator logcat file was produced. The emulator action may have failed before launch.';
+              : 'No emulator logcat file was produced.';
             const body = Buffer.from(header + log.slice(-180000)).toString('base64');
             let sha;
             try {
@@ -164,9 +186,8 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               path,
-              message: 'Save Android emulator startup diagnostic',
+              message: 'Save Android launcher startup diagnostic',
               content: body,
               branch: 'nizar-crash3-android-poc',
               ...(sha ? { sha } : {})
             });
-
