@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="psx_analog_sticks">false</bool>
+    <bool name="psx_game_ready">false</bool>
+</resources>
