@@ -1,0 +1,1 @@
+Android runtime startup diagnostic\nRun: https://github.com/KULTHX/Crash-Bandicoot-/actions/runs/43768950404\nCommit: 760b6319127d9200ff3ea4f75f59594a7f317eba\nNo emulator logcat file was produced. The emulator action may have failed before launch.
