@@ -74,38 +74,35 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-  runtime-test:
-    name: Run ARM64 fiber smoke test on Android 15 emulator
-    needs: build
+  qemu-test:
+    name: Verify AArch64 fiber switching under QEMU
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 20
     steps:
-      - name: Download proof-of-concept APK
-        uses: actions/download-artifact@v4
-        with:
-          name: nizar-crash3-android-fiber-poc
-          path: artifacts
+      - name: Checkout this proof-of-concept branch
+        uses: actions/checkout@v4
 
-      - name: Run ARM64 APK with Android 15 native-bridge support
-        uses: reactivecircus/android-emulator-runner@v2
+      - name: Checkout the exact PSXRecomp revision used by Warped
+        uses: actions/checkout@v4
         with:
-          api-level: 35
-          target: google_apis
-          arch: x86_64
-          profile: pixel_5
-          cores: 2
-          ram-size: 4096M
-          heap-size: 768M
-          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
-          disable-animations: true
-          script: |
-            set -eu
-            echo "Emulator ABI: $(adb shell getprop ro.product.cpu.abi | tr -d '\r')"
-            echo "Native bridge: $(adb shell getprop ro.dalvik.vm.native.bridge | tr -d '\r')"
-            adb install artifacts/app-debug.apk
-            adb logcat -c
-            adb shell am force-stop net.kulthx.nizarcrash3poc || true
-            adb shell am start -n net.kulthx.nizarcrash3poc/.MainActivity
-            sleep 8
-            adb logcat -d -s FIBER_POC:I AndroidRuntime:E '*:S' | tee fiber-test.log
-            grep -q "PASS: Android AArch64 fiber switching and stack preservation" fiber-test.log
+          repository: Alexbeav/psxrecomp
+          ref: 578bd3bedd48e2403a5d3de1cdc3eb260065ed7d
+          path: psxrecomp
+          persist-credentials: false
+
+      - name: Install AArch64 cross compiler and QEMU user emulator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu qemu-user
+
+      - name: Build and run AArch64 fiber smoke test
+        run: |
+          aarch64-linux-gnu-gcc \
+            -std=c11 -O2 -Wall -Wextra -static \
+            -DPSX_FIBER_ALLOW_HOST_TEST=1 \
+            -I psxrecomp/runtime/include \
+            android-poc/app/src/main/cpp/psx_fiber_android.c \
+            android-poc/app/src/main/cpp/psx_fiber_aarch64.S \
+            android-poc/fiber_smoke_host.c \
+            -o fiber-smoke-aarch64
+          qemu-aarch64 ./fiber-smoke-aarch64
