@@ -21,7 +21,11 @@ out_dir = "generated"
 strict = true
 
 [runtime]
-openbios = false
+# Experimental Android path: use the bundled, redistributable OpenBIOS to
+# boot the player's imported disc through the PSX runtime interpreter.
+# The upstream Crash project officially validates SCPH-1001 retail BIOS;
+# OpenBIOS gameplay compatibility is not yet accepted by that project.
+openbios = true
 bios_hle = false
 video_renderer = "software"
 overlay_cache = true
@@ -31,4 +35,4 @@ window_title = "Crash Bandicoot 3: Warped"
 default_mode = "digital"
 
 [bios]
-path = "bios/SCPH1001.BIN"
+path = "bios/openbios.bin"
