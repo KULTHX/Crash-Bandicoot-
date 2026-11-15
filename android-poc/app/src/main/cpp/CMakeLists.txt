@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22.1)
-project(psx_fiber_android_poc C)
+project(psx_fiber_android_poc C ASM)
 
 if(NOT DEFINED PSXRECOMP_ROOT OR NOT EXISTS "${PSXRECOMP_ROOT}/runtime/src/psx_fiber.c")
     message(FATAL_ERROR "PSXRECOMP_ROOT must point to the checked-out PSXRecomp source tree.")
