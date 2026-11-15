@@ -1,0 +1,34 @@
+# Android runtime config for Crash Bandicoot 3: Warped.
+# The Android start menu replaces the disc placeholder after the user imports
+# their own SCUS-94244 CUE/BIN files.
+[game]
+name = "Crash Bandicoot 3: Warped"
+id = "SCUS-94244"
+players = 1
+exe = "disc/SCUS_942.44"
+discs = [
+  @@DISC1@@,
+]
+disc_serials = ["SCUS-94244"]
+load_address = "0x80010000"
+entry_pc = "0x800489F8"
+text_size = "0x00051000"
+stack_base = "0x801FFFF0"
+
+[recompiler]
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+video_renderer = "software"
+overlay_cache = true
+window_title = "Crash Bandicoot 3: Warped"
+
+[controller]
+default_mode = "digital"
+
+[bios]
+path = "bios/SCPH1001.BIN"
