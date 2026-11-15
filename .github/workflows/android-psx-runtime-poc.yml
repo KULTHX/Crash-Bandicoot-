@@ -132,11 +132,11 @@ jobs:
           api-level: 35
           target: google_apis
           arch: x86_64
-          profile: pixel_5
+          profile: pixel_2
           cores: 2
-          ram-size: 4096M
-          heap-size: 768M
-          emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot-load -no-snapshot-save -gpu swiftshader_indirect
+          ram-size: 2048M
+          heap-size: 512M
+          emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect -no-metrics
           disable-animations: true
           script: |
             set -eu
