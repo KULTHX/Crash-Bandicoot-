@@ -5,14 +5,14 @@ plugins {
 android {
     namespace "net.kulthx.nizarcrash3recomp"
     compileSdk 35
-    ndkVersion "27.2.12479018"
+    ndkVersion "28.2.13676358"
 
     defaultConfig {
         applicationId "net.kulthx.nizarcrash3recomp"
         minSdk 24
         targetSdk 35
-        versionCode 1
-        versionName "0.2.0"
+        versionCode 2
+        versionName "0.3.0-android-shell"
 
         ndk {
             abiFilters "arm64-v8a"
@@ -22,6 +22,7 @@ android {
             cmake {
                 arguments "-DPSXRECOMP_ROOT=${rootProject.projectDir}/../psxrecomp"
                 arguments "-DPSX_SDL_BACKEND=SDL3"
+                arguments "-DPSX_SDL3_FETCH=ON"
                 cppFlags "-std=c++17"
                 cFlags "-std=c11"
             }
@@ -30,13 +31,16 @@ android {
 
     sourceSets {
         main {
-            java.srcDirs += ["${rootProject.projectDir}/../SDL/android-project/app/src/main/java"]
+            java.srcDirs += [
+                "${rootProject.projectDir}/../SDL/android-project/app/src/main/java",
+                "${rootProject.projectDir}/../psxrecomp/runtime/android/java"
+            ]
         }
     }
 
     externalNativeBuild {
         cmake {
-            path file("${rootProject.projectDir}/CMakeLists.txt")
+            path file("../CMakeLists.txt")
             version "3.22.1"
         }
     }
@@ -44,5 +48,11 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
     }
 }
