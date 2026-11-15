@@ -34,8 +34,8 @@ public final class MainActivity extends Activity {
         }
 
         if (result == 0) {
-            Log.i(TAG, "PASS: Android ucontext fiber switching and stack preservation");
-            status.setText("PASS\n\nPSXRecomp's pinned ucontext fiber backend ran on Android.");
+            Log.i(TAG, "PASS: Android AArch64 fiber switching and stack preservation");
+            status.setText("PASS\n\nThe Android AArch64 fiber backend passed stack-switch and preservation checks.");
         } else {
             Log.e(TAG, "FAIL: native fiber test returned " + result);
             status.setText("FAIL\n\nNative test result: " + result);
