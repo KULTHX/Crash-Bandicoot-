@@ -24,10 +24,8 @@ file(READ "${_runtime_cmake}" _runtime_source)
 set(_upstream_fiber_source [=[
     ${PSXRECOMP_ROOT}/runtime/src/psx_fiber.c
 ]=])
-set(_android_fiber_source [=[
-    ${CMAKE_CURRENT_LIST_DIR}/android_fiber.c
-    ${CMAKE_CURRENT_LIST_DIR}/android_fiber_aarch64.S
-]=])
+set(_android_fiber_source
+    "    ${CMAKE_CURRENT_LIST_DIR}/android_fiber.c\n    ${CMAKE_CURRENT_LIST_DIR}/android_fiber_aarch64.S\n")
 string(FIND "${_runtime_source}" "${_upstream_fiber_source}" _fiber_patch_position)
 if(_fiber_patch_position LESS 0)
     message(FATAL_ERROR "Could not locate the pinned PSXRecomp fiber source in runtime.cmake.")
