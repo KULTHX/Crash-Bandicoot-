@@ -211,6 +211,37 @@ file(WRITE "${_postfx_source}" "${_postfx_text}")
 # the upstream desktop profile everywhere else.
 set(_main_cpp_source "${PSXRECOMP_ROOT}/runtime/src/main.cpp")
 file(READ "${_main_cpp_source}" _main_cpp_text)
+
+# Android's native executable lives in a read-only APK installation directory.
+# Anchor all runtime-relative files to SDL's writable app-private files directory
+# so the bundled BIOS and the mods/state/cache directories share one safe root.
+set(_old_exe_dir [=[
+static std::filesystem::path exe_dir_from_argv(const char* argv0) {
+    namespace fs = std::filesystem;
+    std::error_code ec;
+    fs::path exe_dir;
+]=])
+set(_android_exe_dir [=[
+static std::filesystem::path exe_dir_from_argv(const char* argv0) {
+    namespace fs = std::filesystem;
+    std::error_code ec;
+    fs::path exe_dir;
+#if defined(__ANDROID__)
+    char* app_data = SDL_GetPrefPath("Nizar", "Crash3");
+    if (app_data && app_data[0]) {
+        fs::path app_dir(app_data);
+        SDL_free(app_data);
+        return app_dir;
+    }
+    if (app_data) SDL_free(app_data);
+#endif
+]=])
+string(FIND "${_main_cpp_text}" "${_old_exe_dir}" _exe_dir_patch_position)
+if(_exe_dir_patch_position LESS 0)
+    message(FATAL_ERROR "Could not find the runtime executable-directory helper.")
+endif()
+string(REPLACE "${_old_exe_dir}" "${_android_exe_dir}"
+    _main_cpp_text "${_main_cpp_text}")
 set(_old_context_profile [=[
 static void configure_core_gl_context_attributes() {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
