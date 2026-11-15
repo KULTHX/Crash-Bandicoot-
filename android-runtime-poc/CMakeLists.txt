@@ -82,6 +82,39 @@ string(REPLACE "${_old_timespec_call}" "${_android_timespec_call}"
     _dma_text "${_dma_text}")
 file(WRITE "${_dma_source}" "${_dma_text}")
 
+# The desktop GL renderer includes optional texture-dump diagnostics using
+# glGetTexImage (not present in GLES). These dumps are not part of gameplay;
+# on Android keep their output buffers deterministic without reading textures.
+# glClearDepth maps directly to the GLES glClearDepthf entry point.
+set(_gl_renderer_source "${PSXRECOMP_ROOT}/runtime/src/gpu_gl_renderer.c")
+file(READ "${_gl_renderer_source}" _gl_renderer_text)
+set(_old_gl_depth "glClearDepth(1.0);")
+set(_new_gl_depth "glClearDepthf(1.0f);")
+string(FIND "${_gl_renderer_text}" "${_old_gl_depth}" _gl_depth_position)
+if(_gl_depth_position LESS 0)
+    message(FATAL_ERROR "Could not find the expected desktop glClearDepth calls.")
+endif()
+string(REPLACE "${_old_gl_depth}" "${_new_gl_depth}"
+    _gl_renderer_text "${_gl_renderer_text}")
+set(_old_stereo_read
+    "glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_UNSIGNED_BYTE, rgb + eye * n);")
+set(_new_stereo_read
+    "memset(rgb + eye * n, 0, n); /* Android GLES: stereo texture dump disabled. */")
+set(_old_pass_read
+    "glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_UNSIGNED_BYTE, rgb);")
+set(_new_pass_read
+    "memset(rgb, 0, n); /* Android GLES: pass texture dump disabled. */")
+string(FIND "${_gl_renderer_text}" "${_old_stereo_read}" _stereo_read_position)
+string(FIND "${_gl_renderer_text}" "${_old_pass_read}" _pass_read_position)
+if(_stereo_read_position LESS 0 OR _pass_read_position LESS 0)
+    message(FATAL_ERROR "Could not find the expected optional GLES-incompatible texture dump calls.")
+endif()
+string(REPLACE "${_old_stereo_read}" "${_new_stereo_read}"
+    _gl_renderer_text "${_gl_renderer_text}")
+string(REPLACE "${_old_pass_read}" "${_new_pass_read}"
+    _gl_renderer_text "${_gl_renderer_text}")
+file(WRITE "${_gl_renderer_source}" "${_gl_renderer_text}")
+
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # The native renderer uses SDL's GL entry-point loader. Android exports GLESv3
