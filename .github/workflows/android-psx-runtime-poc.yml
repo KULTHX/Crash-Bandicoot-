@@ -1,0 +1,129 @@
+name: PSXRecomp Android runtime proof of concept
+
+on:
+  push:
+    branches:
+      - nizar-crash3-android-poc
+    paths:
+      - "android-runtime-poc/**"
+      - ".github/workflows/android-psx-runtime-poc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build PSXRecomp Android runtime (ARM64 and x86_64)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - name: Checkout NIZAR CRASH 3 Android branch
+        uses: actions/checkout@v4
+
+      - name: Checkout pinned PSXRecomp framework
+        uses: actions/checkout@v4
+        with:
+          repository: Alexbeav/psxrecomp
+          ref: 578bd3bedd48e2403a5d3de1cdc3eb260065ed7d
+          path: psxrecomp
+          persist-credentials: false
+
+      - name: Checkout matching SDL3 Android Java sources
+        uses: actions/checkout@v4
+        with:
+          repository: libsdl-org/SDL
+          ref: release-3.4.10
+          path: SDL
+          persist-credentials: false
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+
+      - name: Install Android SDK, NDK and CMake
+        run: |
+          yes | sdkmanager --licenses >/dev/null
+          sdkmanager \
+            "platforms;android-35" \
+            "build-tools;35.0.0" \
+            "ndk;27.2.12479018" \
+            "cmake;3.22.1"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+          validate-wrappers: false
+
+      - name: Package the redistributable OpenBIOS assets
+        run: |
+          mkdir -p android-runtime-poc/app/src/main/assets/bios
+          cp psxrecomp/bios/openbios.bin android-runtime-poc/app/src/main/assets/bios/openbios.bin
+          cp psxrecomp/bios/OpenBIOS.LICENSE android-runtime-poc/app/src/main/assets/bios/OpenBIOS.LICENSE
+
+      - name: Build PSXRecomp runtime Android APK
+        working-directory: android-runtime-poc
+        run: gradle --no-daemon :app:assembleDebug
+
+      - name: Verify packaged runtime libraries
+        run: |
+          APK="android-runtime-poc/app/build/outputs/apk/debug/app-debug.apk"
+          test -s "$APK"
+          unzip -l "$APK" | tee psx-runtime-apk-contents.txt
+          grep -q "lib/arm64-v8a/libmain.so" psx-runtime-apk-contents.txt
+          grep -q "lib/x86_64/libmain.so" psx-runtime-apk-contents.txt
+          grep -q "assets/bios/openbios.bin" psx-runtime-apk-contents.txt
+          grep -q "assets/bios/OpenBIOS.LICENSE" psx-runtime-apk-contents.txt
+
+      - name: Upload PSXRecomp Android runtime APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: nizar-crash3-psx-runtime-android-poc
+          path: android-runtime-poc/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 7
+
+  runtime-test:
+    name: Launch PSXRecomp runtime on Android 15
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - name: Download PSXRecomp Android runtime APK
+        uses: actions/download-artifact@v4
+        with:
+          name: nizar-crash3-psx-runtime-android-poc
+          path: artifacts
+
+      - name: Run on Android 15 x86_64 emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_5
+          cores: 2
+          ram-size: 4096M
+          heap-size: 768M
+          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
+          disable-animations: true
+          script: |
+            set -euo pipefail
+            adb install artifacts/app-debug.apk
+            adb logcat -c
+            adb shell am start -n net.kulthx.nizarcrash3recomp/.NizarPsxRuntimeActivity
+            sleep 12
+            adb shell dumpsys activity activities | tee activity-state.txt
+            adb logcat -d -s AndroidRuntime:E SDL:I '*:S' | tee psx-android-runtime.log
+            grep -q "NizarPsxRuntimeActivity" activity-state.txt
+            if grep -q "FATAL EXCEPTION" psx-android-runtime.log; then
+              exit 1
+            fi
