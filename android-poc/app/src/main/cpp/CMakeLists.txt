@@ -20,7 +20,6 @@ target_include_directories(psx_fiber_poc PRIVATE
 )
 
 target_compile_features(psx_fiber_poc PRIVATE c_std_11)
-target_compile_definitions(psx_fiber_poc PRIVATE _XOPEN_SOURCE=700)
 
 find_library(android_log log REQUIRED)
 target_link_libraries(psx_fiber_poc PRIVATE ${android_log})
