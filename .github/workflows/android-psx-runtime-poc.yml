@@ -116,7 +116,7 @@ jobs:
           emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
           disable-animations: true
           script: |
-            set -euo pipefail
+            set -eu
             adb install artifacts/app-debug.apk
             adb logcat -c
             adb shell am start -n net.kulthx.nizarcrash3recomp/.NizarPsxRuntimeActivity
