@@ -243,7 +243,7 @@ set(_old_mod_init [=[
         if (!PSXRecompV4::mod_runtime_initialize(
                 exe_dir_from_argv(argv[0]) / "mods", game_id,
                 game_entry_pc, text_guard_exe_path, &mod_error)) {
-            std::fprintf(stderr, "psxrecomp: mods unavailable: %s\\n",
+            std::fprintf(stderr, "psxrecomp: mods unavailable: %s\n",
                          mod_error.c_str());
         }
     }
@@ -269,7 +269,7 @@ set(_android_mod_init [=[
             /* Keep the original runtime refusal/logging behavior. */
         }
         if (!mod_error.empty()) {
-            std::fprintf(stderr, "psxrecomp: mods unavailable: %s\\n",
+            std::fprintf(stderr, "psxrecomp: mods unavailable: %s\n",
                          mod_error.c_str());
         }
     }
