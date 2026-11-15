@@ -90,3 +90,43 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+  runtime-test:
+    name: Launch ARM64 APK on Android 15 emulator
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Download PSXRecomp Android APK
+        uses: actions/download-artifact@v4
+        with:
+          name: nizar-crash3-psx-runtime-android-poc
+          path: artifacts
+
+      - name: Install, launch and capture native crash diagnostics
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_5
+          cores: 2
+          ram-size: 4096M
+          heap-size: 768M
+          emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot-load -no-snapshot-save -gpu swiftshader_indirect
+          disable-animations: true
+          script: |
+            set +e
+            adb install -r artifacts/app-debug.apk
+            install_rc=$?
+            adb logcat -c
+            adb shell am force-stop net.kulthx.nizarcrash3recomp
+            adb shell am start -W -n net.kulthx.nizarcrash3recomp/.NizarPsxRuntimeActivity
+            start_rc=$?
+            sleep 20
+            adb shell pidof net.kulthx.nizarcrash3recomp
+            pid_rc=$?
+            adb logcat -d -v threadtime > android-runtime-logcat.txt
+            echo "===== INSTALL_RC=$install_rc START_RC=$start_rc PID_RC=$pid_rc ====="
+            grep -E -i "FATAL EXCEPTION|Fatal signal|SIGSEGV|SIGABRT|AndroidRuntime|linker|NizarCrash3|SDL|libmain|tombstone|Abort message|signal [0-9]+" android-runtime-logcat.txt | tail -n 300
+            test "$install_rc" -eq 0 && test "$start_rc" -eq 0 && test "$pid_rc" -eq 0
+
