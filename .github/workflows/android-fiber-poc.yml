@@ -1,0 +1,106 @@
+name: Android ARM64 fiber proof of concept
+
+on:
+  push:
+    branches:
+      - nizar-crash3-android-poc
+    paths:
+      - "ANDROID_POC.md"
+      - "android-poc/**"
+      - ".github/workflows/android-fiber-poc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build Android native library (arm64-v8a + x86_64)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout this proof-of-concept branch
+        uses: actions/checkout@v4
+
+      - name: Checkout the exact PSXRecomp revision used by Warped
+        uses: actions/checkout@v4
+        with:
+          repository: Alexbeav/psxrecomp
+          ref: 578bd3bedd48e2403a5d3de1cdc3eb260065ed7d
+          path: psxrecomp
+          persist-credentials: false
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK, NDK and CMake
+        run: |
+          yes | sdkmanager --licenses >/dev/null
+          sdkmanager \
+            "platforms;android-35" \
+            "build-tools;35.0.0" \
+            "ndk;27.2.12479018" \
+            "cmake;3.22.1"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Build debug APK for Android ABIs
+        working-directory: android-poc
+        run: gradle --no-daemon :app:assembleDebug
+
+      - name: Verify native libraries in APK
+        run: |
+          APK="android-poc/app/build/outputs/apk/debug/app-debug.apk"
+          test -s "$APK"
+          unzip -l "$APK" | tee apk-contents.txt
+          grep -q "lib/arm64-v8a/libpsx_fiber_poc.so" apk-contents.txt
+          grep -q "lib/x86_64/libpsx_fiber_poc.so" apk-contents.txt
+
+      - name: Upload proof-of-concept APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: nizar-crash3-android-fiber-poc
+          path: android-poc/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 7
+
+  runtime-test:
+    name: Run fiber smoke test on Android ARM64 emulator
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Download proof-of-concept APK
+        uses: actions/download-artifact@v4
+        with:
+          name: nizar-crash3-android-fiber-poc
+          path: artifacts
+
+      - name: Run on ARM64 Android emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          target: google_apis
+          arch: arm64-v8a
+          profile: pixel_2
+          cores: 2
+          ram-size: 3072M
+          heap-size: 512M
+          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
+          disable-animations: true
+          script: |
+            adb install artifacts/app-debug.apk
+            adb logcat -c
+            adb shell am start -n net.kulthx.nizarcrash3poc/.MainActivity
+            sleep 8
+            adb logcat -d -s FIBER_POC:I '*:S' | tee fiber-test.log
+            grep -q "PASS: Android ucontext fiber switching and stack preservation" fiber-test.log
