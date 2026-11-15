@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22.1)
-project(nizar_crash3_psx_runtime_android LANGUAGES C CXX)
+project(nizar_crash3_psx_runtime_android LANGUAGES C CXX ASM)
 
 if(NOT ANDROID)
     message(FATAL_ERROR "This build entry is intended for the Android NDK.")
@@ -17,6 +17,23 @@ endif()
 # modified by this project.
 set(_runtime_cmake "${PSXRECOMP_ROOT}/runtime/runtime.cmake")
 file(READ "${_runtime_cmake}" _runtime_source)
+
+# Android Bionic hides POSIX ucontext switching calls. Swap only the fiber
+# translation unit in this disposable framework checkout for the local
+# AAPCS64 implementation. Desktop framework sources remain untouched.
+set(_upstream_fiber_source [=[
+    ${PSXRECOMP_ROOT}/runtime/src/psx_fiber.c
+]=])
+set(_android_fiber_source [=[
+    ${CMAKE_CURRENT_LIST_DIR}/android_fiber.c
+    ${CMAKE_CURRENT_LIST_DIR}/android_fiber_aarch64.S
+]=])
+string(FIND "${_runtime_source}" "${_upstream_fiber_source}" _fiber_patch_position)
+if(_fiber_patch_position LESS 0)
+    message(FATAL_ERROR "Could not locate the pinned PSXRecomp fiber source in runtime.cmake.")
+endif()
+string(REPLACE "${_upstream_fiber_source}" "${_android_fiber_source}"
+    _runtime_source "${_runtime_source}")
 set(_desktop_target [=[
     add_executable(${target}
         ${PSXRECOMP_RUNTIME_SOURCES}
