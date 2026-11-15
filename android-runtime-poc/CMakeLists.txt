@@ -230,7 +230,55 @@ string(FIND "${_main_cpp_text}" "${_old_context_profile}" _context_profile_posit
 if(_context_profile_position LESS 0)
     message(FATAL_ERROR "Could not locate the pinned runtime GL context profile setup.")
 endif()
+
 string(REPLACE "${_old_context_profile}" "${_android_context_profile}"
+    _main_cpp_text "${_main_cpp_text}")
+
+# Android installs the APK under a read-only package directory. The runtime's
+# normal desktop convention (exe_dir/mods) therefore cannot be used on Android.
+# Route its mod catalog/state to SDL's writable per-app preferences directory.
+set(_old_mod_init [=[
+    {
+        std::string mod_error;
+        if (!PSXRecompV4::mod_runtime_initialize(
+                exe_dir_from_argv(argv[0]) / "mods", game_id,
+                game_entry_pc, text_guard_exe_path, &mod_error)) {
+            std::fprintf(stderr, "psxrecomp: mods unavailable: %s\\n",
+                         mod_error.c_str());
+        }
+    }
+]=])
+set(_android_mod_init [=[
+    {
+        std::filesystem::path mods_root;
+#if defined(__ANDROID__)
+        char* prefs_path = SDL_GetPrefPath("Nizar", "Crash3");
+        if (prefs_path) {
+            mods_root = std::filesystem::path(prefs_path) / "mods";
+            SDL_free(prefs_path);
+        }
+#else
+        mods_root = exe_dir_from_argv(argv[0]) / "mods";
+#endif
+        std::string mod_error;
+        if (mods_root.empty()) {
+            mod_error = "Android writable application-data path is unavailable";
+        } else if (!PSXRecompV4::mod_runtime_initialize(
+                       mods_root, game_id, game_entry_pc,
+                       text_guard_exe_path, &mod_error)) {
+            /* Keep the original runtime refusal/logging behavior. */
+        }
+        if (!mod_error.empty()) {
+            std::fprintf(stderr, "psxrecomp: mods unavailable: %s\\n",
+                         mod_error.c_str());
+        }
+    }
+]=])
+string(FIND "${_main_cpp_text}" "${_old_mod_init}" _mod_init_position)
+if(_mod_init_position LESS 0)
+    message(FATAL_ERROR "Could not locate the pinned runtime mods initialization block.")
+endif()
+string(REPLACE "${_old_mod_init}" "${_android_mod_init}"
     _main_cpp_text "${_main_cpp_text}")
 file(WRITE "${_main_cpp_source}" "${_main_cpp_text}")
 
