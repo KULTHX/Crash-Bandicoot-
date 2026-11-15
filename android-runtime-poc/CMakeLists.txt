@@ -162,6 +162,8 @@ set(_new_android_gl_header [=[
 #endif
 #if defined(__ANDROID__)
 extern void APIENTRY glClearDepthf(GLfloat depth);
+extern void APIENTRY glBindRenderbuffer(GLenum target, GLuint renderbuffer);
+extern void APIENTRY glGetRenderbufferParameteriv(GLenum target, GLenum pname, GLint *params);
 #endif
 ]=])
 string(FIND "${_gl_renderer_text}" "${_old_android_gl_header}" _gl_header_position)
