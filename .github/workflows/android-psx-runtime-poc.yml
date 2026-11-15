@@ -104,7 +104,7 @@ jobs:
           grep -q "lib/x86_64/libmain.so" crash3-android-apk-contents.txt
           grep -q "assets/bios/openbios.bin" crash3-android-apk-contents.txt
           grep -q "assets/game.toml.in" crash3-android-apk-contents.txt
-          grep -q "com/psxrecomp/android/LauncherActivity" crash3-android-apk-contents.txt
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump xmltree "$APK" AndroidManifest.xml | grep -q "com.psxrecomp.android.LauncherActivity"
 
       - name: Upload Android APK
         uses: actions/upload-artifact@v4
