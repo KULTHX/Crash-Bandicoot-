@@ -1,0 +1,111 @@
+name: SDL3 Android runtime proof of concept
+
+on:
+  push:
+    branches:
+      - nizar-crash3-android-poc
+    paths:
+      - "android-sdl-poc/**"
+      - ".github/workflows/android-sdl-runtime-poc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build SDL3 Android app (ARM64 and x86_64)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Checkout NIZAR CRASH 3 proof-of-concept branch
+        uses: actions/checkout@v4
+
+      - name: Checkout official SDL3 source
+        uses: actions/checkout@v4
+        with:
+          repository: libsdl-org/SDL
+          ref: release-3.4.20
+          path: SDL
+          persist-credentials: false
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+
+      - name: Install Android SDK, NDK and CMake
+        run: |
+          yes | sdkmanager --licenses >/dev/null
+          sdkmanager \
+            "platforms;android-35" \
+            "build-tools;35.0.0" \
+            "ndk;27.2.12479018" \
+            "cmake;3.22.1"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Build SDL3 Android proof of concept
+        working-directory: android-sdl-poc
+        run: gradle --no-daemon :app:assembleDebug
+
+      - name: Verify Android native libraries
+        run: |
+          APK="android-sdl-poc/app/build/outputs/apk/debug/app-debug.apk"
+          test -s "$APK"
+          unzip -l "$APK" | tee sdl-apk-contents.txt
+          grep -q "lib/arm64-v8a/libSDL3.so" sdl-apk-contents.txt
+          grep -q "lib/arm64-v8a/libmain.so" sdl-apk-contents.txt
+          grep -q "lib/x86_64/libSDL3.so" sdl-apk-contents.txt
+          grep -q "lib/x86_64/libmain.so" sdl-apk-contents.txt
+
+      - name: Upload SDL3 Android APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: nizar-crash3-sdl3-android-poc
+          path: android-sdl-poc/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 7
+
+  runtime-test:
+    name: Test SDL3 and OpenGL ES 3 on Android emulator
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Download SDL3 Android APK
+        uses: actions/download-artifact@v4
+        with:
+          name: nizar-crash3-sdl3-android-poc
+          path: artifacts
+
+      - name: Run on Android 15 x86_64 emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_5
+          cores: 2
+          ram-size: 4096M
+          heap-size: 768M
+          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
+          disable-animations: true
+          script: |
+            set -euo pipefail
+            adb install artifacts/app-debug.apk
+            adb logcat -c
+            adb shell am force-stop net.kulthx.nizarcrash3sdl || true
+            adb shell am start -n net.kulthx.nizarcrash3sdl/.NizarSdlActivity
+            sleep 10
+            adb logcat -d -s SDL_POC:I AndroidRuntime:E '*:S' | tee sdl-runtime-test.log
+            grep -q "PASS: SDL3 Android OpenGL ES 3 context and swap loop" sdl-runtime-test.log
