@@ -67,6 +67,21 @@ string(REPLACE "${_desktop_target}" "${_android_target}"
     _runtime_source "${_runtime_source}")
 file(WRITE "${_runtime_cmake}" "${_runtime_source}")
 
+# Bionic does not expose C11 timespec_get in the NDK headers used by this
+# build. The framework uses it only for host-side DMA diagnostic timing.
+# clock_gettime(CLOCK_REALTIME) supplies the same wall-clock timespec here.
+set(_dma_source "${PSXRECOMP_ROOT}/runtime/src/dma.c")
+file(READ "${_dma_source}" _dma_text)
+set(_old_timespec_call "timespec_get(&ts, TIME_UTC);")
+set(_android_timespec_call "clock_gettime(CLOCK_REALTIME, &ts);")
+string(FIND "${_dma_text}" "${_old_timespec_call}" _timespec_patch_position)
+if(_timespec_patch_position LESS 0)
+    message(FATAL_ERROR "Could not find expected DMA diagnostic timespec_get call.")
+endif()
+string(REPLACE "${_old_timespec_call}" "${_android_timespec_call}"
+    _dma_text "${_dma_text}")
+file(WRITE "${_dma_source}" "${_dma_text}")
+
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # The native renderer uses SDL's GL entry-point loader. Android exports GLESv3
