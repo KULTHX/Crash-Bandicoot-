@@ -57,7 +57,7 @@ jobs:
             "ndk;28.2.13676358" \
             "cmake;3.22.1"
 
-      - name: Enable the imported-disc OpenBIOS boot path
+      - name: Enable OpenBIOS disc boot and migrate existing imports
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -83,6 +83,31 @@ jobs:
           if old not in source:
               raise SystemExit("Expected LauncherActivity.startGame() block was not found; refusing an unsafe build.")
           path.write_text(source.replace(old, new, 1))
+
+          # The launcher preserves app-private files across APK updates. Migrate
+          # an already-imported game.toml before SDL starts so old installs do
+          # not retain openbios=false and keep showing the retired BIOS gate.
+          game_path = Path("psxrecomp/runtime/android/java/com/psxrecomp/android/PsxGameActivity.java")
+          game_source = game_path.read_text()
+          needle = "        super.onCreate(state);"
+          replacement = """        // Migrate existing imported games to this APK's bundled OpenBIOS policy.
+                  File configFile = new File(getFilesDir(), "game.toml");
+                  if (configFile.isFile()) {
+                      try {
+                          String oldConfig = PsxFiles.readText(configFile);
+                          String newConfig = oldConfig
+                                  .replace("openbios = false", "openbios = true")
+                                  .replace("path = \\"bios/SCPH1001.BIN\\"", "path = \\"bios/openbios.bin\\"");
+                          if (!newConfig.equals(oldConfig)) PsxFiles.writeText(configFile, newConfig);
+                      } catch (IOException e) {
+                          Toast.makeText(this, "Could not update game BIOS mode: " + e.getMessage(),
+                                  Toast.LENGTH_LONG).show();
+                      }
+                  }
+                  super.onCreate(state);"""
+          if needle not in game_source:
+              raise SystemExit("Expected PsxGameActivity.onCreate() call was not found; refusing to skip config migration.")
+          game_path.write_text(game_source.replace(needle, replacement, 1))
           PY
 
       - name: Verify Android disc-boot configuration
