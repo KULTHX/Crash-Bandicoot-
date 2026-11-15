@@ -115,6 +115,34 @@ string(REPLACE "${_old_pass_read}" "${_new_pass_read}"
     _gl_renderer_text "${_gl_renderer_text}")
 file(WRITE "${_gl_renderer_source}" "${_gl_renderer_text}")
 
+# Select SDL's GLES2 declarations for Android. The desktop SDL_opengl.h
+# header intentionally does not declare GLES entry points such as glClearDepthf.
+set(_gl_renderer_text "")
+file(READ "${_gl_renderer_source}" _gl_renderer_text)
+set(_old_gl_header [=[
+#if defined(PSX_SDL3)
+#include <SDL3/SDL_opengl.h>
+#else
+#include <SDL_opengl.h>
+#endif
+]=])
+set(_android_gl_header [=[
+#if defined(__ANDROID__)
+#include <SDL3/SDL_opengles2.h>
+#elif defined(PSX_SDL3)
+#include <SDL3/SDL_opengl.h>
+#else
+#include <SDL_opengl.h>
+#endif
+]=])
+string(FIND "${_gl_renderer_text}" "${_old_gl_header}" _gl_header_position)
+if(_gl_header_position LESS 0)
+    message(FATAL_ERROR "Could not find the expected SDL OpenGL header selection.")
+endif()
+string(REPLACE "${_old_gl_header}" "${_android_gl_header}"
+    _gl_renderer_text "${_gl_renderer_text}")
+file(WRITE "${_gl_renderer_source}" "${_gl_renderer_text}")
+
 # The shared runtime currently requests desktop OpenGL 3.3 Core. Android uses
 # an OpenGL ES context; request GLES 3.0 only for the Android build and preserve
 # the upstream desktop profile everywhere else.
