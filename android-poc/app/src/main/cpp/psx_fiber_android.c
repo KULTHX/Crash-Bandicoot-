@@ -15,8 +15,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#if !defined(__ANDROID__) || !defined(__aarch64__)
-#error "This Android fiber backend is only for Android AArch64."
+#if !defined(__aarch64__) || (!defined(__ANDROID__) && !defined(PSX_FIBER_ALLOW_HOST_TEST))
+#error "This fiber backend requires Android AArch64 (or the explicit AArch64 host test build)."
 #endif
 
 typedef struct __attribute__((aligned(16))) psx_fiber_context {
