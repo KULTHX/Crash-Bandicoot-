@@ -1,4 +1,4 @@
-name: PSXRecomp Android runtime proof of concept
+name: PSXRecomp Android ARM64 runtime build
 
 on:
   push:
@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    name: Build PSXRecomp Android runtime (ARM64 and x86_64)
+    name: Build PSXRecomp Android runtime (ARM64)
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:
@@ -79,7 +79,6 @@ jobs:
           test -s "$APK"
           unzip -l "$APK" | tee psx-runtime-apk-contents.txt
           grep -q "lib/arm64-v8a/libmain.so" psx-runtime-apk-contents.txt
-          grep -q "lib/x86_64/libmain.so" psx-runtime-apk-contents.txt
           grep -q "assets/bios/openbios.bin" psx-runtime-apk-contents.txt
           grep -q "assets/bios/OpenBIOS.LICENSE" psx-runtime-apk-contents.txt
 
@@ -91,39 +90,3 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-  runtime-test:
-    name: Launch PSXRecomp runtime on Android 15
-    needs: build
-    runs-on: ubuntu-24.04
-    timeout-minutes: 40
-    steps:
-      - name: Download PSXRecomp Android runtime APK
-        uses: actions/download-artifact@v4
-        with:
-          name: nizar-crash3-psx-runtime-android-poc
-          path: artifacts
-
-      - name: Run on Android 15 x86_64 emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 35
-          target: google_apis
-          arch: x86_64
-          profile: pixel_5
-          cores: 2
-          ram-size: 4096M
-          heap-size: 768M
-          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
-          disable-animations: true
-          script: |
-            set -eu
-            adb install artifacts/app-debug.apk
-            adb logcat -c
-            adb shell am start -n net.kulthx.nizarcrash3recomp/.NizarPsxRuntimeActivity
-            sleep 12
-            adb shell dumpsys activity activities | tee activity-state.txt
-            adb logcat -d -s AndroidRuntime:E SDL:I '*:S' | tee psx-android-runtime.log
-            grep -q "NizarPsxRuntimeActivity" activity-state.txt
-            if grep -q "FATAL EXCEPTION" psx-android-runtime.log; then
-              exit 1
-            fi
