@@ -143,6 +143,67 @@ string(REPLACE "${_old_gl_header}" "${_android_gl_header}"
     _gl_renderer_text "${_gl_renderer_text}")
 file(WRITE "${_gl_renderer_source}" "${_gl_renderer_text}")
 
+# Retain SDL's desktop GL declarations for the renderer's shared GL API
+# surface, but provide the one GLES depth-clear prototype explicitly.
+set(_old_android_gl_header [=[
+#if defined(__ANDROID__)
+#include <SDL3/SDL_opengles2.h>
+#elif defined(PSX_SDL3)
+#include <SDL3/SDL_opengl.h>
+#else
+#include <SDL_opengl.h>
+#endif
+]=])
+set(_new_android_gl_header [=[
+#if defined(PSX_SDL3)
+#include <SDL3/SDL_opengl.h>
+#else
+#include <SDL_opengl.h>
+#endif
+#if defined(__ANDROID__)
+extern void APIENTRY glClearDepthf(GLfloat depth);
+#endif
+]=])
+string(FIND "${_gl_renderer_text}" "${_old_android_gl_header}" _gl_header_position)
+if(_gl_header_position LESS 0)
+    message(FATAL_ERROR "Could not find the Android GLES header selection to revert.")
+endif()
+string(REPLACE "${_old_android_gl_header}" "${_new_android_gl_header}"
+    _gl_renderer_text "${_gl_renderer_text}")
+file(WRITE "${_gl_renderer_source}" "${_gl_renderer_text}")
+
+# GLES has no glGetTexLevelParameteriv. The renderer's postfx code only needs
+# the dimensions of the texture attached to its FBO; the matching depth/stencil
+# renderbuffer has the same dimensions and is queryable in GLES3.
+set(_postfx_source "${PSXRECOMP_ROOT}/runtime/src/gl_postfx.inc")
+file(READ "${_postfx_source}" _postfx_text)
+set(_old_pfx_rect [=[
+static void pfx_rect_px(GLuint tex, float tex_w, float tex_h, int x, int y, int w, int h, int out[4],
+                        int *out_tw, int *out_th) {
+    GLint tw = 0, th = 0;
+    glBindTexture(GL_TEXTURE_2D, tex);
+    glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &tw);
+    glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &th);
+    glBindTexture(GL_TEXTURE_2D, 0);
+]=])
+set(_new_pfx_rect [=[
+static void pfx_rect_px(GLuint tex, GLuint rb, float tex_w, float tex_h, int x, int y, int w, int h, int out[4],
+                        int *out_tw, int *out_th) {
+    GLint tw = 0, th = 0;
+    (void)tex;
+    glBindRenderbuffer(GL_RENDERBUFFER, rb);
+    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &tw);
+    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &th);
+    glBindRenderbuffer(GL_RENDERBUFFER, 0);
+]=])
+string(FIND "${_postfx_text}" "${_old_pfx_rect}" _pfx_rect_position)
+if(_pfx_rect_position LESS 0)
+    message(FATAL_ERROR "Could not find the expected postfx texture-size query.")
+endif()
+string(REPLACE "${_old_pfx_rect}" "${_new_pfx_rect}" _postfx_text "${_postfx_text}")
+string(REPLACE "pfx_rect_px(tex, tex_w, tex_h," "pfx_rect_px(tex, pfx_surface_rb(fbo), tex_w, tex_h," _postfx_text)
+file(WRITE "${_postfx_source}" "${_postfx_text}")
+
 # The shared runtime currently requests desktop OpenGL 3.3 Core. Android uses
 # an OpenGL ES context; request GLES 3.0 only for the Android build and preserve
 # the upstream desktop profile everywhere else.
