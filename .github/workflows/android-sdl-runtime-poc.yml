@@ -53,6 +53,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.9"
+          # SDL's official source archive ships a wrapper JAR checksum that is
+          # not in the Gradle action's known-checksum list. We invoke the
+          # installed Gradle binary directly, so wrapper validation is unused.
+          validate-wrappers: false
 
       - name: Build SDL3 Android proof of concept
         working-directory: android-sdl-poc
