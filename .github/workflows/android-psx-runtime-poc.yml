@@ -85,8 +85,8 @@ jobs:
           path.write_text(source.replace(old, new, 1))
 
           # The launcher preserves app-private files across APK updates. Migrate
-          # an already-imported game.toml before SDL starts so old installs do
-          # not retain openbios=false and keep showing the retired BIOS gate.
+          # an already-imported game.toml before SDL starts so old installs use
+          # bundled OpenBIOS and skip its startup animation before disc launch.
           game_path = Path("psxrecomp/runtime/android/java/com/psxrecomp/android/PsxGameActivity.java")
           game_source = game_path.read_text()
           needle = "        super.onCreate(state);"
@@ -97,6 +97,7 @@ jobs:
                           String oldConfig = PsxFiles.readText(configFile);
                           String newConfig = oldConfig
                                   .replace("openbios = false", "openbios = true")
+                                  .replace("bios_hle = false", "bios_hle = true")
                                   .replace("path = \\"bios/SCPH1001.BIN\\"", "path = \\"bios/openbios.bin\\"");
                           if (!newConfig.equals(oldConfig)) PsxFiles.writeText(configFile, newConfig);
                       } catch (IOException e) {
@@ -113,6 +114,7 @@ jobs:
       - name: Verify Android disc-boot configuration
         run: |
           grep -q 'openbios = true' android-runtime-poc/app/src/main/assets/game.toml.in
+          grep -q 'bios_hle = true' android-runtime-poc/app/src/main/assets/game.toml.in
           grep -q 'path = "bios/openbios.bin"' android-runtime-poc/app/src/main/assets/game.toml.in
           grep -q 'psx_game_ready">true' android-runtime-poc/app/src/main/res/values/bools.xml
 
