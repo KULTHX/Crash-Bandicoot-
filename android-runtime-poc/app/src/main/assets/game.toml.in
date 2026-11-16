@@ -28,9 +28,12 @@ strict = true
 # This is still an experimental Crash 3 OpenBIOS path, not a gameplay guarantee.
 openbios = true
 bios_hle = true
-video_renderer = "software"
 overlay_cache = true
 window_title = "Crash Bandicoot 3: Warped"
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
 
 [controller]
 default_mode = "digital"
