@@ -89,6 +89,13 @@ jobs:
           # bundled OpenBIOS and skip its startup animation before disc launch.
           game_path = Path("psxrecomp/runtime/android/java/com/psxrecomp/android/PsxGameActivity.java")
           game_source = game_path.read_text()
+          # The upstream Crash 3 profile uses OpenGL. The Android default had
+          # silently forced software rendering, so select the GPU path
+          # even when an older imported game.toml lacks a [video] section.
+          software_choice = 'wantsGpu(toml) ? "opengl" : "software"'
+          if software_choice not in game_source:
+              raise SystemExit("Expected renderer selection was not found; refusing an unsafe build.")
+          game_source = game_source.replace(software_choice, '"opengl"', 1)
           needle = "        super.onCreate(state);"
           replacement = """        // Migrate existing imported games to this APK's bundled OpenBIOS policy.
                   File configFile = new File(getFilesDir(), "game.toml");
@@ -116,6 +123,7 @@ jobs:
           grep -q 'openbios = true' android-runtime-poc/app/src/main/assets/game.toml.in
           grep -q 'bios_hle = true' android-runtime-poc/app/src/main/assets/game.toml.in
           grep -q 'path = "bios/openbios.bin"' android-runtime-poc/app/src/main/assets/game.toml.in
+          grep -q 'renderer = "opengl"' android-runtime-poc/app/src/main/assets/game.toml.in
           grep -q 'psx_game_ready">true' android-runtime-poc/app/src/main/res/values/bools.xml
 
       - name: Package redistributable OpenBIOS assets
